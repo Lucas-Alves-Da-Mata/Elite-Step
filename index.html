@@ -3,18 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elite Step - Tênis Esportivos</title>
+  <title>ELITE STEP - Domine a Pista</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* Preloader */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+    .preloader.hide { opacity: 0; visibility: hidden; }
+    .preloader-claws {
+      font-size: 4rem;
+      animation: preloaderPulse 0.8s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px #ff0040);
+    }
+    .preloader-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 10px;
+      color: #ff0040;
+      text-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
+    }
+    @keyframes preloaderPulse {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.2) rotate(-10deg); }
+      50% { transform: scale(1) rotate(0deg); }
+      75% { transform: scale(1.2) rotate(10deg); }
+    }
+    /* Particle canvas */
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-claws">🐾</div>
+    <div class="preloader-text">ELITE STEP</div>
+  </div>
+
+  <!-- PARTICLES -->
+  <canvas id="particles"></canvas>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="#" class="logo">
-        <span class="logo-icon">&#9889;</span> ELITE STEP
+        <span class="logo-icon">🐾</span> ELITE STEP
       </a>
       <nav class="nav" id="nav">
         <a href="#produtos" class="nav-link">Produtos</a>
@@ -39,20 +92,20 @@
     <div class="container hero-inner">
       <div class="hero-text">
         <p class="hero-tag">Nova Colecao 2026</p>
-        <h1 class="hero-title">DOMINE A <br><span>PISTA</span></h1>
-        <p class="hero-desc">Tênis de alta performance para quem não aceita menos que a vitória. Tecnologia, conforto e estilo em cada passo.</p>
+        <h1 class="hero-title">DOMINE A<br><span>PISTA</span></h1>
+        <p class="hero-desc">Tênis de alta performance para quem não aceita menos que a vitória. Tecnologia, conforto e estilo em cada passo. Sem piedade.</p>
         <a href="#produtos" class="btn btn-primary">VER COLECAO</a>
       </div>
       <div class="hero-visual">
         <div class="hero-shoe" id="heroShoe">
           <div class="shoe-glow"></div>
-          <div class="shoe-emoji">&#128095;</div>
+          <img class="hero-shoe-img" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&h=700&fit=crop&q=80" alt="Nike Air Max">
         </div>
       </div>
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num">50+</span>
+        <span class="stat-num">32+</span>
         <span class="stat-label">Modelos</span>
       </div>
       <div class="stat">
@@ -111,11 +164,11 @@
       <div class="banner-text">
         <span class="banner-tag">OFERTA ESPECIAL</span>
         <h2>ATE <span>40% OFF</span> EM MODELOS SELECIONADOS</h2>
-        <p>Aproveite os melhores precos da temporada. Corre que acaba logo!</p>
+        <p>Aproveite os melhores precos da temporada. Corre que acaba logo! Nao deixe escapar.</p>
         <a href="#produtos" class="btn btn-secondary">COMPRAR AGORA</a>
       </div>
       <div class="banner-visual">
-        <div class="banner-shoe">&#128095;</div>
+        <img class="banner-shoe-img" src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&h=600&fit=crop&q=80" alt="Tenis em oferta">
       </div>
     </div>
   </section>
@@ -125,25 +178,25 @@
     <div class="container sobre-inner">
       <div class="sobre-visual">
         <div class="sobre-card">
-          <span class="sobre-icon">&#128170;</span>
-          <h3>Performance</h3>
-          <p>Tecnologia de ponta para maximizar seu desempenho.</p>
+          <span class="sobre-icon">🦁</span>
+          <h3>Forca Bruta</h3>
+          <p>Tecnologia de ponta para maximizar seu desempenho. Sem limites.</p>
         </div>
         <div class="sobre-card">
-          <span class="sobre-icon">&#129657;</span>
-          <h3>Conforto</h3>
-          <p>Amortecimento avancado que cuida dos seus pes.</p>
+          <span class="sobre-icon">🐾</span>
+          <h3>Impeto Selvagem</h3>
+          <p>Amortecimento avancado que cuida dos seus pes. Conforto de predador.</p>
         </div>
         <div class="sobre-card">
-          <span class="sobre-icon">&#128293;</span>
-          <h3>Estilo</h3>
-          <p>Design que destaca sua personalidade.</p>
+          <span class="sobre-icon">🔥</span>
+          <h3>Instinto Animal</h3>
+          <p>Design que destaca sua personalidade. Atitude que queima.</p>
         </div>
       </div>
       <div class="sobre-text">
         <h2 class="section-title">Por que Elite Step?</h2>
-        <p>Somos apaixonados por tênis e desempenho. Cada modelo e cuidadosamente selecionado para oferecer a melhor experiencia, do design a funcionalidade. Nossos tenis sao desenvolvidos com materiais de alta qualidade e tecnologia testada por atletas profissionais.</p>
-        <p>Na Elite Step, acredita que cada pessoa merece um tênis que combine com seu estilo de vida e super suas expectativas.</p>
+        <p>Somos predadores da pista. Cada modelo e uma arma letal projetada para dominar. Nossos tenis sao forjados com materiais de alta resistencia e testados por atletas que nao conhecem derrota.</p>
+        <p>Na Elite Step, acredita que cada pessoa merece um tenis que combine com seu instinto animal e supere todas as expectativas. Sem piedade, sem compromisso.</p>
       </div>
     </div>
   </section>
@@ -167,8 +220,8 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo"><span class="logo-icon">&#9889;</span> ELITE STEP</span>
-        <p>Tênis esportivos de alta performance para atletas e entusiastas.</p>
+        <span class="logo"><span class="logo-icon">🐾</span> ELITE STEP</span>
+        <p>Tênis esportivos de alta performance para predadores que dominam a pista. Sem piedade.</p>
       </div>
       <div class="footer-links">
         <h4>Navegacao</h4>

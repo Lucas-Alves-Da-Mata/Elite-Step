@@ -2,183 +2,515 @@
 const products = [
   {
     id: 1,
-    name: "VELOCITY X PRO",
+    name: "Nike Air Max 270",
+    brand: "Nike",
     cat: "corrida",
     price: 599.90,
     oldPrice: 799.90,
     badge: "sale",
-    emoji: "👟",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ff3c00, #ff6b35)",
     rating: 4.9,
     reviews: 312,
-    desc: "Tenis de corrida de alta performance com amortecimento React e cabedal em mesh respiravel. Idealis para competicoes e treinos intenso.",
+    desc: "O Nike Air Max 270 combina o maximo de amortecimento Air com um design moderno e estilo icone. Palmilha macia e cabedal em mesh respiravel.",
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ["#ff3c00", "#1a1a2e", "#ffffff"]
   },
   {
     id: 2,
-    name: "DUNK FORCE BK",
+    name: "Nike Dunk Low Retro",
+    brand: "Nike",
     cat: "basquete",
     price: 749.90,
     oldPrice: null,
     badge: "new",
-    emoji: "🏀",
+    image: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #1a1a2e, #16213e)",
     rating: 4.8,
     reviews: 187,
-    desc: "Tenis de basquete com suporte de tornozelo reforcado e tracao em quadra. Design ousado para dominar a linha de tres pontos.",
+    desc: "O Dunk Low traz o legado do basquete para as ruas. Design retro com acabamento premium em couro e solado duravel.",
     sizes: [40, 41, 42, 43, 44, 45],
     colors: ["#1a1a2e", "#ff3c00", "#ffcc00"]
   },
   {
     id: 3,
-    name: "AIR COMFORT V2",
+    name: "Adidas Ultraboost 22",
+    brand: "Adidas",
     cat: "casual",
     price: 349.90,
     oldPrice: 449.90,
     badge: "sale",
-    emoji: "👞",
+    image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #2d2d2d, #4a4a4a)",
     rating: 4.7,
     reviews: 524,
-    desc: "Conforto o dia todo com palmilha de espuma viscoelastica e design minimalista. Perfeito para o dia a dia com estilo.",
+    desc: "O Ultraboost entrega retorno de energia incomparavel com entressola Boost e cabedal Primeknit que se adapta ao pe. Conforto o dia todo.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43],
     colors: ["#2d2d2d", "#f5f5dc", "#ff3c00"]
   },
   {
     id: 4,
-    name: "NEON RUSH",
+    name: "Nike Pegasus 40",
+    brand: "Nike",
     cat: "corrida",
     price: 899.90,
     oldPrice: null,
     badge: "hot",
-    emoji: "⚡",
+    image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #00ff88, #00b4d8)",
     rating: 5.0,
     reviews: 98,
-    desc: "Edicao limitada com tecnologia de retorno de energia e design aerodinamico. Para quem quer quebrar recordes.",
+    desc: "A 40a edicao do Pegasus traz amortecimento React X para retorno de energia otimizado. O tenis de corrida mais confiavel do mundo.",
     sizes: [39, 40, 41, 42, 43, 44],
     colors: ["#00ff88", "#00b4d8", "#1a1a2e"]
   },
   {
     id: 5,
-    name: "URBAN STYLE",
+    name: "Adidas Originals Forum",
+    brand: "Adidas",
     cat: "lifestyle",
     price: 459.90,
     oldPrice: null,
     badge: "new",
-    emoji: "🥾",
+    image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #8b5cf6, #6d28d9)",
     rating: 4.6,
     reviews: 256,
-    desc: "Tenis lifestyle com design premium e materiais sustentaveis. Do estacionamento para a rua com atitude.",
+    desc: "Inspirado no basquete dos anos 80, o Forum combina estilo retro com conforto moderno. Cabedal em couro com detalhes em veludo.",
     sizes: [37, 38, 39, 40, 41, 42, 43],
     colors: ["#8b5cf6", "#1a1a2e", "#f5f5dc"]
   },
   {
     id: 6,
-    name: "SPEED DEMON",
+    name: "Nike ZoomX Vaporfly",
+    brand: "Nike",
     cat: "corrida",
     price: 679.90,
     oldPrice: 849.90,
     badge: "sale",
-    emoji: "🏃",
+    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ff0055, #ff3c00)",
     rating: 4.8,
     reviews: 421,
-    desc: "Leveza extrema com apenas 220g. Placa de carbono para impulsao maxima nas provas de meia maratona.",
+    desc: "O tenis mais rapido do mundo. Placa de fibra de carbono e espuma ZoomX para quebrar recordes pessoais em maratona.",
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ["#ff0055", "#1a1a2e", "#ffffff"]
   },
   {
     id: 7,
-    name: "SLAM MASTER",
+    name: "Air Jordan 1 Retro High",
+    brand: "Jordan",
     cat: "basquete",
     price: 829.90,
     oldPrice: null,
     badge: "hot",
-    emoji: "👟",
+    image: "https://images.unsplash.com/photo-1605978347119-c27980210e67?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #fbbf24, #f59e0b)",
     rating: 4.9,
     reviews: 143,
-    desc: "Domine a area com amortecimento Zoom Air e tracao multidirecional. Inspirado nas quadras da NBA.",
+    desc: "O icone absoluto do streetwear. O Air Jordan 1 High é o tenis que mudou o jogo para sempre. Design atemporal e colacidade extrema.",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     colors: ["#fbbf24", "#1a1a2e", "#ff3c00"]
   },
   {
     id: 8,
-    name: "COMFORT WALK",
+    name: "Adidas Stan Smith",
+    brand: "Adidas",
     cat: "casual",
     price: 279.90,
     oldPrice: 379.90,
     badge: "sale",
-    emoji: "👞",
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #6b7280, #9ca3af)",
     rating: 4.5,
     reviews: 687,
-    desc: "Tenis casual com entressola EVA de alta densidade. Caminhe horas sem sentir cansaco.",
+    desc: "OStan Smith é sinônimo de elegancia atemporal. Minimalismo perfeito com cabedal em couro branco e detalhes iconicos em verde.",
     sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43],
     colors: ["#6b7280", "#1a1a2e", "#f5f5dc"]
   },
   {
     id: 9,
-    name: "RETRO VIBE",
+    name: "New Balance 550",
+    brand: "New Balance",
     cat: "lifestyle",
     price: 549.90,
     oldPrice: null,
     badge: "new",
-    emoji: "🥾",
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ec4899, #db2777)",
     rating: 4.7,
     reviews: 198,
-    desc: "Inspired nos tenis dos anos 90 com toque moderno. Acabamento premium e detalhes em couro.",
+    desc: "O NB 550 voltou com tudo! Design retro dos anos 90, couro premium e aquele look que dominou as redes sociais. Conforto e estilo.",
     sizes: [36, 37, 38, 39, 40, 41, 42],
     colors: ["#ec4899", "#1a1a2e", "#ffffff"]
   },
   {
     id: 10,
-    name: "TRAIL BLAZER",
+    name: "Nike Trail Pegasus",
+    brand: "Nike",
     cat: "corrida",
     price: 999.90,
     oldPrice: null,
     badge: "hot",
-    emoji: "⛰️",
+    image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #059669, #047857)",
     rating: 4.9,
     reviews: 76,
-    desc: "Para trilhas e terrenos acidentados. Solado Vibram com presas agressivas e impermeabilidade total.",
+    desc: "Para trilhas e terrenos acidentados. Solado com presas agressivas, impermeabilidade Gore-Tex e amortecimento para longas distancias.",
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ["#059669", "#1a1a2e", "#fbbf24"]
   },
   {
     id: 11,
-    name: "STREET KING",
+    name: "Adidas Yeezy 350 V2",
+    brand: "Adidas",
     cat: "lifestyle",
     price: 629.90,
     oldPrice: 799.90,
     badge: "sale",
-    emoji: "👑",
+    image: "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #1e1e1e, #3a3a3a)",
     rating: 4.8,
     reviews: 334,
-    desc: "Tenis premium com design exclusivo. Edicao limitada com numeracao e caixa de colecionador.",
+    desc: "Design futurista de Kanye West. Entressola Boost macia como nuvem e cabedal Primeknit com painel lateral icone.",
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ["#1e1e1e", "#ffcc00", "#ff3c00"]
   },
   {
     id: 12,
-    name: "BASIC FLEX",
+    name: "Puma RS-X Reinvention",
+    brand: "Puma",
     cat: "casual",
     price: 199.90,
     oldPrice: null,
     badge: "new",
-    emoji: "👟",
+    image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #3b82f6, #2563eb)",
     rating: 4.4,
     reviews: 892,
-    desc: "Tenis versatil para todas as ocasioes. Solado flexivel e cabedal resistente, otimo custo-beneficio.",
+    desc: "O RS-X traz o estilo retrô do Puma com tecnologia Running System. Design chunky que está dominando as ruas.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     colors: ["#3b82f6", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 13,
+    name: "Converse Chuck Taylor",
+    brand: "Converse",
+    cat: "lifestyle",
+    price: 299.90,
+    oldPrice: 399.90,
+    badge: "sale",
+    image: "https://images.unsplash.com/photo-1463100099107-aa3483eae5f5?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #dc2626, #991b1b)",
+    rating: 4.7,
+    reviews: 1243,
+    desc: "O classico absoluto. Canvas resistente, sola em borracha vulcanizada e aquele style que nunca sai de moda. Do palco ao campus.",
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#dc2626", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 14,
+    name: "Vans Old Skool",
+    brand: "Vans",
+    cat: "lifestyle",
+    price: 349.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #1a1a1a, #333333)",
+    rating: 4.6,
+    reviews: 876,
+    desc: "O Old Skool é o primeiro modelo Vans com a faixa lateral iconica. Solado waffle e cabedal em lona reforcada para skateboard e life.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#1a1a1a", "#ffffff", "#1e40af"]
+  },
+  {
+    id: 15,
+    name: "Under Armour HOVR",
+    brand: "Under Armour",
+    cat: "corrida",
+    price: 729.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #0ea5e9, #0284c7)",
+    rating: 4.5,
+    reviews: 203,
+    desc: "Conectado ao app MapMyRun. Amortecimento HOVR que absorve impacto e retorna energia. Telemetria de corrida em tempo real.",
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    colors: ["#0ea5e9", "#1a1a2e", "#10b981"]
+  },
+  {
+    id: 16,
+    name: "Reebok Club C 85",
+    brand: "Reebok",
+    cat: "casual",
+    price: 379.90,
+    oldPrice: 499.90,
+    badge: "sale",
+    image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #059669, #047857)",
+    rating: 4.4,
+    reviews: 412,
+    desc: "Simplicidade e elegancia. Cabedal em couro branco macio, entressola de espuma e solado em borracha duravel. Conforto premium.",
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#ffffff", "#1a1a2e", "#059669"]
+  },
+  {
+    id: 17,
+    name: "Asics Gel-Kayano 30",
+    brand: "Asics",
+    cat: "corrida",
+    price: 849.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=400&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #7c3aed, #6d28d9)",
+    rating: 4.8,
+    reviews: 321,
+    desc: "Estabilidade e amortecimento de elite. Tecnologia 4D GUIDANCE SYSTEM e GEL no pe e calcanhar. Para pronadores exigentes.",
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    colors: ["#7c3aed", "#1a1a2e", "#f97316"]
+  },
+  {
+    id: 18,
+    name: "Nike Air Force 1 Low",
+    brand: "Nike",
+    cat: "casual",
+    price: 549.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #f5f5f5, #d4d4d4)",
+    rating: 4.9,
+    reviews: 2156,
+    desc: "O branco mais famoso do mundo. Amortecimento Air, cabedal em couro e design que transcendeu o basquete para virar cultura.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    colors: ["#ffffff", "#1a1a2e", "#f97316"]
+  },
+  {
+    id: 19,
+    name: "Adidas Superstar",
+    brand: "Adidas",
+    cat: "lifestyle",
+    price: 449.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=400&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #fbbf24, #d97706)",
+    rating: 4.6,
+    reviews: 1567,
+    desc: "A biqueira de borracha icone que conquistou as quadras e as ruas. Couro premium com 3 listras e solado em plataforma.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43],
+    colors: ["#ffffff", "#1a1a2e", "#fbbf24"]
+  },
+  {
+    id: 20,
+    name: "Nike Blazer Mid 77",
+    brand: "Nike",
+    cat: "lifestyle",
+    price: 499.90,
+    oldPrice: 649.90,
+    badge: "sale",
+    image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=400&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #84cc16, #65a30d)",
+    rating: 4.5,
+    reviews: 389,
+    desc: "Retrô dos anos 77 com inspiração no basquete. Cabedal em lona vintage, swoosh oversized e solado em borracha marrom.",
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#ffffff", "#1a1a2e", "#84cc16"]
+  },
+  {
+    id: 21,
+    name: "Puma Suede Classic",
+    brand: "Puma",
+    cat: "lifestyle",
+    price: 399.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&h=400&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #0891b2, #0e7490)",
+    rating: 4.5,
+    reviews: 654,
+    desc: "O Suede é cultura em forma de tenis. Couro suede premium, faixa Formstrip lateral e solado em borracha. Da breakdance ao street.",
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#0891b2", "#1a1a2e", "#dc2626"]
+  },
+  {
+    id: 22,
+    name: "New Balance 990v6",
+    brand: "New Balance",
+    cat: "corrida",
+    price: 1299.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=400&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #6b7280, #4b5563)",
+    rating: 4.9,
+    reviews: 87,
+    desc: "Feito nos EUA com материалов premium. Amortecimento FuelCell, entressola ENCAP e acabamento em couro e mesh. O melhor da NB.",
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    colors: ["#6b7280", "#1a1a2e", "#d4d4d4"]
+  },
+  {
+    id: 23,
+    name: "Jordan 4 Retro",
+    brand: "Jordan",
+    cat: "basquete",
+    price: 999.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=400&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #ea580c, #c2410c)",
+    rating: 4.9,
+    reviews: 256,
+    desc: "A silhueta que revolucionou o design de basquete. Asai unit com amortecimento Air visivel, aba de couro e asas laterais plasticas.",
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    colors: ["#ea580c", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 24,
+    name: "Adidas NMD R1",
+    brand: "Adidas",
+    cat: "corrida",
+    price: 579.90,
+    oldPrice: 729.90,
+    badge: "sale",
+    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=300&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #ec4899, #be185d)",
+    rating: 4.6,
+    reviews: 445,
+    desc: "Design urbano com tecnologia Boost. Cabedal em Primeknit, plugs laterais icônicos e entressola com retorno de energia.",
+    sizes: [38, 39, 40, 41, 42, 43, 44],
+    colors: ["#ec4899", "#1a1a2e", "#8b5cf6"]
+  },
+  {
+    id: 25,
+    name: "Converse Run Star",
+    brand: "Converse",
+    cat: "lifestyle",
+    price: 429.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #1e293b, #334155)",
+    rating: 4.4,
+    reviews: 178,
+    desc: "O Chuck Taylor reinventado. Platform com sola chunky, biqueira em borracha e design futurista. Estilo que ousa ser diferente.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43],
+    colors: ["#1a1a1a", "#ffffff", "#dc2626"]
+  },
+  {
+    id: 26,
+    name: "Under Armour Curry 11",
+    brand: "Under Armour",
+    cat: "basquete",
+    price: 879.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1605978347119-c27980210e67?w=600&h=300&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #2563eb, #1d4ed8)",
+    rating: 4.7,
+    reviews: 134,
+    desc: "Assinatura de Stephen Curry. Flow com tracao total no choque, amortecimento UA e suporte lateral para movimentos explosivos.",
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    colors: ["#2563eb", "#fbbf24", "#1a1a2e"]
+  },
+  {
+    id: 27,
+    name: "Asics Gel-1130",
+    brand: "Asics",
+    cat: "lifestyle",
+    price: 499.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=300&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #a855f7, #7c3aed)",
+    rating: 4.5,
+    reviews: 267,
+    desc: "Y2K aesthetics com tecnologia GEL. Design retrô dos anos 2000 que voltou com tudo. Couro sintetico, mesh e amortecimento visivel.",
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#d4d4d4", "#1a1a2e", "#a855f7"]
+  },
+  {
+    id: 28,
+    name: "Vans Sk8-Hi",
+    brand: "Vans",
+    cat: "lifestyle",
+    price: 399.90,
+    oldPrice: 499.90,
+    badge: "sale",
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=400&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #1e1e1e, #404040)",
+    rating: 4.6,
+    reviews: 723,
+    desc: "O high-top que dominou o skate. Cano alto com protecao, solado waffle e sola de borracha vulcanizada. Cultura em forma de tenis.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#1a1a1a", "#ffffff", "#dc2626"]
+  },
+  {
+    id: 29,
+    name: "Reebok Nano X3",
+    brand: "Reebok",
+    cat: "corrida",
+    price: 649.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=300&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #f43f5e, #e11d48)",
+    rating: 4.7,
+    reviews: 189,
+    desc: "Feito para CrossFit e treino funcional. Entressola Flexweave, suporte lateral e traçao total. Performace que não para.",
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    colors: ["#f43f5e", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 30,
+    name: "Nike Metcon 9",
+    brand: "Nike",
+    cat: "corrida",
+    price: 799.90,
+    oldPrice: 999.90,
+    badge: "sale",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=400&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #0d9488, #0f766e)",
+    rating: 4.8,
+    reviews: 298,
+    desc: "O rei do treino funcional. Sola plana para levantamento, corda de escada na lateral e amortecimento React para saltos.",
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    colors: ["#0d9488", "#1a1a2e", "#f97316"]
+  },
+  {
+    id: 31,
+    name: "Adidas Gazelle",
+    brand: "Adidas",
+    cat: "casual",
+    price: 329.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=300&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #2563eb, #1e40af)",
+    rating: 4.5,
+    reviews: 534,
+    desc: "Da quadra de atletismo à moda. Suede premium, 3 listras laterais e solado em borracha gum. Minimalismo britânico.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43],
+    colors: ["#2563eb", "#1a1a2e", "#dc2626"]
+  },
+  {
+    id: 32,
+    name: "Air Jordan 11 Retro",
+    brand: "Jordan",
+    cat: "basquete",
+    price: 1199.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=300&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #1a1a2e, #0f172a)",
+    rating: 5.0,
+    reviews: 67,
+    desc: "O Jordan mais icone de todos. Patente shiny, entressola com Air e carbono. O tenis que MJ usou no filme Space Jam.",
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    colors: ["#1a1a2e", "#ffffff", "#dc2626"]
   }
 ];
 
@@ -218,9 +550,14 @@ function renderProducts(category) {
       }</span>` : ''}
       <div class="product-image">
         <div class="product-bg" style="background: ${p.bg}"></div>
-        <span class="product-shoe">${p.emoji}</span>
+        <img class="product-shoe-img" src="${p.image}" alt="${p.name}" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="product-shoe-fallback" style="display:none">
+          <span>${p.brand.charAt(0)}</span>
+        </div>
       </div>
       <div class="product-info">
+        <span class="product-brand">${p.brand}</span>
         <span class="product-cat">${p.cat}</span>
         <h3 class="product-name">${p.name}</h3>
         <div class="product-rating">
@@ -257,8 +594,13 @@ function openModal(id) {
   selectedSize = null;
   selectedColor = null;
 
-  document.getElementById("modalImage").innerHTML = `<div style="background:${selectedProduct.bg};position:absolute;inset:0;opacity:0.4"></div><span style="position:relative;z-index:1">${selectedProduct.emoji}</span>`;
-  document.getElementById("modalCat").textContent = selectedProduct.cat;
+  document.getElementById("modalImage").innerHTML = `
+    <div style="background:${selectedProduct.bg};position:absolute;inset:0;opacity:0.4"></div>
+    <img src="${selectedProduct.image}" alt="${selectedProduct.name}"
+         style="position:relative;z-index:1;max-width:85%;max-height:85%;object-fit:contain;border-radius:12px;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.4))"
+         onerror="this.style.display='none'">
+  `;
+  document.getElementById("modalCat").textContent = selectedProduct.brand + " | " + selectedProduct.cat;
   document.getElementById("modalName").textContent = selectedProduct.name;
   document.getElementById("modalRating").innerHTML = `<span class="stars">${getStars(selectedProduct.rating)}</span><span class="rating-count">(${selectedProduct.reviews} avaliacoes)</span>`;
   document.getElementById("modalPrice").innerHTML = `R$ ${selectedProduct.price.toFixed(2)}${selectedProduct.oldPrice ? ` <span class="product-old-price">R$ ${selectedProduct.oldPrice.toFixed(2)}</span>` : ''}`;
@@ -317,7 +659,7 @@ function addToCart(product, size, color) {
   if (existing) {
     existing.qty++;
   } else {
-    cart.push({ id: product.id, name: product.name, emoji: product.emoji, price: product.price, size, color, qty: 1 });
+    cart.push({ id: product.id, name: product.name, image: product.image, brand: product.brand, price: product.price, size, color, qty: 1 });
   }
   updateCart();
   showToast(`${product.name} adicionado ao carrinho!`);
@@ -345,7 +687,10 @@ function updateCart() {
   } else {
     cartItems.innerHTML = cart.map((item, i) => `
       <div class="cart-item">
-        <div class="cart-item-emoji">${item.emoji}</div>
+        <div class="cart-item-img">
+          <img src="${item.image}" alt="${item.name}" style="width:50px;height:50px;object-fit:cover;border-radius:8px"
+               onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 50 50%22><rect fill=%22%23333%22 width=%2250%22 height=%2250%22/><text x=%2225%22 y=%2230%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2214%22>${item.brand.charAt(0)}</text></svg>'">
+        </div>
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
           <div class="cart-item-size">Tam: ${item.size} | Qtd: ${item.qty}</div>
@@ -454,3 +799,112 @@ document.addEventListener("keydown", (e) => {
 
 // ===== INIT =====
 renderProducts("todos");
+
+// ===== PRELOADER =====
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("preloader").classList.add("hide");
+  }, 1500);
+});
+
+// ===== PARTICLE SYSTEM =====
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+class Particle {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 0.5;
+    this.speedX = (Math.random() - 0.5) * 0.5;
+    this.speedY = (Math.random() - 0.5) * 0.5;
+    this.opacity = Math.random() * 0.5 + 0.1;
+    this.color = Math.random() > 0.7 ? "#ff0040" : Math.random() > 0.5 ? "#00ff88" : "#ffcc00";
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+      this.reset();
+    }
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.globalAlpha = this.opacity;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+}
+
+for (let i = 0; i < 60; i++) {
+  particles.push(new Particle());
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// ===== AGGRESSIVE HOVER SOUND EFFECT (visual) =====
+document.addEventListener("mousemove", (e) => {
+  const trail = document.createElement("div");
+  trail.style.cssText = `
+    position: fixed;
+    left: ${e.clientX}px;
+    top: ${e.clientY}px;
+    width: 4px;
+    height: 4px;
+    background: ${Math.random() > 0.5 ? '#ff0040' : '#00ff88'};
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.5s ease;
+    opacity: 0.8;
+  `;
+  document.body.appendChild(trail);
+  requestAnimationFrame(() => {
+    trail.style.transform = `translate(${(Math.random() - 0.5) * 40}px, ${(Math.random() - 0.5) * 40}px)`;
+    trail.style.opacity = "0";
+  });
+  setTimeout(() => trail.remove(), 500);
+});
+
+// ===== SCROLL REVEAL ANIMATION =====
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px"
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0) rotate(0deg)";
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll(".sobre-card, .banner, .contact-form").forEach(el => {
+  el.style.opacity = "0";
+  el.style.transform = "translateY(40px) rotate(1deg)";
+  el.style.transition = "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
+  observer.observe(el);
+});
