@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Step - Tênis Esportivos</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">&#9889;</span> ELITE STEP
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#produtos" class="nav-link">Produtos</a>
+        <a href="#colecoes" class="nav-link">Colec</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Carrinho">
+          &#128722;
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-tag">Nova Colecao 2026</p>
+        <h1 class="hero-title">DOMINE A <br><span>PISTA</span></h1>
+        <p class="hero-desc">Tênis de alta performance para quem não aceita menos que a vitória. Tecnologia, conforto e estilo em cada passo.</p>
+        <a href="#produtos" class="btn btn-primary">VER COLECAO</a>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-shoe" id="heroShoe">
+          <div class="shoe-glow"></div>
+          <div class="shoe-emoji">&#128095;</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">50+</span>
+        <span class="stat-label">Modelos</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">10K+</span>
+        <span class="stat-label">Clientes</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">4.9</span>
+        <span class="stat-label">Avaliacao</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <section class="categorias" id="colecoes">
+    <div class="container">
+      <h2 class="section-title">Categorias</h2>
+      <div class="cat-grid">
+        <button class="cat-card active" data-cat="todos">
+          <span class="cat-icon">&#127947;</span>
+          <span>Todos</span>
+        </button>
+        <button class="cat-card" data-cat="corrida">
+          <span class="cat-icon">&#127939;</span>
+          <span>Corrida</span>
+        </button>
+        <button class="cat-card" data-cat="basquete">
+          <span class="cat-icon">&#127936;</span>
+          <span>Basquete</span>
+        </button>
+        <button class="cat-card" data-cat="casual">
+          <span class="cat-icon">&#128085;</span>
+          <span>Casual</span>
+        </button>
+        <button class="cat-card" data-cat="lifestyle">
+          <span class="cat-icon">&#127775;</span>
+          <span>Lifestyle</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section class="produtos" id="produtos">
+    <div class="container">
+      <h2 class="section-title">Mais Vendidos</h2>
+      <div class="products-grid" id="productsGrid">
+        <!-- Preenchido via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER -->
+  <section class="banner">
+    <div class="container banner-inner">
+      <div class="banner-text">
+        <span class="banner-tag">OFERTA ESPECIAL</span>
+        <h2>ATE <span>40% OFF</span> EM MODELOS SELECIONADOS</h2>
+        <p>Aproveite os melhores precos da temporada. Corre que acaba logo!</p>
+        <a href="#produtos" class="btn btn-secondary">COMPRAR AGORA</a>
+      </div>
+      <div class="banner-visual">
+        <div class="banner-shoe">&#128095;</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="container sobre-inner">
+      <div class="sobre-visual">
+        <div class="sobre-card">
+          <span class="sobre-icon">&#128170;</span>
+          <h3>Performance</h3>
+          <p>Tecnologia de ponta para maximizar seu desempenho.</p>
+        </div>
+        <div class="sobre-card">
+          <span class="sobre-icon">&#129657;</span>
+          <h3>Conforto</h3>
+          <p>Amortecimento avancado que cuida dos seus pes.</p>
+        </div>
+        <div class="sobre-card">
+          <span class="sobre-icon">&#128293;</span>
+          <h3>Estilo</h3>
+          <p>Design que destaca sua personalidade.</p>
+        </div>
+      </div>
+      <div class="sobre-text">
+        <h2 class="section-title">Por que Elite Step?</h2>
+        <p>Somos apaixonados por tênis e desempenho. Cada modelo e cuidadosamente selecionado para oferecer a melhor experiencia, do design a funcionalidade. Nossos tenis sao desenvolvidos com materiais de alta qualidade e tecnologia testada por atletas profissionais.</p>
+        <p>Na Elite Step, acredita que cada pessoa merece um tênis que combine com seu estilo de vida e super suas expectativas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato" id="contato">
+    <div class="container">
+      <h2 class="section-title">Fale Conosco</h2>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <input type="text" placeholder="Seu nome" required>
+          <input type="email" placeholder="Seu e-mail" required>
+        </div>
+        <textarea placeholder="Sua mensagem" rows="4" required></textarea>
+        <button type="submit" class="btn btn-primary">ENVIAR MENSAGEM</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-icon">&#9889;</span> ELITE STEP</span>
+        <p>Tênis esportivos de alta performance para atletas e entusiastas.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegacao</h4>
+        <a href="#produtos">Produtos</a>
+        <a href="#colecoes">Colec</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="footer-links">
+        <h4>Suporte</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Trocas e Devolucoes</a>
+        <a href="#">Frete</a>
+        <a href="#">Rastrear Pedido</a>
+      </div>
+      <div class="footer-links">
+        <h4>Redes Sociais</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter / X</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Elite Step. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- CARRINHO SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Meu Carrinho</h3>
+      <button class="cart-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Seu carrinho esta vazio.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">R$ 0,00</span>
+      </div>
+      <button class="btn btn-primary btn-full">FINALIZAR COMPRA</button>
+    </div>
+  </aside>
+
+  <!-- MODAL PRODUTO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="productModal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image" id="modalImage"></div>
+        <div class="modal-info">
+          <span class="modal-cat" id="modalCat"></span>
+          <h2 id="modalName"></h2>
+          <div class="modal-rating" id="modalRating"></div>
+          <p class="modal-price" id="modalPrice"></p>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="modal-sizes">
+            <p>Tamanho:</p>
+            <div class="sizes" id="modalSizes"></div>
+          </div>
+          <div class="modal-colors">
+            <p>Cores:</p>
+            <div class="colors" id="modalColors"></div>
+          </div>
+          <button class="btn btn-primary btn-full" id="modalAddBtn">ADICIONAR AO CARRINHO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
