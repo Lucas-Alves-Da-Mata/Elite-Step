@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes - ELITE STEP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">👟</span> ELITE STEP
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Produtos</a>
+        <a href="favoritos.html" class="nav-link">Favoritos</a>
+        <a href="carrinho.html" class="nav-link">Carrinho</a>
+      </nav>
+      <div class="header-actions">
+        <a href="favoritos.html" class="cart-btn" id="favBtn" aria-label="Favoritos">♥<span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" id="cartBtn" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DETALHES -->
+  <section class="detalhes-page">
+    <div class="container">
+      <a href="index.html" class="back-btn">← VOLTAR</a>
+      <div class="detalhes-grid" id="detalhesContent">
+        <!-- Preenchido via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS RELACIONADOS -->
+  <section class="relacionados" id="relacionadosSection">
+    <div class="container">
+      <h2 class="section-title">Voce Tambem Pode Gostar</h2>
+      <div class="products-grid" id="relacionadosGrid"></div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const productId = Number(params.get("id"));
+
+    if (productId) {
+      const product = products.find(p => p.id === productId);
+      if (product) {
+        document.title = product.name + " - ELITE STEP";
+        renderDetalhes(product);
+        renderRelacionados(product);
+      }
+    }
+
+    function renderDetalhes(p) {
+      const isFav = favorites.includes(p.id);
+      document.getElementById("detalhesContent").innerHTML = `
+        <div class="detalhes-image">
+          <div class="detalhes-bg" style="background:${p.bg}"></div>
+          <img src="${p.image}" alt="${p.name}" class="detalhes-shoe"
+               onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect fill=%22%23111%22 width=%22200%22 height=%22200%22/><text x=%22100%22 y=%22110%22 text-anchor=%22middle%22 fill=%22%23ff0040%22 font-size=%2240%22>${p.brand.charAt(0)}</text></svg>'">
+          ${p.badge ? `<span class="detalhes-badge badge-${p.badge}">${
+            p.badge === "new" ? "NOVO" : p.badge === "sale" ? `${Math.round((1 - p.price / p.oldPrice) * 100)}% OFF` : "POPULAR"
+          }</span>` : ''}
+        </div>
+        <div class="detalhes-info">
+          <span class="detalhes-brand">${p.brand}</span>
+          <span class="detalhes-cat">${p.cat}</span>
+          <h1 class="detalhes-name">${p.name}</h1>
+          <div class="detalhes-rating">
+            <span class="stars">${getStars(p.rating)}</span>
+            <span class="rating-count">(${p.reviews} avaliacoes)</span>
+          </div>
+          <div class="detalhes-price">
+            <span class="price-main">R$ ${p.price.toFixed(2)}</span>
+            ${p.oldPrice ? `<span class="price-old">R$ ${p.oldPrice.toFixed(2)}</span>` : ''}
+          </div>
+          <p class="detalhes-desc">${p.desc}</p>
+          <div class="detalhes-options">
+            <div class="option-group">
+              <label>TAMANHO</label>
+              <div class="sizes" id="detSizes">${p.sizes.map(s =>
+                `<button class="size-btn" data-size="${s}">${s}</button>`
+              ).join('')}</div>
+            </div>
+            <div class="option-group">
+              <label>COR</label>
+              <div class="colors" id="detColors">${p.colors.map((c, i) =>
+                `<button class="color-dot ${i === 0 ? 'active' : ''}" data-color="${c}" style="background:${c}"></button>`
+              ).join('')}</div>
+            </div>
+          </div>
+          <div class="detalhes-actions">
+            <button class="btn btn-primary btn-full" id="detAddCart">ADICIONAR AO CARRINHO</button>
+            <button class="btn btn-secondary fav-btn ${isFav ? 'fav-active' : ''}" id="detFavBtn">${isFav ? '♥ FAVORITADO' : '♡ FAVORITAR'}</button>
+          </div>
+          <div class="detalhes-features">
+            <div class="feature"><span>🚚</span> Frete gratis acima de R$ 299</div>
+            <div class="feature"><span>🔄</span> Troca gratis em 30 dias</div>
+            <div class="feature"><span>🛡️</span> Garantia de 1 ano</div>
+            <div class="feature"><span>💳</span> Parcelamento em ate 12x</div>
+          </div>
+        </div>
+      `;
+
+      // Size selection
+      let selectedSize = null;
+      let selectedColor = p.colors[0];
+
+      document.querySelectorAll("#detSizes .size-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll("#detSizes .size-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          selectedSize = Number(btn.dataset.size);
+        });
+      });
+
+      document.querySelectorAll("#detColors .color-dot").forEach(dot => {
+        dot.addEventListener("click", () => {
+          document.querySelectorAll("#detColors .color-dot").forEach(d => d.classList.remove("active"));
+          dot.classList.add("active");
+          selectedColor = dot.dataset.color;
+        });
+      });
+
+      document.getElementById("detAddCart").addEventListener("click", () => {
+        if (!selectedSize) {
+          showToast("Selecione um tamanho!");
+          return;
+        }
+        addToCart(p, selectedSize, selectedColor);
+        showToast(`${p.name} adicionado ao carrinho!`);
+      });
+
+      document.getElementById("detFavBtn").addEventListener("click", function() {
+        toggleFavorite(p.id);
+        const isFavNow = favorites.includes(p.id);
+        this.innerHTML = isFavNow ? '♥ FAVORITADO' : '♡ FAVORITAR';
+        this.classList.toggle('fav-active', isFavNow);
+        showToast(isFavNow ? 'Adicionado aos favoritos!' : 'Removido dos favoritos!');
+      });
+
+      updateCounts();
+    }
+
+    function renderRelacionados(p) {
+      const related = products.filter(item => item.cat === p.cat && item.id !== p.id).slice(0, 4);
+      if (related.length === 0) return;
+      document.getElementById("relacionadosGrid").innerHTML = related.map((item, i) => `
+        <div class="product-card" onclick="window.location.href='detalhes.html?id=${item.id}'" style="animation-delay:${i * 0.1}s">
+          ${item.badge ? `<span class="product-badge badge-${item.badge}">${
+            item.badge === "new" ? "NOVO" : item.badge === "sale" ? `${Math.round((1 - item.price / item.oldPrice) * 100)}% OFF` : "POPULAR"
+          }</span>` : ''}
+          <div class="product-image">
+            <div class="product-bg" style="background:${item.bg}"></div>
+            <img class="product-shoe-img" src="${item.image}" alt="${item.name}" loading="lazy"
+                 onerror="this.style.display='none'">
+          </div>
+          <div class="product-info">
+            <span class="product-brand">${item.brand}</span>
+            <span class="product-cat">${item.cat}</span>
+            <h3 class="product-name">${item.name}</h3>
+            <div class="product-bottom">
+              <span class="product-price">R$ ${item.price.toFixed(2)}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

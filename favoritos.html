@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favoritos - ELITE STEP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">👟</span> ELITE STEP
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Produtos</a>
+        <a href="favoritos.html" class="nav-link nav-active">Favoritos</a>
+        <a href="carrinho.html" class="nav-link">Carrinho</a>
+      </nav>
+      <div class="header-actions">
+        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos">♥<span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- FAVORITOS -->
+  <section class="page-section">
+    <div class="container">
+      <h1 class="page-title">♥ MEUS FAVORITOS</h1>
+      <p class="page-subtitle" id="favSubtitle">Seus tenis favoritos em um so lugar.</p>
+      <div class="products-grid" id="favGrid"></div>
+      <div class="empty-state" id="favEmpty" style="display:none">
+        <span class="empty-icon">💔</span>
+        <h2>Nenhum favorito ainda</h2>
+        <p>Explore nossos tenis e adicione seus favoritos!</p>
+        <a href="index.html" class="btn btn-primary">VER PRODUTOS</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    function renderFavorites() {
+      const favProducts = favorites.map(id => products.find(p => p.id === id)).filter(Boolean);
+      const grid = document.getElementById("favGrid");
+      const empty = document.getElementById("favEmpty");
+      const subtitle = document.getElementById("favSubtitle");
+
+      if (favProducts.length === 0) {
+        grid.style.display = "none";
+        empty.style.display = "block";
+        subtitle.textContent = "Adicione seus tenis favoritos para encontralos facilmente.";
+      } else {
+        grid.style.display = "";
+        empty.style.display = "none";
+        subtitle.textContent = `${favProducts.length} ${favProducts.length === 1 ? 'tenis favoritado' : 'tenis favoritados'}.`;
+
+        grid.innerHTML = favProducts.map((p, i) => `
+          <div class="product-card" onclick="window.location.href='detalhes.html?id=${p.id}'" style="animation-delay:${i * 0.08}s">
+            <button class="fav-remove-btn" onclick="event.stopPropagation(); removeFav(${p.id})" aria-label="Remover favorito">✕</button>
+            ${p.badge ? `<span class="product-badge badge-${p.badge}">${
+              p.badge === "new" ? "NOVO" : p.badge === "sale" ? `${Math.round((1 - p.price / p.oldPrice) * 100)}% OFF` : "POPULAR"
+            }</span>` : ''}
+            <div class="product-image">
+              <div class="product-bg" style="background:${p.bg}"></div>
+              <img class="product-shoe-img" src="${p.image}" alt="${p.name}" loading="lazy"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="product-info">
+              <span class="product-brand">${p.brand}</span>
+              <span class="product-cat">${p.cat}</span>
+              <h3 class="product-name">${p.name}</h3>
+              <div class="product-rating">
+                <span class="stars">${getStars(p.rating)}</span>
+                <span class="rating-count">(${p.reviews})</span>
+              </div>
+              <div class="product-bottom">
+                <div>
+                  <span class="product-price">R$ ${p.price.toFixed(2)}</span>
+                  ${p.oldPrice ? `<span class="product-old-price">R$ ${p.oldPrice.toFixed(2)}</span>` : ''}
+                </div>
+                <button class="product-add-btn" onclick="event.stopPropagation(); quickAdd(${p.id})" aria-label="Adicionar ao carrinho">+</button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function removeFav(id) {
+      favorites = favorites.filter(f => f !== id);
+      saveFavorites();
+      renderFavorites();
+      updateCounts();
+      showToast("Removido dos favoritos!");
+    }
+
+    renderFavorites();
+  </script>
+</body>
+</html>

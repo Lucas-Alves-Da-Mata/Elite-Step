@@ -104,7 +104,7 @@ const products = [
     price: 829.90,
     oldPrice: null,
     badge: "hot",
-    image: "https://images.unsplash.com/photo-1605978347119-c27980210e67?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #fbbf24, #f59e0b)",
     rating: 4.9,
     reviews: 143,
@@ -200,7 +200,7 @@ const products = [
     price: 299.90,
     oldPrice: 399.90,
     badge: "sale",
-    image: "https://images.unsplash.com/photo-1463100099107-aa3483eae5f5?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #dc2626, #991b1b)",
     rating: 4.7,
     reviews: 1243,
@@ -408,7 +408,7 @@ const products = [
     price: 879.90,
     oldPrice: null,
     badge: null,
-    image: "https://images.unsplash.com/photo-1605978347119-c27980210e67?w=600&h=300&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=300&fit=crop&q=80",
     bg: "linear-gradient(135deg, #2563eb, #1d4ed8)",
     rating: 4.7,
     reviews: 134,
@@ -515,13 +515,42 @@ const products = [
 ];
 
 // ===== STATE =====
-let cart = [];
+let cart = loadCart();
+let favorites = loadFavorites();
 let currentCategory = "todos";
 let selectedProduct = null;
 let selectedSize = null;
 let selectedColor = null;
 
-// ===== DOM =====
+function loadCart() {
+  try { return JSON.parse(localStorage.getItem("eliteCart")) || []; } catch { return []; }
+}
+function saveCart() {
+  localStorage.setItem("eliteCart", JSON.stringify(cart));
+}
+function loadFavorites() {
+  try { return JSON.parse(localStorage.getItem("eliteFavs")) || []; } catch { return []; }
+}
+function saveFavorites() {
+  localStorage.setItem("eliteFavs", JSON.stringify(favorites));
+}
+function toggleFavorite(id) {
+  const idx = favorites.indexOf(id);
+  if (idx > -1) favorites.splice(idx, 1);
+  else favorites.push(id);
+  saveFavorites();
+  updateCounts();
+}
+function updateCounts() {
+  const favTotal = favorites.length;
+  const cartTotalItems = cart.reduce((s, i) => s + i.qty, 0);
+  const favEl = document.getElementById("favCount");
+  const cartEl = document.getElementById("cartCount");
+  if (favEl) favEl.textContent = favTotal;
+  if (cartEl) cartEl.textContent = cartTotalItems;
+}
+
+// ===== DOM (guarded for use across pages) =====
 const productsGrid = document.getElementById("productsGrid");
 const cartBtn = document.getElementById("cartBtn");
 const cartSidebar = document.getElementById("cartSidebar");
@@ -539,12 +568,14 @@ const contactForm = document.getElementById("contactForm");
 
 // ===== RENDER PRODUCTS =====
 function renderProducts(category) {
+  if (!productsGrid) return;
   const filtered = category === "todos"
     ? products
     : products.filter(p => p.cat === category);
 
   productsGrid.innerHTML = filtered.map((p, i) => `
     <div class="product-card" data-id="${p.id}" style="animation-delay: ${i * 0.08}s">
+      <button class="card-fav-btn ${favorites.includes(p.id) ? 'fav-active' : ''}" onclick="event.stopPropagation(); toggleFavorite(${p.id}); this.classList.toggle('fav-active'); this.textContent = favorites.includes(${p.id}) ? '♥' : '♡';" aria-label="Favoritar">${favorites.includes(p.id) ? '♥' : '♡'}</button>
       ${p.badge ? `<span class="product-badge badge-${p.badge}">${
         p.badge === "new" ? "Novo" : p.badge === "sale" ? `${Math.round((1 - p.price / p.oldPrice) * 100)}% OFF` : "Mais Vendido"
       }</span>` : ''}
@@ -571,12 +602,15 @@ function renderProducts(category) {
           </div>
           <button class="product-add-btn" onclick="event.stopPropagation(); quickAdd(${p.id})" aria-label="Adicionar ao carrinho">+</button>
         </div>
+        <a href="detalhes.html?id=${p.id}" class="product-details-btn" onclick="event.stopPropagation()">VER DETALHES</a>
       </div>
     </div>
   `).join('');
 
   document.querySelectorAll(".product-card").forEach(card => {
-    card.addEventListener("click", () => openModal(Number(card.dataset.id)));
+    card.addEventListener("click", () => {
+      window.location.href = "detalhes.html?id=" + card.dataset.id;
+    });
   });
 }
 
@@ -639,19 +673,22 @@ function closeModal() {
   document.body.style.overflow = "";
 }
 
-modalClose.addEventListener("click", closeModal);
-modalOverlay.addEventListener("click", (e) => {
+if (modalClose) modalClose.addEventListener("click", closeModal);
+if (modalOverlay) modalOverlay.addEventListener("click", (e) => {
   if (e.target === modalOverlay) closeModal();
 });
 
-document.getElementById("modalAddBtn").addEventListener("click", () => {
-  if (!selectedSize) {
-    showToast("Selecione um tamanho!");
-    return;
-  }
-  addToCart(selectedProduct, selectedSize, selectedColor || selectedProduct.colors[0]);
-  closeModal();
-});
+const modalAddBtn = document.getElementById("modalAddBtn");
+if (modalAddBtn) {
+  modalAddBtn.addEventListener("click", () => {
+    if (!selectedSize) {
+      showToast("Selecione um tamanho!");
+      return;
+    }
+    addToCart(selectedProduct, selectedSize, selectedColor || selectedProduct.colors[0]);
+    closeModal();
+  });
+}
 
 // ===== CART =====
 function addToCart(product, size, color) {
@@ -661,7 +698,9 @@ function addToCart(product, size, color) {
   } else {
     cart.push({ id: product.id, name: product.name, image: product.image, brand: product.brand, price: product.price, size, color, qty: 1 });
   }
+  saveCart();
   updateCart();
+  updateCounts();
   showToast(`${product.name} adicionado ao carrinho!`);
 }
 
@@ -679,7 +718,9 @@ function removeFromCart(index) {
 
 function updateCart() {
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-  cartCount.textContent = totalItems;
+  if (cartCount) cartCount.textContent = totalItems;
+
+  if (!cartItems || !cartFooter) return;
 
   if (cart.length === 0) {
     cartItems.innerHTML = '<p class="cart-empty">Seu carrinho esta vazio.</p>';
@@ -702,11 +743,12 @@ function updateCart() {
     cartFooter.style.display = "block";
 
     const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-    cartTotal.textContent = `R$ ${total.toFixed(2)}`;
+    if (cartTotal) cartTotal.textContent = `R$ ${total.toFixed(2)}`;
   }
 }
 
 function toggleCart(open) {
+  if (!cartSidebar || !cartOverlay) return;
   if (open) {
     cartSidebar.classList.add("open");
     cartOverlay.classList.add("open");
@@ -718,9 +760,9 @@ function toggleCart(open) {
   }
 }
 
-cartBtn.addEventListener("click", () => toggleCart(true));
-cartClose.addEventListener("click", () => toggleCart(false));
-cartOverlay.addEventListener("click", () => toggleCart(false));
+if (cartBtn) cartBtn.addEventListener("click", () => toggleCart(true));
+if (cartClose) cartClose.addEventListener("click", () => toggleCart(false));
+if (cartOverlay) cartOverlay.addEventListener("click", () => toggleCart(false));
 
 // ===== CATEGORIES =====
 document.querySelectorAll(".cat-card").forEach(card => {
@@ -733,24 +775,28 @@ document.querySelectorAll(".cat-card").forEach(card => {
 });
 
 // ===== MOBILE MENU =====
-menuToggle.addEventListener("click", () => {
-  menuToggle.classList.toggle("active");
-  nav.classList.toggle("open");
-});
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    if (nav) nav.classList.toggle("open");
+  });
+}
 
 document.querySelectorAll(".nav-link").forEach(link => {
   link.addEventListener("click", () => {
-    menuToggle.classList.remove("active");
-    nav.classList.remove("open");
+    if (menuToggle) menuToggle.classList.remove("active");
+    if (nav) nav.classList.remove("open");
   });
 });
 
 // ===== CONTACT FORM =====
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  showToast("Mensagem enviada com sucesso!");
-  contactForm.reset();
-});
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    showToast("Mensagem enviada com sucesso!");
+    contactForm.reset();
+  });
+}
 
 // ===== TOAST =====
 function showToast(msg) {
@@ -801,18 +847,24 @@ document.addEventListener("keydown", (e) => {
 renderProducts("todos");
 
 // ===== PRELOADER =====
+const preloaderEl = document.getElementById("preloader");
 window.addEventListener("load", () => {
   setTimeout(() => {
-    document.getElementById("preloader").classList.add("hide");
+    if (preloaderEl) preloaderEl.classList.add("hide");
   }, 1500);
 });
 
 // ===== PARTICLE SYSTEM =====
 const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
 let particles = [];
+let ctx = null;
+let animating = false;
+if (canvas) {
+  ctx = canvas.getContext("2d");
+}
 
 function resizeCanvas() {
+  if (!canvas) return;
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
@@ -824,8 +876,8 @@ class Particle {
     this.reset();
   }
   reset() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
+    this.x = Math.random() * (canvas ? canvas.width : 1);
+    this.y = Math.random() * (canvas ? canvas.height : 1);
     this.size = Math.random() * 2 + 0.5;
     this.speedX = (Math.random() - 0.5) * 0.5;
     this.speedY = (Math.random() - 0.5) * 0.5;
@@ -833,6 +885,7 @@ class Particle {
     this.color = Math.random() > 0.7 ? "#ff0040" : Math.random() > 0.5 ? "#00ff88" : "#ffcc00";
   }
   update() {
+    if (!canvas) return;
     this.x += this.speedX;
     this.y += this.speedY;
     if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
@@ -840,6 +893,7 @@ class Particle {
     }
   }
   draw() {
+    if (!ctx) return;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fillStyle = this.color;
@@ -854,6 +908,7 @@ for (let i = 0; i < 60; i++) {
 }
 
 function animateParticles() {
+  if (!ctx) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   particles.forEach(p => {
     p.update();
@@ -861,7 +916,7 @@ function animateParticles() {
   });
   requestAnimationFrame(animateParticles);
 }
-animateParticles();
+if (canvas) animateParticles();
 
 // ===== AGGRESSIVE HOVER SOUND EFFECT (visual) =====
 document.addEventListener("mousemove", (e) => {
