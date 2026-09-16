@@ -9,14 +9,16 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+<script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-icon">👟</span> ELITE STEP
+        <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
       <nav class="nav" id="nav">
         <a href="index.html" class="nav-link">Produtos</a>
@@ -24,8 +26,9 @@
         <a href="carrinho.html" class="nav-link">Carrinho</a>
       </nav>
       <div class="header-actions">
-        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos">♥<span class="cart-count" id="favCount">0</span></a>
-        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -36,11 +39,11 @@
   <!-- FAVORITOS -->
   <section class="page-section">
     <div class="container">
-      <h1 class="page-title">♥ MEUS FAVORITOS</h1>
+      <h1 class="page-title"><i class="fa-solid fa-heart fa-title-icon"></i> MEUS FAVORITOS</h1>
       <p class="page-subtitle" id="favSubtitle">Seus tenis favoritos em um so lugar.</p>
       <div class="products-grid" id="favGrid"></div>
       <div class="empty-state" id="favEmpty" style="display:none">
-        <span class="empty-icon">💔</span>
+        <span class="empty-icon"><i class="fa-solid fa-heart-crack"></i></span>
         <h2>Nenhum favorito ainda</h2>
         <p>Explore nossos tenis e adicione seus favoritos!</p>
         <a href="index.html" class="btn btn-primary">VER PRODUTOS</a>

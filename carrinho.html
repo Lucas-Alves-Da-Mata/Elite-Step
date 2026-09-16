@@ -9,14 +9,16 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+<script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-icon">👟</span> ELITE STEP
+        <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
       <nav class="nav" id="nav">
         <a href="index.html" class="nav-link">Produtos</a>
@@ -24,8 +26,9 @@
         <a href="carrinho.html" class="nav-link nav-active">Carrinho</a>
       </nav>
       <div class="header-actions">
-        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos">♥<span class="cart-count" id="favCount">0</span></a>
-        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -36,7 +39,7 @@
   <!-- CARRINHO -->
   <section class="page-section">
     <div class="container">
-      <h1 class="page-title">🛒 MEU CARRINHO</h1>
+      <h1 class="page-title"><i class="fa-solid fa-cart-shopping fa-title-icon"></i> MEU CARRINHO</h1>
       <p class="page-subtitle" id="cartSubtitle">Revise seus itens antes de finalizar.</p>
 
       <div class="cart-page-layout" id="cartPageContent">
@@ -69,7 +72,7 @@
       </div>
 
       <div class="empty-state" id="cartEmpty" style="display:none">
-        <span class="empty-icon">🛒</span>
+        <span class="empty-icon"><i class="fa-solid fa-cart-shopping"></i></span>
         <h2>Seu carrinho esta vazio</h2>
         <p>Adicione tenis ao carrinho para continuar!</p>
         <a href="index.html" class="btn btn-primary">VER PRODUTOS</a>
@@ -160,7 +163,7 @@
 
         <label class="pay-option active" data-pay="card">
           <input type="radio" name="pagamento" value="card" checked>
-          <span class="pay-icon">💳</span>
+          <span class="pay-icon"><i class="fa-solid fa-credit-card"></i></span>
           <div class="pay-info">
             <strong>Cartao de Credito</strong>
             <small>Parcelamento em ate 12x</small>
@@ -169,7 +172,7 @@
 
         <label class="pay-option" data-pay="pix">
           <input type="radio" name="pagamento" value="pix">
-          <span class="pay-icon">⚡</span>
+          <span class="pay-icon"><i class="fa-solid fa-bolt"></i></span>
           <div class="pay-info">
             <strong>Pix</strong>
             <small>5% de desconto na vista</small>
@@ -178,7 +181,7 @@
 
         <label class="pay-option" data-pay="boleto">
           <input type="radio" name="pagamento" value="boleto">
-          <span class="pay-icon">📄</span>
+          <span class="pay-icon"><i class="fa-solid fa-file-invoice"></i></span>
           <div class="pay-info">
             <strong>Boleto Bancario</strong>
             <small>Compensa em ate 2 dias uteis</small>
@@ -251,10 +254,10 @@
 
       <!-- SUCCESS -->
       <div class="checkout-step" id="stepSuccess" style="display:none">
-        <div class="success-icon">✔</div>
+        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
         <h2 class="checkout-title success-title">PAGAMENTO REALIZADO!</h2>
         <p class="success-text">Seu pedido foi confirmado com sucesso. Obrigado por comprar na Elite Step!</p>
-        <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px">📲 ENVIAR PEDIDO VIA WHATSAPP</button>
+        <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px"><i class="fa-brands fa-whatsapp"></i> ENVIAR PEDIDO VIA WHATSAPP</button>
         <button class="btn btn-primary btn-full" id="doneBtn">CONTINUAR COMPRANDO</button>
       </div>
     </div>

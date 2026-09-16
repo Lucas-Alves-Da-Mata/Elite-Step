@@ -9,14 +9,16 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+<script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-icon">👟</span> ELITE STEP
+        <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
       <nav class="nav" id="nav">
         <a href="index.html" class="nav-link">Produtos</a>
@@ -24,8 +26,9 @@
         <a href="carrinho.html" class="nav-link">Carrinho</a>
       </nav>
       <div class="header-actions">
-        <a href="favoritos.html" class="cart-btn" id="favBtn" aria-label="Favoritos">♥<span class="cart-count" id="favCount">0</span></a>
-        <a href="carrinho.html" class="cart-btn" id="cartBtn" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <a href="favoritos.html" class="cart-btn" id="favBtn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" id="cartBtn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -105,14 +108,14 @@
           </div>
           <div class="detalhes-actions">
             <button class="btn btn-primary btn-full" id="detAddCart">ADICIONAR AO CARRINHO</button>
-            <button class="btn btn-secondary fav-btn ${isFav ? 'fav-active' : ''}" id="detFavBtn">${isFav ? '♥ FAVORITADO' : '♡ FAVORITAR'}</button>
-            <button class="btn btn-secondary btn-full share-btn" onclick="shareProduct('${p.name}', '${p.id}')">📤 COMPARTILHAR</button>
+            <button class="btn btn-secondary fav-btn ${isFav ? 'fav-active' : ''}" id="detFavBtn">${isFav ? '<i class="fa-solid fa-heart"></i> FAVORITADO' : '<i class="fa-regular fa-heart"></i> FAVORITAR'}</button>
+            <button class="btn btn-secondary btn-full share-btn" onclick="shareProduct('${p.name}', '${p.id}')"><i class="fa-solid fa-share-nodes"></i> COMPARTILHAR</button>
           </div>
           <div class="detalhes-features">
-            <div class="feature"><span>🚚</span> Frete gratis acima de R$ 299</div>
-            <div class="feature"><span>🔄</span> Troca gratis em 30 dias</div>
-            <div class="feature"><span>🛡️</span> Garantia de 1 ano</div>
-            <div class="feature"><span>💳</span> Parcelamento em ate 12x</div>
+            <div class="feature"><span><i class="fa-solid fa-truck"></i></span> Frete gratis acima de R$ 299</div>
+            <div class="feature"><span><i class="fa-solid fa-arrows-rotate"></i></span> Troca gratis em 30 dias</div>
+            <div class="feature"><span><i class="fa-solid fa-shield-halved"></i></span> Garantia de 1 ano</div>
+            <div class="feature"><span><i class="fa-solid fa-credit-card"></i></span> Parcelamento em ate 12x</div>
           </div>
         </div>
       `;
@@ -149,7 +152,7 @@
       document.getElementById("detFavBtn").addEventListener("click", function() {
         toggleFavorite(p.id);
         const isFavNow = favorites.includes(p.id);
-        this.innerHTML = isFavNow ? '♥ FAVORITADO' : '♡ FAVORITAR';
+        this.innerHTML = isFavNow ? '<i class="fa-solid fa-heart"></i> FAVORITADO' : '<i class="fa-regular fa-heart"></i> FAVORITAR';
         this.classList.toggle('fav-active', isFavNow);
         showToast(isFavNow ? 'Adicionado aos favoritos!' : 'Removido dos favoritos!');
       });

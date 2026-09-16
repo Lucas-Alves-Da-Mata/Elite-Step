@@ -9,14 +9,16 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+<script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-icon">👟</span> ELITE STEP
+        <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
       <nav class="nav" id="nav">
         <a href="index.html" class="nav-link">Produtos</a>
@@ -24,8 +26,9 @@
         <a href="carrinho.html" class="nav-link">Carrinho</a>
       </nav>
       <div class="header-actions">
-        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos">♥<span class="cart-count" id="favCount">0</span></a>
-        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -36,42 +39,42 @@
   <!-- FAQ -->
   <section class="page-section">
     <div class="container">
-      <h1 class="page-title">❓ PERGUNTAS FREQUENTES</h1>
+      <h1 class="page-title"><i class="fa-solid fa-circle-question fa-title-icon"></i> PERGUNTAS FREQUENTES</h1>
       <p class="page-subtitle">Tudo o que voce precisa saber sobre suas compras na Elite Step.</p>
 
       <div class="faq-list">
         <details class="faq-item" id="frete">
-          <summary>🚚 Como funciona o frete?</summary>
+          <summary><i class="fa-solid fa-truck"></i> Como funciona o frete?</summary>
           <p>O frete e <strong>gratis para compras acima de R$ 299</strong>. Para valores menores, o custo e de R$ 39,90. O prazo de entrega varia de 3 a 10 dias uteis, dependendo da regiao.</p>
         </details>
 
         <details class="faq-item" id="trocas">
-          <summary>🔄 Posso trocar ou devolver um produto?</summary>
+          <summary><i class="fa-solid fa-arrows-rotate"></i> Posso trocar ou devolver um produto?</summary>
           <p>Sim! Voce tem <strong>30 dias</strong> apos o recebimento para solicitar troca ou devolucao. O produto deve estar sem uso, com etiqueta e na embalagem original.</p>
         </details>
 
         <details class="faq-item">
-          <summary>💳 Quais formas de pagamento sao aceitas?</summary>
+          <summary><i class="fa-solid fa-credit-card"></i> Quais formas de pagamento sao aceitas?</summary>
           <p>Aceitamos <strong>cartao de credito</strong> (em ate 12x), <strong>Pix</strong> com 5% de desconto na vista e <strong>boleto bancario</strong> (compensacao em ate 2 dias uteis).</p>
         </details>
 
         <details class="faq-item">
-          <summary>🎁 Tenho algum desconto com cupom?</summary>
+          <summary><i class="fa-solid fa-gift"></i> Tenho algum desconto com cupom?</summary>
           <p>Sim! Use o cupom <strong>ELITE10</strong> no carrinho para ganhar <strong>10% de desconto</strong> na sua compra.</p>
         </details>
 
         <details class="faq-item">
-          <summary>🛡️ Os produtos possuem garantia?</summary>
+          <summary><i class="fa-solid fa-shield-halved"></i> Os produtos possuem garantia?</summary>
           <p>Todos os tenis possuem <strong>garantia de 1 ano</strong> contra defeitos de fabricacao. A garantia cobre problemas de cabedal, solado e costura.</p>
         </details>
 
         <details class="faq-item">
-          <summary>📏 Os tamanhos seguem a tabela padrao?</summary>
+          <summary><i class="fa-solid fa-ruler"></i> Os tamanhos seguem a tabela padrao?</summary>
           <p>Sim, seguimos a numeracao padrao brasileira. Se tiver duvida entre dois numeros, recomendamos escolher o maior para maior conforto.</p>
         </details>
 
         <details class="faq-item">
-          <summary>❓ Como acompanho meu pedido?</summary>
+          <summary><i class="fa-solid fa-circle-question"></i> Como acompanho meu pedido?</summary>
           <p>Na pagina <a href="rastreio.html">Rastrear Pedido</a> voce digita o codigo do pedido e acompanha o status em tempo real.</p>
         </details>
       </div>
@@ -82,7 +85,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo"><span class="logo-icon">👟</span> ELITE STEP</span>
+        <span class="logo"><span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP</span>
         <p>Tênis esportivos de alta performance para predadores que dominam a pista. Sem piedade.</p>
       </div>
       <div class="footer-links">

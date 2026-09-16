@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     /* Preloader */
     .preloader {
@@ -55,10 +56,11 @@
   </style>
 </head>
 <body>
+<script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
   <!-- PRELOADER -->
   <div class="preloader" id="preloader">
-    <div class="preloader-claws">👟</div>
+    <div class="preloader-claws"><i class="fa-solid fa-shoe-prints"></i></div>
     <div class="preloader-text">ELITE STEP</div>
   </div>
 
@@ -69,7 +71,7 @@
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-icon">👟</span> ELITE STEP
+        <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
       <nav class="nav" id="nav">
         <a href="#produtos" class="nav-link">Produtos</a>
@@ -81,13 +83,14 @@
       </nav>
       <div class="header-actions">
         <a href="favoritos.html" class="cart-btn" id="favBtn" aria-label="Favoritos">
-          &#9829;
+          <i class="fa-solid fa-heart"></i>
           <span class="cart-count" id="favCount">0</span>
         </a>
         <a href="carrinho.html" class="cart-btn" id="cartPageBtn" aria-label="Carrinho">
-          &#128722;
+          <i class="fa-solid fa-cart-shopping"></i>
           <span class="cart-count" id="cartCount">0</span>
         </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -133,23 +136,23 @@
       <h2 class="section-title">Categorias</h2>
       <div class="cat-grid">
         <button class="cat-card active" data-cat="todos">
-          <span class="cat-icon">&#127947;</span>
+          <span class="cat-icon"><i class="fa-solid fa-futbol"></i></span>
           <span>Todos</span>
         </button>
         <button class="cat-card" data-cat="corrida">
-          <span class="cat-icon">&#127939;</span>
+          <span class="cat-icon"><i class="fa-solid fa-person-running"></i></span>
           <span>Corrida</span>
         </button>
         <button class="cat-card" data-cat="basquete">
-          <span class="cat-icon">&#127936;</span>
+          <span class="cat-icon"><i class="fa-solid fa-basketball"></i></span>
           <span>Basquete</span>
         </button>
         <button class="cat-card" data-cat="casual">
-          <span class="cat-icon">&#128085;</span>
+          <span class="cat-icon"><i class="fa-solid fa-shirt"></i></span>
           <span>Casual</span>
         </button>
         <button class="cat-card" data-cat="lifestyle">
-          <span class="cat-icon">&#127775;</span>
+          <span class="cat-icon"><i class="fa-solid fa-star"></i></span>
           <span>Lifestyle</span>
         </button>
       </div>
@@ -165,7 +168,7 @@
       <div class="products-toolbar">
         <div class="search-box">
           <input type="text" id="searchInput" placeholder="Buscar tenis por nome ou marca..." aria-label="Buscar produtos">
-          <span class="search-icon">&#128269;</span>
+          <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
         </div>
         <div class="toolbar-controls">
           <select id="brandFilter" class="toolbar-select" aria-label="Filtrar por marca">
@@ -173,8 +176,8 @@
           </select>
           <select id="priceFilter" class="toolbar-select" aria-label="Filtrar por preco">
             <option value="todos">Todos os precos</option>
-            <option value="ate10k">Ate R$ 10.000</option>
-            <option value="10k15k">R$ 10.000 - R$ 15.000</option>
+            <option value="10k12k">R$ 10.000 - R$ 12.000</option>
+            <option value="12k15k">R$ 12.000 - R$ 15.000</option>
             <option value="15k20k">R$ 15.000 - R$ 20.000</option>
             <option value="acima20k">Acima de R$ 20.000</option>
           </select>
@@ -213,17 +216,17 @@
     <div class="container sobre-inner">
       <div class="sobre-visual">
         <div class="sobre-card">
-          <span class="sobre-icon">🦁</span>
+          <span class="sobre-icon"><i class="fa-solid fa-paw"></i></span>
           <h3>Forca Bruta</h3>
           <p>Tecnologia de ponta para maximizar seu desempenho. Sem limites.</p>
         </div>
         <div class="sobre-card">
-          <span class="sobre-icon">👟</span>
+          <span class="sobre-icon"><i class="fa-solid fa-shoe-prints"></i></span>
           <h3>Impeto Selvagem</h3>
           <p>Amortecimento avancado que cuida dos seus pes. Conforto de predador.</p>
         </div>
         <div class="sobre-card">
-          <span class="sobre-icon">🔥</span>
+          <span class="sobre-icon"><i class="fa-solid fa-fire"></i></span>
           <h3>Instinto Animal</h3>
           <p>Design que destaca sua personalidade. Atitude que queima.</p>
         </div>
@@ -255,7 +258,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo"><span class="logo-icon">👟</span> ELITE STEP</span>
+        <span class="logo"><span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP</span>
         <p>Tênis esportivos de alta performance para predadores que dominam a pista. Sem piedade.</p>
       </div>
       <div class="footer-links">

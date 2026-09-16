@@ -5,8 +5,8 @@ const products = [
     name: "Nike Air Max 270",
     brand: "Nike",
     cat: "corrida",
-    price: 599.90,
-    oldPrice: 799.90,
+    price: 10999.90,
+    oldPrice: 12999.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ff3c00, #ff6b35)",
@@ -21,7 +21,7 @@ const products = [
     name: "Nike Dunk Low Retro",
     brand: "Nike",
     cat: "basquete",
-    price: 749.90,
+    price: 11999.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&h=600&fit=crop&q=80",
@@ -37,8 +37,8 @@ const products = [
     name: "Adidas Ultraboost 22",
     brand: "Adidas",
     cat: "casual",
-    price: 349.90,
-    oldPrice: 449.90,
+    price: 10499.90,
+    oldPrice: 12499.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #2d2d2d, #4a4a4a)",
@@ -69,7 +69,7 @@ const products = [
     name: "Adidas Originals Forum",
     brand: "Adidas",
     cat: "lifestyle",
-    price: 459.90,
+    price: 11499.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=600&h=600&fit=crop&q=80",
@@ -85,8 +85,8 @@ const products = [
     name: "Nike ZoomX Vaporfly",
     brand: "Nike",
     cat: "corrida",
-    price: 679.90,
-    oldPrice: 849.90,
+    price: 15999.90,
+    oldPrice: 17999.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ff0055, #ff3c00)",
@@ -101,7 +101,7 @@ const products = [
     name: "Air Jordan 1 Retro High",
     brand: "Jordan",
     cat: "basquete",
-    price: 829.90,
+    price: 18999.90,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
@@ -117,8 +117,8 @@ const products = [
     name: "Adidas Stan Smith",
     brand: "Adidas",
     cat: "casual",
-    price: 279.90,
-    oldPrice: 379.90,
+    price: 10499.90,
+    oldPrice: 12999.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #6b7280, #9ca3af)",
@@ -133,7 +133,7 @@ const products = [
     name: "New Balance 550",
     brand: "New Balance",
     cat: "lifestyle",
-    price: 549.90,
+    price: 11999.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
@@ -165,8 +165,8 @@ const products = [
     name: "Adidas Yeezy 350 V2",
     brand: "Adidas",
     cat: "lifestyle",
-    price: 629.90,
-    oldPrice: 799.90,
+    price: 17999.90,
+    oldPrice: 19999.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #1e1e1e, #3a3a3a)",
@@ -181,7 +181,7 @@ const products = [
     name: "Puma RS-X Reinvention",
     brand: "Puma",
     cat: "casual",
-    price: 199.90,
+    price: 10499.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=600&fit=crop&q=80",
@@ -197,8 +197,8 @@ const products = [
     name: "Converse Chuck Taylor",
     brand: "Converse",
     cat: "lifestyle",
-    price: 299.90,
-    oldPrice: 399.90,
+    price: 10999.90,
+    oldPrice: 12999.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #dc2626, #991b1b)",
@@ -213,7 +213,7 @@ const products = [
     name: "Vans Old Skool",
     brand: "Vans",
     cat: "lifestyle",
-    price: 349.90,
+    price: 10999.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop&q=80",
@@ -229,7 +229,7 @@ const products = [
     name: "Under Armour HOVR",
     brand: "Under Armour",
     cat: "corrida",
-    price: 729.90,
+    price: 13499.90,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop&q=80",
@@ -245,8 +245,8 @@ const products = [
     name: "Reebok Club C 85",
     brand: "Reebok",
     cat: "casual",
-    price: 379.90,
-    oldPrice: 499.90,
+    price: 10999.90,
+    oldPrice: 12499.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #059669, #047857)",
@@ -261,7 +261,7 @@ const products = [
     name: "Asics Gel-Kayano 30",
     brand: "Asics",
     cat: "corrida",
-    price: 849.90,
+    price: 14499.90,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
@@ -277,7 +277,7 @@ const products = [
     name: "Nike Air Force 1 Low",
     brand: "Nike",
     cat: "casual",
-    price: 549.90,
+    price: 12499.90,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&h=600&fit=crop&q=80",
@@ -293,7 +293,7 @@ const products = [
     name: "Adidas Superstar",
     brand: "Adidas",
     cat: "lifestyle",
-    price: 449.90,
+    price: 10499.90,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
@@ -309,8 +309,8 @@ const products = [
     name: "Nike Blazer Mid 77",
     brand: "Nike",
     cat: "lifestyle",
-    price: 499.90,
-    oldPrice: 649.90,
+    price: 11499.90,
+    oldPrice: 13499.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #84cc16, #65a30d)",
@@ -325,7 +325,7 @@ const products = [
     name: "Puma Suede Classic",
     brand: "Puma",
     cat: "lifestyle",
-    price: 399.90,
+    price: 10499.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&h=600&fit=crop&q=80",
@@ -373,8 +373,8 @@ const products = [
     name: "Adidas NMD R1",
     brand: "Adidas",
     cat: "corrida",
-    price: 579.90,
-    oldPrice: 729.90,
+    price: 12999.90,
+    oldPrice: 14999.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ec4899, #be185d)",
@@ -389,7 +389,7 @@ const products = [
     name: "Converse Run Star",
     brand: "Converse",
     cat: "lifestyle",
-    price: 429.90,
+    price: 10999.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&h=600&fit=crop&q=80",
@@ -405,7 +405,7 @@ const products = [
     name: "Under Armour Curry 11",
     brand: "Under Armour",
     cat: "basquete",
-    price: 879.90,
+    price: 16999.90,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop&q=80",
@@ -421,7 +421,7 @@ const products = [
     name: "Asics Gel-1130",
     brand: "Asics",
     cat: "lifestyle",
-    price: 499.90,
+    price: 10999.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
@@ -437,8 +437,8 @@ const products = [
     name: "Vans Sk8-Hi",
     brand: "Vans",
     cat: "lifestyle",
-    price: 399.90,
-    oldPrice: 499.90,
+    price: 10499.90,
+    oldPrice: 12499.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #1e1e1e, #404040)",
@@ -453,7 +453,7 @@ const products = [
     name: "Reebok Nano X3",
     brand: "Reebok",
     cat: "corrida",
-    price: 649.90,
+    price: 12499.90,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop&q=80",
@@ -469,8 +469,8 @@ const products = [
     name: "Nike Metcon 9",
     brand: "Nike",
     cat: "corrida",
-    price: 799.90,
-    oldPrice: 999.90,
+    price: 13999.90,
+    oldPrice: 15999.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #0d9488, #0f766e)",
@@ -485,7 +485,7 @@ const products = [
     name: "Adidas Gazelle",
     brand: "Adidas",
     cat: "casual",
-    price: 329.90,
+    price: 10499.90,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
@@ -511,6 +511,262 @@ const products = [
     desc: "O Jordan mais icone de todos. Patente shiny, entressola com Air e carbono. O tenis que MJ usou no filme Space Jam.",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     colors: ["#1a1a2e", "#ffffff", "#dc2626"]
+  },
+  {
+    id: 33,
+    name: "New Balance 574",
+    brand: "New Balance",
+    cat: "lifestyle",
+    price: 11499.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #9ca3af, #6b7280)",
+    rating: 4.6,
+    reviews: 512,
+    desc: "O clasico de todos os tempos da New Balance. Camurca premium, sola ENCAP e um design que envelhece bem em qualquer guarda-roupa.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#9ca3af", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 34,
+    name: "Asics Gel-Nimbus 25",
+    brand: "Asics",
+    cat: "corrida",
+    price: 13999.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #06b6d4, #0891b2)",
+    rating: 4.9,
+    reviews: 402,
+    desc: "A maxima experiencia de conforto da Asics. Espuma FF BLAST PLUS ECO e GEL no calcanhar para corridas longas sem fadiga.",
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    colors: ["#06b6d4", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 35,
+    name: "Puma Speedcat",
+    brand: "Puma",
+    cat: "corrida",
+    price: 10499.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #6045e2, #3b82f6)",
+    rating: 4.8,
+    reviews: 228,
+    desc: "Heranca das pistas de automobilismo. Perfil baixo, cabedal leve e aquele visual fast que combina com velocidade.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#6045e2", "#1a1a2e", "#fbbf24"]
+  },
+  {
+    id: 36,
+    name: "Fila Disruptor II",
+    brand: "Fila",
+    cat: "lifestyle",
+    price: 10999.90,
+    oldPrice: 12499.90,
+    badge: "sale",
+    image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #f472b6, #db2777)",
+    rating: 4.5,
+    reviews: 634,
+    desc: "O creepy que dominou os anos 90 e voltou. Sola volumosa, aspecto chunky e presenca que nao passa despercebida.",
+    sizes: [35, 36, 37, 38, 39, 40, 41, 42],
+    colors: ["#f472b6", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 37,
+    name: "Hoka Clifton 9",
+    brand: "Hoka",
+    cat: "corrida",
+    price: 15499.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #f43f5e, #e11d48)",
+    rating: 4.9,
+    reviews: 189,
+    desc: "O queridinho dos corredores. Geometria Meta-Rocker e espuma super amortecedora para km sem fim com leveza incrivel.",
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    colors: ["#f43f5e", "#1a1a2e", "#38bdf8"]
+  },
+  {
+    id: 38,
+    name: "Brooks Ghost 15",
+    brand: "Brooks",
+    cat: "corrida",
+    price: 14499.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #6366f1, #4f46e5)",
+    rating: 4.7,
+    reviews: 350,
+    desc: "Equilibrio perfeito entre conforto e desempenho. Amortecimento DNA LOFT v3 e transicao suave para o dia a dia.",
+    sizes: [38, 39, 40, 41, 42, 43, 44],
+    colors: ["#6366f1", "#1a1a2e", "#f97316"]
+  },
+  {
+    id: 39,
+    name: "Salomon Speedcross 6",
+    brand: "Salomon",
+    cat: "corrida",
+    price: 16999.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #16a34a, #15803d)",
+    rating: 4.8,
+    reviews: 142,
+    desc: "Para trilhas extremas. Solado com presas agressivas de 5mm, Quicklace e membrana resistente a agua. Pura adrenalina.",
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    colors: ["#16a34a", "#1a1a2e", "#fbbf24"]
+  },
+  {
+    id: 40,
+    name: "On Cloud 5",
+    brand: "On",
+    cat: "corrida",
+    price: 15999.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #38bdf8, #0284c7)",
+    rating: 4.7,
+    reviews: 415,
+    desc: "A sensacao suica. Amortecimento CloudTec com orifícios inovadores que absorvem impacto e devolvem energia a cada passo.",
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    colors: ["#38bdf8", "#1a1a2e", "#e2e8f0"]
+  },
+  {
+    id: 41,
+    name: "Mizuno Wave Rider 26",
+    brand: "Mizuno",
+    cat: "corrida",
+    price: 13499.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #f59e0b, #b45309)",
+    rating: 4.6,
+    reviews: 301,
+    desc: "Tecnologia japonesa com placa Wave de estabilidade e espuma Enerzy. O Rider que nunca decepciona nas longas distancias.",
+    sizes: [38, 39, 40, 41, 42, 43, 44],
+    colors: ["#f59e0b", "#1a1a2e", "#1e40af"]
+  },
+  {
+    id: 42,
+    name: "Saucony Ride 17",
+    brand: "Saucony",
+    cat: "corrida",
+    price: 12999.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #0ea5e9, #0369a1)",
+    rating: 4.7,
+    reviews: 267,
+    desc: "O coringa versatil da Saucony. Espuma PWRRUN + e cabedal em mesh engenierado para corridas, academia e o dia a dia.",
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    colors: ["#0ea5e9", "#1a1a2e", "#f472b6"]
+  },
+  {
+    id: 43,
+    name: "Li-Ning Way Of Wade 10",
+    brand: "Li-Ning",
+    cat: "basquete",
+    price: 18999.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #dc2626, #7f1d1d)",
+    rating: 4.9,
+    reviews: 98,
+    desc: "A assinatura de Dwyane Wade. Amortecimento BOOM, cabedal em trama de carbono e tracao de elite para a quadra.",
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    colors: ["#dc2626", "#1a1a2e", "#fbbf24"]
+  },
+  {
+    id: 44,
+    name: "Adidas Samba OG",
+    brand: "Adidas",
+    cat: "casual",
+    price: 11999.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #22c55e, #15803d)",
+    rating: 4.8,
+    reviews: 589,
+    desc: "De quadras de futebol ao streetwear. Cabedal em camurca, biqueira em suede e o soul da cultura que nunca envelhece.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#22c55e", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 45,
+    name: "Vans Era 95",
+    brand: "Vans",
+    cat: "lifestyle",
+    price: 10499.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+    rating: 4.4,
+    reviews: 496,
+    desc: "O skate classico com cano baixo e almofada extra. Lona duravel, solado waffle e estilo que domina desde os anos 90.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#3b82f6", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 46,
+    name: "Jordan 1 Low",
+    brand: "Jordan",
+    cat: "basquete",
+    price: 13999.90,
+    oldPrice: null,
+    badge: "new",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #fbbf24, #d97706)",
+    rating: 4.8,
+    reviews: 334,
+    desc: "O icone em versao low. Mesma alma do Air Jordan 1, cabedal em couro premium e conforto para o dia inteiro nas ruas.",
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    colors: ["#fbbf24", "#1a1a2e", "#ffffff"]
+  },
+  {
+    id: 47,
+    name: "Nike Invincible Run 3",
+    brand: "Nike",
+    cat: "corrida",
+    price: 16499.90,
+    oldPrice: null,
+    badge: "hot",
+    image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #f97316, #ea580c)",
+    rating: 4.9,
+    reviews: 177,
+    desc: "Retorno de energia brutal com ZoomX. Cabedal em Flyknit e amortecimento macio para corridas diarias de alto volume.",
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    colors: ["#f97316", "#1a1a2e", "#111827"]
+  },
+  {
+    id: 48,
+    name: "Converse One Star",
+    brand: "Converse",
+    cat: "lifestyle",
+    price: 10999.90,
+    oldPrice: null,
+    badge: null,
+    image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&h=600&fit=crop&q=80",
+    bg: "linear-gradient(135deg, #111827, #374151)",
+    rating: 4.5,
+    reviews: 288,
+    desc: "A estrela que virou lenda. Cabedal em camurca, logotipo em forma de estrela e o visual grunge que marcou o grunge.",
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    colors: ["#111827", "#1a1a2e", "#ef4444"]
   }
 ];
 
@@ -594,9 +850,9 @@ function getFilteredProducts() {
 
   if (priceFilter !== "todos") {
     list = list.filter(p => {
-      if (priceFilter === "ate10k") return p.price <= 10000;
-      if (priceFilter === "10k15k") return p.price > 10000 && p.price <= 15000;
-      if (priceFilter === "15k20k") return p.price > 15000 && p.price <= 20000;
+      if (priceFilter === "10k12k") return p.price >= 10000 && p.price < 12000;
+      if (priceFilter === "12k15k") return p.price >= 12000 && p.price < 15000;
+      if (priceFilter === "15k20k") return p.price >= 15000 && p.price <= 20000;
       if (priceFilter === "acima20k") return p.price > 20000;
       return true;
     });
@@ -620,7 +876,7 @@ function renderProducts(category) {
 
   productsGrid.innerHTML = filtered.map((p, i) => `
     <div class="product-card" data-id="${p.id}" style="animation-delay: ${i * 0.08}s">
-      <button class="card-fav-btn ${favorites.includes(p.id) ? 'fav-active' : ''}" onclick="event.stopPropagation(); toggleFavorite(${p.id}); this.classList.toggle('fav-active'); this.textContent = favorites.includes(${p.id}) ? '♥' : '♡';" aria-label="Favoritar">${favorites.includes(p.id) ? '♥' : '♡'}</button>
+      <button class="card-fav-btn ${favorites.includes(p.id) ? 'fav-active' : ''}" onclick="event.stopPropagation(); toggleFavorite(${p.id}); const b=this; b.classList.toggle('fav-active'); b.innerHTML = favorites.includes(${p.id}) ? '&nbsp;<i class=&quot;fa-solid fa-heart&quot;></i>&nbsp;' : '&nbsp;<i class=&quot;fa-regular fa-heart&quot;></i>&nbsp;';" aria-label="Favoritar">${favorites.includes(p.id) ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>'}</button>
       ${p.badge ? `<span class="product-badge badge-${p.badge}">${
         p.badge === "new" ? "Novo" : p.badge === "sale" ? `${Math.round((1 - p.price / p.oldPrice) * 100)}% OFF` : "Mais Vendido"
       }</span>` : ''}
@@ -662,7 +918,11 @@ function renderProducts(category) {
 function getStars(rating) {
   const full = Math.floor(rating);
   const half = rating % 1 >= 0.5 ? 1 : 0;
-  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(5 - full - half);
+  let html = '';
+  for (let i = 0; i < full; i++) html += '<i class="fa-solid fa-star"></i>';
+  if (half) html += '<i class="fa-solid fa-star-half-stroke"></i>';
+  for (let i = full + half; i < 5; i++) html += '<i class="fa-regular fa-star"></i>';
+  return html;
 }
 
 // ===== MODAL =====
@@ -863,6 +1123,29 @@ if (sortSelect) {
 
 populateBrands();
 
+// ===== THEME TOGGLE =====
+const themeToggle = document.getElementById("themeToggle");
+function applyTheme(theme) {
+  if (theme === "light") {
+    document.body.setAttribute("data-theme", "light");
+    if (themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  } else {
+    document.body.removeAttribute("data-theme");
+    if (themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  }
+  localStorage.setItem("eliteTheme", theme);
+}
+(function initTheme() {
+  const saved = localStorage.getItem("eliteTheme");
+  applyTheme(saved === "light" ? "light" : "dark");
+})();
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const isLight = document.body.getAttribute("data-theme") === "light";
+    applyTheme(isLight ? "dark" : "light");
+  });
+}
+
 // ===== MOBILE MENU =====
 if (menuToggle) {
   menuToggle.addEventListener("click", () => {
@@ -934,6 +1217,7 @@ document.addEventListener("keydown", (e) => {
 
 // ===== INIT =====
 renderProducts("todos");
+updateCounts();
 
 // ===== PRELOADER =====
 const preloaderEl = document.getElementById("preloader");

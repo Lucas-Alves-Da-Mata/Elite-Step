@@ -9,14 +9,16 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+<script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-icon">👟</span> ELITE STEP
+        <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
       <nav class="nav" id="nav">
         <a href="index.html" class="nav-link">Produtos</a>
@@ -24,8 +26,9 @@
         <a href="carrinho.html" class="nav-link">Carrinho</a>
       </nav>
       <div class="header-actions">
-        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos">♥<span class="cart-count" id="favCount">0</span></a>
-        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -36,7 +39,7 @@
   <!-- RASTREIO -->
   <section class="page-section">
     <div class="container">
-      <h1 class="page-title">📦 RASTREAR PEDIDO</h1>
+      <h1 class="page-title"><i class="fa-solid fa-box fa-title-icon"></i> RASTREAR PEDIDO</h1>
       <p class="page-subtitle">Digite o codigo do seu pedido para acompanhar o status da entrega.</p>
 
       <div class="tracking-box">
@@ -54,7 +57,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo"><span class="logo-icon">👟</span> ELITE STEP</span>
+        <span class="logo"><span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP</span>
         <p>Tênis esportivos de alta performance para predadores que dominam a pista. Sem piedade.</p>
       </div>
       <div class="footer-links">
@@ -109,7 +112,7 @@
         <div class="track-status-list">
           ${statuses.map((s, i) => `
             <div class="track-status ${s.done ? 'done' : 'pending'}">
-              <span class="track-status-dot">${s.done ? '✔' : '●'}</span>
+              <span class="track-status-dot">${s.done ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-circle"></i>'}</span>
               <div>
                 <strong>${s.label}</strong>
                 <small>${s.done ? 'Concluido' : 'Aguardando'}${i === 2 ? ' - previsao: 3 dias uteis' : ''}</small>
