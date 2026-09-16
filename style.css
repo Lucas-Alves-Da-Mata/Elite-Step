@@ -583,6 +583,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ===== BUTTONS ===== */
+.btn i {
+  margin-right: 8px;
+}
 .btn {
   display: inline-block;
   padding: 16px 40px;
@@ -748,6 +751,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   transition: var(--transition);
   padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
 
 .cart-btn:hover {
@@ -1326,6 +1333,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 0.85rem;
   letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .rating-count {
@@ -2124,6 +2134,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   cursor: pointer;
   transition: var(--transition);
   backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .card-fav-btn:hover {
   transform: scale(1.15);
@@ -2182,6 +2195,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: linear-gradient(90deg, var(--primary), var(--accent));
   clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
 }
+.fa-title-icon {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--primary);
+}
 .page-subtitle {
   color: var(--text-muted);
   margin-bottom: 40px;
@@ -2225,6 +2243,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 50%;
   cursor: pointer;
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .fav-remove-btn:hover {
   background: var(--primary);
