@@ -53,7 +53,7 @@ const products = [
     name: "Nike Pegasus 40",
     brand: "Nike",
     cat: "corrida",
-    price: 10499.90,
+    price: 12999.90,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
@@ -149,7 +149,7 @@ const products = [
     name: "Nike Trail Pegasus",
     brand: "Nike",
     cat: "corrida",
-    price: 10999.90,
+    price: 14999.90,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
@@ -264,7 +264,7 @@ const products = [
     price: 849.90,
     oldPrice: null,
     badge: "hot",
-    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #7c3aed, #6d28d9)",
     rating: 4.8,
     reviews: 321,
@@ -296,7 +296,7 @@ const products = [
     price: 449.90,
     oldPrice: null,
     badge: null,
-    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #fbbf24, #d97706)",
     rating: 4.6,
     reviews: 1567,
@@ -312,7 +312,7 @@ const products = [
     price: 499.90,
     oldPrice: 649.90,
     badge: "sale",
-    image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #84cc16, #65a30d)",
     rating: 4.5,
     reviews: 389,
@@ -328,7 +328,7 @@ const products = [
     price: 399.90,
     oldPrice: null,
     badge: "new",
-    image: "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #0891b2, #0e7490)",
     rating: 4.5,
     reviews: 654,
@@ -341,10 +341,10 @@ const products = [
     name: "New Balance 990v6",
     brand: "New Balance",
     cat: "corrida",
-    price: 12499.90,
+    price: 19999.90,
     oldPrice: null,
     badge: "hot",
-    image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #6b7280, #4b5563)",
     rating: 4.9,
     reviews: 87,
@@ -357,10 +357,10 @@ const products = [
     name: "Jordan 4 Retro",
     brand: "Jordan",
     cat: "basquete",
-    price: 11999.90,
+    price: 24999.90,
     oldPrice: null,
     badge: null,
-    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ea580c, #c2410c)",
     rating: 4.9,
     reviews: 256,
@@ -376,7 +376,7 @@ const products = [
     price: 579.90,
     oldPrice: 729.90,
     badge: "sale",
-    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=300&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ec4899, #be185d)",
     rating: 4.6,
     reviews: 445,
@@ -424,7 +424,7 @@ const products = [
     price: 499.90,
     oldPrice: null,
     badge: "new",
-    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=300&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #a855f7, #7c3aed)",
     rating: 4.5,
     reviews: 267,
@@ -440,7 +440,7 @@ const products = [
     price: 399.90,
     oldPrice: 499.90,
     badge: "sale",
-    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #1e1e1e, #404040)",
     rating: 4.6,
     reviews: 723,
@@ -456,7 +456,7 @@ const products = [
     price: 649.90,
     oldPrice: null,
     badge: null,
-    image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=300&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #f43f5e, #e11d48)",
     rating: 4.7,
     reviews: 189,
@@ -472,7 +472,7 @@ const products = [
     price: 799.90,
     oldPrice: 999.90,
     badge: "sale",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #0d9488, #0f766e)",
     rating: 4.8,
     reviews: 298,
@@ -488,7 +488,7 @@ const products = [
     price: 329.90,
     oldPrice: null,
     badge: "new",
-    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=300&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #2563eb, #1e40af)",
     rating: 4.5,
     reviews: 534,
@@ -501,10 +501,10 @@ const products = [
     name: "Air Jordan 11 Retro",
     brand: "Jordan",
     cat: "basquete",
-    price: 14999.90,
+    price: 29999.90,
     oldPrice: null,
     badge: "hot",
-    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=300&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #1a1a2e, #0f172a)",
     rating: 5.0,
     reviews: 67,
@@ -550,6 +550,10 @@ function updateCounts() {
   if (cartEl) cartEl.textContent = cartTotalItems;
 }
 
+function formatPrice(val) {
+  return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
 // ===== DOM (guarded for use across pages) =====
 const productsGrid = document.getElementById("productsGrid");
 const cartBtn = document.getElementById("cartBtn");
@@ -567,11 +571,52 @@ const nav = document.getElementById("nav");
 const contactForm = document.getElementById("contactForm");
 
 // ===== RENDER PRODUCTS =====
+let searchTerm = "";
+let brandFilter = "todas";
+let priceFilter = "todos";
+let sortBy = "relevancia";
+
+function getFilteredProducts() {
+  let list = currentCategory === "todos"
+    ? products.slice()
+    : products.filter(p => p.cat === currentCategory);
+
+  if (searchTerm) {
+    const q = searchTerm.toLowerCase();
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q)
+    );
+  }
+
+  if (brandFilter !== "todas") {
+    list = list.filter(p => p.brand === brandFilter);
+  }
+
+  if (priceFilter !== "todos") {
+    list = list.filter(p => {
+      if (priceFilter === "ate10k") return p.price <= 10000;
+      if (priceFilter === "10k15k") return p.price > 10000 && p.price <= 15000;
+      if (priceFilter === "15k20k") return p.price > 15000 && p.price <= 20000;
+      if (priceFilter === "acima20k") return p.price > 20000;
+      return true;
+    });
+  }
+
+  if (sortBy === "menorPreco") list.sort((a, b) => a.price - b.price);
+  else if (sortBy === "maiorPreco") list.sort((a, b) => b.price - a.price);
+  else if (sortBy === "avaliacao") list.sort((a, b) => b.rating - a.rating);
+
+  return list;
+}
+
 function renderProducts(category) {
   if (!productsGrid) return;
-  const filtered = category === "todos"
-    ? products
-    : products.filter(p => p.cat === category);
+  const filtered = getFilteredProducts();
+
+  if (filtered.length === 0) {
+    productsGrid.innerHTML = '<p class="no-results">Nenhum tenis encontrado com esses filtros.</p>';
+    return;
+  }
 
   productsGrid.innerHTML = filtered.map((p, i) => `
     <div class="product-card" data-id="${p.id}" style="animation-delay: ${i * 0.08}s">
@@ -597,8 +642,8 @@ function renderProducts(category) {
         </div>
         <div class="product-bottom">
           <div>
-            <span class="product-price">R$ ${p.price.toFixed(2)}</span>
-            ${p.oldPrice ? `<span class="product-old-price">R$ ${p.oldPrice.toFixed(2)}</span>` : ''}
+            <span class="product-price">${formatPrice(p.price)}</span>
+            ${p.oldPrice ? `<span class="product-old-price">${formatPrice(p.oldPrice)}</span>` : ''}
           </div>
           <button class="product-add-btn" onclick="event.stopPropagation(); quickAdd(${p.id})" aria-label="Adicionar ao carrinho">+</button>
         </div>
@@ -637,7 +682,7 @@ function openModal(id) {
   document.getElementById("modalCat").textContent = selectedProduct.brand + " | " + selectedProduct.cat;
   document.getElementById("modalName").textContent = selectedProduct.name;
   document.getElementById("modalRating").innerHTML = `<span class="stars">${getStars(selectedProduct.rating)}</span><span class="rating-count">(${selectedProduct.reviews} avaliacoes)</span>`;
-  document.getElementById("modalPrice").innerHTML = `R$ ${selectedProduct.price.toFixed(2)}${selectedProduct.oldPrice ? ` <span class="product-old-price">R$ ${selectedProduct.oldPrice.toFixed(2)}</span>` : ''}`;
+  document.getElementById("modalPrice").innerHTML = `${formatPrice(selectedProduct.price)}${selectedProduct.oldPrice ? ` <span class="product-old-price">${formatPrice(selectedProduct.oldPrice)}</span>` : ''}`;
   document.getElementById("modalDesc").textContent = selectedProduct.desc;
 
   document.getElementById("modalSizes").innerHTML = selectedProduct.sizes.map(s =>
@@ -735,7 +780,7 @@ function updateCart() {
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
           <div class="cart-item-size">Tam: ${item.size} | Qtd: ${item.qty}</div>
-          <div class="cart-item-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
+          <div class="cart-item-price">${formatPrice(item.price * item.qty)}</div>
         </div>
         <button class="cart-item-remove" onclick="removeFromCart(${i})" aria-label="Remover">&times;</button>
       </div>
@@ -743,7 +788,7 @@ function updateCart() {
     cartFooter.style.display = "block";
 
     const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-    if (cartTotal) cartTotal.textContent = `R$ ${total.toFixed(2)}`;
+    if (cartTotal) cartTotal.textContent = formatPrice(total);
   }
 }
 
@@ -773,6 +818,50 @@ document.querySelectorAll(".cat-card").forEach(card => {
     renderProducts(currentCategory);
   });
 });
+
+// ===== SEARCH / FILTERS / SORT =====
+const searchInput = document.getElementById("searchInput");
+const brandSelect = document.getElementById("brandFilter");
+const priceSelect = document.getElementById("priceFilter");
+const sortSelect = document.getElementById("sortSelect");
+
+function populateBrands() {
+  if (!brandSelect) return;
+  const brands = [...new Set(products.map(p => p.brand))].sort();
+  brandSelect.insertAdjacentHTML('beforeend', brands.map(b =>
+    `<option value="${b}">${b}</option>`
+  ).join(''));
+}
+
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    searchTerm = searchInput.value.trim();
+    renderProducts(currentCategory);
+  });
+}
+
+if (brandSelect) {
+  brandSelect.addEventListener("change", () => {
+    brandFilter = brandSelect.value;
+    renderProducts(currentCategory);
+  });
+}
+
+if (priceSelect) {
+  priceSelect.addEventListener("change", () => {
+    priceFilter = priceSelect.value;
+    renderProducts(currentCategory);
+  });
+}
+
+if (sortSelect) {
+  sortSelect.addEventListener("change", () => {
+    sortBy = sortSelect.value;
+    renderProducts(currentCategory);
+  });
+}
+
+populateBrands();
 
 // ===== MOBILE MENU =====
 if (menuToggle) {
@@ -919,7 +1008,12 @@ function animateParticles() {
 if (canvas) animateParticles();
 
 // ===== AGGRESSIVE HOVER SOUND EFFECT (visual) =====
+let lastTrailTime = 0;
 document.addEventListener("mousemove", (e) => {
+  const now = Date.now();
+  if (now - lastTrailTime < 30) return;
+  lastTrailTime = now;
+
   const trail = document.createElement("div");
   trail.style.cssText = `
     position: fixed;
