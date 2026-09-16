@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rastreie seu pedido Elite Step informando o codigo de rastreio.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👟</text></svg>">
+  <title>Rastrear Pedido - ELITE STEP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">👟</span> ELITE STEP
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Produtos</a>
+        <a href="favoritos.html" class="nav-link">Favoritos</a>
+        <a href="carrinho.html" class="nav-link">Carrinho</a>
+      </nav>
+      <div class="header-actions">
+        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos">♥<span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- RASTREIO -->
+  <section class="page-section">
+    <div class="container">
+      <h1 class="page-title">📦 RASTREAR PEDIDO</h1>
+      <p class="page-subtitle">Digite o codigo do seu pedido para acompanhar o status da entrega.</p>
+
+      <div class="tracking-box">
+        <input type="text" id="trackCode" placeholder="Ex: ES-2026-1234" aria-label="Codigo do pedido">
+        <button class="btn btn-primary" id="trackBtn">RASTREAR</button>
+      </div>
+
+      <div class="tracking-result" id="trackResult" style="display:none">
+        <!-- Preenchido via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-icon">👟</span> ELITE STEP</span>
+        <p>Tênis esportivos de alta performance para predadores que dominam a pista. Sem piedade.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegacao</h4>
+        <a href="index.html#produtos">Produtos</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#contato">Contato</a>
+      </div>
+      <div class="footer-links">
+        <h4>Suporte</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="faq.html#trocas">Trocas e Devolucoes</a>
+        <a href="faq.html#frete">Frete</a>
+        <a href="rastreio.html">Rastrear Pedido</a>
+      </div>
+      <div class="footer-links">
+        <h4>Redes Sociais</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter / X</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Elite Step. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const trackInput = document.getElementById("trackCode");
+    const trackBtn = document.getElementById("trackBtn");
+    const trackResult = document.getElementById("trackResult");
+
+    const statuses = [
+      { label: "Pedido confirmado", done: true },
+      { label: "Pagamento aprovado", done: true },
+      { label: "Em transito", done: true },
+      { label: "Saiu para entrega", done: false },
+      { label: "Entregue", done: false }
+    ];
+
+    function trackOrder() {
+      const code = trackInput.value.trim();
+      if (!code) {
+        showToast("Digite um codigo de pedido!");
+        return;
+      }
+      trackResult.style.display = "block";
+      trackResult.innerHTML = `
+        <h3>Codigo: <span>${code}</span></h3>
+        <div class="track-status-list">
+          ${statuses.map((s, i) => `
+            <div class="track-status ${s.done ? 'done' : 'pending'}">
+              <span class="track-status-dot">${s.done ? '✔' : '●'}</span>
+              <div>
+                <strong>${s.label}</strong>
+                <small>${s.done ? 'Concluido' : 'Aguardando'}${i === 2 ? ' - previsao: 3 dias uteis' : ''}</small>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <p class="track-note">Em caso de duvidas, entre em contato pelo nosso FAQ ou fale conosco.</p>
+      `;
+    }
+
+    trackBtn.addEventListener("click", trackOrder);
+    trackInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") trackOrder();
+    });
+  </script>
+</body>
+</html>

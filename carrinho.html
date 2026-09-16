@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Revise e finalize seu pedido. Elite Step - Tenis esportivos de alta performance.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👟</text></svg>">
   <title>Carrinho - ELITE STEP</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,7 +95,7 @@
         <div class="step-line"></div>
         <div class="step-indicator" data-step="3">
           <span class="step-num">3</span>
-          <span class="step-label">Pagamento</span>
+          <span class="step-label">Confirmacao</span>
         </div>
       </div>
 
@@ -252,6 +254,7 @@
         <div class="success-icon">✔</div>
         <h2 class="checkout-title success-title">PAGAMENTO REALIZADO!</h2>
         <p class="success-text">Seu pedido foi confirmado com sucesso. Obrigado por comprar na Elite Step!</p>
+        <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px">📲 ENVIAR PEDIDO VIA WHATSAPP</button>
         <button class="btn btn-primary btn-full" id="doneBtn">CONTINUAR COMPRANDO</button>
       </div>
     </div>
@@ -262,6 +265,8 @@
     let payMethod = "card";
     let custData = {};
     let currentStep = 1;
+    let cupomApplied = false;
+    let lastOrderSummary = "";
 
     function renderCartPage() {
       const items = cart;
@@ -294,14 +299,14 @@
               <span>Tam: ${item.size}</span>
               <span class="cart-page-color-dot" style="background:${item.color}"></span>
             </div>
-            <div class="cart-page-price-mobile">R$ ${(item.price * item.qty).toFixed(2)}</div>
+            <div class="cart-page-price-mobile">${formatPrice(item.price * item.qty)}</div>
           </div>
           <div class="cart-page-qty">
             <button class="qty-btn" onclick="changeQty(${i}, -1)">−</button>
             <span class="qty-num">${item.qty}</span>
             <button class="qty-btn" onclick="changeQty(${i}, 1)">+</button>
           </div>
-          <div class="cart-page-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
+          <div class="cart-page-price">${formatPrice(item.price * item.qty)}</div>
           <button class="cart-page-remove" onclick="removeCartItem(${i})" aria-label="Remover">✕</button>
         </div>
       `).join('');
@@ -328,16 +333,20 @@
     function updateSummary() {
       const subtotal = cart.reduce((s, item) => s + item.price * item.qty, 0);
       const frete = subtotal >= 299 ? 0 : 39.90;
-      const total = subtotal + frete;
+      const total = getTotal();
 
-      document.getElementById("summarySubtotal").textContent = `R$ ${subtotal.toFixed(2)}`;
-      document.getElementById("summaryFrete").textContent = frete === 0 ? "Gratis" : `R$ ${frete.toFixed(2)}`;
-      document.getElementById("summaryTotal").textContent = `R$ ${total.toFixed(2)}`;
+      document.getElementById("summarySubtotal").textContent = formatPrice(subtotal);
+      document.getElementById("summaryFrete").textContent = frete === 0 ? "Gratis" : formatPrice(frete);
+      document.getElementById("summaryCupom").textContent = cupomApplied ? "-" + formatPrice(subtotal * 0.10) : "-";
+      document.getElementById("summaryTotal").textContent = formatPrice(total);
     }
 
     document.getElementById("cupomBtn").addEventListener("click", () => {
       const cupom = document.getElementById("cupomInput").value.trim();
+      if (cupomApplied) return;
       if (cupom.toUpperCase() === "ELITE10") {
+        cupomApplied = true;
+        updateSummary();
         showToast("Cupom ELITE10 aplicado! 10% de desconto!");
       } else if (cupom) {
         showToast("Cupom invalido!");
@@ -351,7 +360,10 @@
     function getTotal() {
       const subtotal = cart.reduce((s, item) => s + item.price * item.qty, 0);
       const frete = subtotal >= 299 ? 0 : 39.90;
-      return subtotal + frete;
+      let total = subtotal + frete;
+      if (cupomApplied) total -= subtotal * 0.10;
+      if (payMethod === "pix") total -= subtotal * 0.05;
+      return total;
     }
 
     document.getElementById("checkoutBtn").addEventListener("click", () => {
@@ -425,10 +437,17 @@
         document.getElementById("cardInfo").style.display = payMethod === "card" ? "block" : "none";
         document.getElementById("pixInfo").style.display = payMethod === "pix" ? "block" : "none";
         document.getElementById("boletoInfo").style.display = payMethod === "boleto" ? "block" : "none";
+        updateSummary();
       });
     });
 
     // Step navigation
+    function validarCPF(cpf) {
+      const str = cpf.replace(/\D/g, "");
+      if (str.length !== 11 || /^(\d)\1{10}$/.test(str)) return false;
+      return true;
+    }
+
     document.getElementById("goStep2").addEventListener("click", () => {
       const required = ["cNome", "cCpf", "cTel", "cEmail", "cCep", "cCidade", "cRua", "cNumero", "cBairro", "cUf"];
       for (const id of required) {
@@ -437,6 +456,18 @@
           document.getElementById(id).focus();
           return;
         }
+      }
+      const cepVal = document.getElementById("cCep").value.replace(/\D/g, "");
+      if (cepVal.length !== 8) {
+        showToast("Preencha um CEP valido!");
+        document.getElementById("cCep").focus();
+        return;
+      }
+      const cpfVal = document.getElementById("cCpf").value.trim();
+      if (!validarCPF(cpfVal)) {
+        showToast("CPF invalido!");
+        document.getElementById("cCpf").focus();
+        return;
       }
       custData = {
         nome: document.getElementById("cNome").value.trim(),
@@ -474,7 +505,7 @@
 
     function buildConfirm() {
       const total = getTotal();
-      document.getElementById("confirmTotal").textContent = `R$ ${total.toFixed(2)}`;
+      document.getElementById("confirmTotal").textContent = formatPrice(total);
 
       document.getElementById("confirmAddress").innerHTML = `
         <strong>ENDERECO DE ENTREGA</strong>
@@ -485,12 +516,12 @@
 
       if (payMethod === "card") {
         const parcelas = document.getElementById("cardParcelas").value;
-        const parcelaVal = Number(parcelas) > 0 ? (total / Number(parcelas)).toFixed(2) : total.toFixed(2);
+        const parcelaVal = Number(parcelas) > 0 ? formatPrice(total / Number(parcelas)) : formatPrice(total);
         const num = document.getElementById("cardNum").value;
         document.getElementById("confirmPay").innerHTML = `
           <strong>FORMA DE PAGAMENTO</strong>
           <p>Cartao de Credito **** ${num.slice(-4)}</p>
-          <p>${parcelas}x de R$ ${parcelaVal} ${parcelas == 12 ? '(com juros)' : '(sem juros)'}</p>
+          <p>${parcelas}x de ${parcelaVal} ${parcelas == 12 ? '(com juros)' : '(sem juros)'}</p>
         `;
       } else if (payMethod === "pix") {
         document.getElementById("confirmPay").innerHTML = `
@@ -506,16 +537,34 @@
     }
 
     document.getElementById("finalizeBtn").addEventListener("click", () => {
+      const total = getTotal();
+      const resumo = cart.map((item) =>
+        `${item.name} (Tam ${item.size}) x ${item.qty} = ${formatPrice(item.price * item.qty)}`
+      ).join('\n');
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const freteMsg = subtotal >= 299 ? 'Gratis' : 'R$ 39,90';
+      lastOrderSummary = `*PEDIDO ELITE STEP*\n----------------------------\n${resumo}\n----------------------------\nFrete: ${freteMsg}\n${cupomApplied ? 'Cupom ELITE10 (-10%)\n' : ''}${payMethod === 'pix' ? 'Pix (-5%)\n' : ''}Total: ${formatPrice(total)}\n----------------------------\n*Entrega:*\n${custData.nome}\n${custData.rua}, ${custData.numero} - ${custData.bairro}\n${custData.cidade} - ${custData.uf}, CEP ${custData.cep}\n----------------------------\n*Obrigado pela compra!*`;
+
       document.querySelectorAll(".checkout-step").forEach(s => s.style.display = "none");
       document.getElementById("stepSuccess").style.display = "block";
       document.querySelectorAll(".step-indicator").forEach(i => i.classList.add("active"));
       checkoutModal.scrollTop = 0;
       cart = [];
+      cupomApplied = false;
+      document.getElementById("cupomInput").value = "";
       saveCart();
       renderCartPage();
       updateCounts();
       updateSummary();
     });
+
+    function shareWhatsApp() {
+      if (!lastOrderSummary) return;
+      const msg = encodeURIComponent(lastOrderSummary);
+      window.open(`https://wa.me/?text=${msg}`, "_blank");
+    }
+
+    document.getElementById("shareWhatsBtn").addEventListener("click", shareWhatsApp);
 
     document.getElementById("doneBtn").addEventListener("click", () => {
       closeCheckout();

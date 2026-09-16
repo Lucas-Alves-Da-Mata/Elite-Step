@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elite Step - Tenis esportivos de alta performance. Nike, Jordan, Adidas, Puma e mais. Domine a pista.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👟</text></svg>">
   <title>ELITE STEP - Domine a Pista</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +68,7 @@
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-icon">👟</span> ELITE STEP
       </a>
       <nav class="nav" id="nav">
@@ -158,6 +160,33 @@
   <section class="produtos" id="produtos">
     <div class="container">
       <h2 class="section-title">Mais Vendidos</h2>
+
+      <!-- BARRA DE BUSCA E FILTROS -->
+      <div class="products-toolbar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Buscar tenis por nome ou marca..." aria-label="Buscar produtos">
+          <span class="search-icon">&#128269;</span>
+        </div>
+        <div class="toolbar-controls">
+          <select id="brandFilter" class="toolbar-select" aria-label="Filtrar por marca">
+            <option value="todas">Todas as marcas</option>
+          </select>
+          <select id="priceFilter" class="toolbar-select" aria-label="Filtrar por preco">
+            <option value="todos">Todos os precos</option>
+            <option value="ate10k">Ate R$ 10.000</option>
+            <option value="10k15k">R$ 10.000 - R$ 15.000</option>
+            <option value="15k20k">R$ 15.000 - R$ 20.000</option>
+            <option value="acima20k">Acima de R$ 20.000</option>
+          </select>
+          <select id="sortSelect" class="toolbar-select" aria-label="Ordenar produtos">
+            <option value="relevancia">Relevancia</option>
+            <option value="menorPreco">Menor preco</option>
+            <option value="maiorPreco">Maior preco</option>
+            <option value="avaliacao">Melhor avaliacao</option>
+          </select>
+        </div>
+      </div>
+
       <div class="products-grid" id="productsGrid">
         <!-- Preenchido via JS -->
       </div>
@@ -238,10 +267,10 @@
       </div>
       <div class="footer-links">
         <h4>Suporte</h4>
-        <a href="#">FAQ</a>
-        <a href="#">Trocas e Devolucoes</a>
-        <a href="#">Frete</a>
-        <a href="#">Rastrear Pedido</a>
+        <a href="faq.html">FAQ</a>
+        <a href="faq.html#trocas">Trocas e Devolucoes</a>
+        <a href="faq.html#frete">Frete</a>
+        <a href="rastreio.html">Rastrear Pedido</a>
       </div>
       <div class="footer-links">
         <h4>Redes Sociais</h4>
@@ -271,7 +300,7 @@
         <span>Total:</span>
         <span id="cartTotal">R$ 0,00</span>
       </div>
-      <button class="btn btn-primary btn-full">FINALIZAR COMPRA</button>
+      <a href="carrinho.html" class="btn btn-primary btn-full" style="display:block;text-align:center">FINALIZAR COMPRA</a>
     </div>
   </aside>
 

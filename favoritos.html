@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Seus tenis favoritos salvos em um so lugar. Elite Step - Tenis esportivos de alta performance.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👟</text></svg>">
   <title>Favoritos - ELITE STEP</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,8 +86,8 @@
               </div>
               <div class="product-bottom">
                 <div>
-                  <span class="product-price">R$ ${p.price.toFixed(2)}</span>
-                  ${p.oldPrice ? `<span class="product-old-price">R$ ${p.oldPrice.toFixed(2)}</span>` : ''}
+                  <span class="product-price">${formatPrice(p.price)}</span>
+                  ${p.oldPrice ? `<span class="product-old-price">${formatPrice(p.oldPrice)}</span>` : ''}
                 </div>
                 <button class="product-add-btn" onclick="event.stopPropagation(); quickAdd(${p.id})" aria-label="Adicionar ao carrinho">+</button>
               </div>
