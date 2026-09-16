@@ -1,10 +1,10 @@
-# 👟 ELITE STEP
+# ELITE STEP
 
 Loja virtual de tênis esportivos de alta performance. Projeto front-end com HTML, CSS e JavaScript puro (sem frameworks).
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-- **Catálogo de produtos** com 32 tênis (Nike, Jordan, Adidas, Puma, Vans, Converse, etc.)
+- **Catálogo de produtos** com 48 tênis (Nike, Jordan, Adidas, Puma, Vans, Converse, etc.)
 - **Busca** por nome ou marca em tempo real
 - **Ordenação** por menor preço, maior preço ou melhor avaliação
 - **Filtros** por categoria, marca e faixa de preço
@@ -16,9 +16,10 @@ Loja virtual de tênis esportivos de alta performance. Projeto front-end com HTM
 - **Favoritos** persistidos no navegador
 - **Página de detalhes** com seleção de tamanho/cor, produtos relacionados e botão de compartilhar
 - **Página de FAQ** e **rastreamento de pedidos**
+- Temas claro/escuro com ícones Font Awesome
 - Preloader, animações e partículas em canvas
 
-## 📁 Estrutura
+## Estrutura
 
 ```
 Elite-Step/
@@ -33,7 +34,7 @@ Elite-Step/
 └── README.md
 ```
 
-## 💻 Como rodar
+## Como rodar
 
 Não há dependências nem build — basta abrir o `index.html` no navegador, ou servir a pasta com qualquer servidor estático:
 
@@ -43,10 +44,10 @@ python -m http.server 8000
 # depois acesse http://localhost:8000
 ```
 
-## 🛒 Cupom
+## Cupom
 
 Use o cupom `ELITE10` no carrinho para obter 10% de desconto.
 
-## 📄 Licença
+## Licença
 
 MIT
