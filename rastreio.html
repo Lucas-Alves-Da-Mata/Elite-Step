@@ -50,6 +50,10 @@
       <div class="tracking-result" id="trackResult" style="display:none">
         <!-- Preenchido via JS -->
       </div>
+
+      <div class="tracking-result" id="ordersList" style="margin-top:20px">
+        <!-- Meus pedidos neste navegador -->
+      </div>
     </div>
   </section>
 
@@ -91,14 +95,11 @@
     const trackInput = document.getElementById("trackCode");
     const trackBtn = document.getElementById("trackBtn");
     const trackResult = document.getElementById("trackResult");
+    const ordersList = document.getElementById("ordersList");
 
-    const statuses = [
-      { label: "Pedido confirmado", done: true },
-      { label: "Pagamento aprovado", done: true },
-      { label: "Em transito", done: true },
-      { label: "Saiu para entrega", done: false },
-      { label: "Entregue", done: false }
-    ];
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
 
     function trackOrder() {
       const code = trackInput.value.trim();
@@ -106,21 +107,56 @@
         showToast("Digite um codigo de pedido!");
         return;
       }
+      const order = getOrderByCode(code);
       trackResult.style.display = "block";
+      if (!order) {
+        trackResult.innerHTML = `
+          <h3>Codigo: <span>${escapeHtml(code)}</span></h3>
+          <p class="track-note">Pedido nao encontrado neste navegador. Confira o codigo no formato <strong>ES-2026-XXXX</strong> ou finalize uma compra no carrinho para gerar um pedido real.</p>
+        `;
+        return;
+      }
+      const timeline = getOrderTimeline(order);
+      const date = new Date(order.createdAt).toLocaleString('pt-BR');
+      const items = order.items.map((i) => `${escapeHtml(i.name)} (Tam ${escapeHtml(i.size)}) x ${i.qty}`).join('<br>');
       trackResult.innerHTML = `
-        <h3>Codigo: <span>${code}</span></h3>
+        <h3>Codigo: <span>${escapeHtml(order.code)}</span></h3>
+        <p class="track-note">Feito em ${date} &bull; ${order.items.reduce((s, i) => s + i.qty, 0)} itens &bull; Total ${formatPrice(order.total)}</p>
         <div class="track-status-list">
-          ${statuses.map((s, i) => `
+          ${timeline.map((s) => `
             <div class="track-status ${s.done ? 'done' : 'pending'}">
               <span class="track-status-dot">${s.done ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-circle"></i>'}</span>
               <div>
                 <strong>${s.label}</strong>
-                <small>${s.done ? 'Concluido' : 'Aguardando'}${i === 2 ? ' - previsao: 3 dias uteis' : ''}</small>
+                <small>${s.done ? 'Concluido' : 'Aguardando'}</small>
               </div>
             </div>
           `).join('')}
         </div>
-        <p class="track-note">Em caso de duvidas, entre em contato pelo nosso FAQ ou fale conosco.</p>
+        <p class="track-note"><strong>Itens:</strong><br>${items}</p>
+        <p class="track-note">Entrega para ${escapeHtml(order.customer.nome)} - ${escapeHtml(order.customer.cidade)}/${escapeHtml(order.customer.uf)}.</p>
+      `;
+    }
+
+    function renderOrdersList() {
+      const orders = loadOrders();
+      if (!orders.length) {
+        ordersList.innerHTML = `<p class="track-note">Nenhum pedido feito neste navegador ainda. Finalize uma compra para ver aqui.</p>`;
+        return;
+      }
+      ordersList.innerHTML = `
+        <h3>MEUS PEDIDOS NESTE NAVEGADOR (${orders.length})</h3>
+        <div class="track-status-list">
+          ${orders.map((o) => `
+            <div class="track-status done" style="cursor:pointer" onclick="document.getElementById('trackCode').value='${o.code}';document.getElementById('trackBtn').click();window.scrollTo({top:0,behavior:'smooth'})">
+              <span class="track-status-dot"><i class="fa-solid fa-box"></i></span>
+              <div>
+                <strong>${escapeHtml(o.code)}</strong>
+                <small>${new Date(o.createdAt).toLocaleString('pt-BR')} - ${formatPrice(o.total)} - clique para rastrear</small>
+              </div>
+            </div>
+          `).join('')}
+        </div>
       `;
     }
 
@@ -128,6 +164,12 @@
     trackInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") trackOrder();
     });
+
+    // Suporte a rastreio.html?code=ES-2026-XXXX vindo do checkout
+    const urlCode = new URLSearchParams(window.location.search).get("code");
+    if (urlCode) trackInput.value = urlCode;
+    renderOrdersList();
+    if (urlCode) trackOrder();
   </script>
 </body>
 </html>
