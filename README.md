@@ -5,7 +5,8 @@ Loja virtual de tênis esportivos de alta performance. Projeto front-end com HTM
 ## Funcionalidades
 
 - **Catálogo de produtos** com 48 tênis (Nike, Jordan, Adidas, Puma, Vans, Converse, etc.)
-- **Busca** por nome ou marca em tempo real
+- **Busca** no header e no grid, por nome ou marca em tempo real
+- **Autenticação separada**: `login.html` (entrar) + `cadastro.html` (criar conta), sessão via `localStorage`
 - **Ordenação** por menor preço, maior preço ou melhor avaliação
 - **Filtros** por categoria, marca e faixa de preço
 - **Carrinho de compras** com sidebar, persistência via `localStorage` e página dedicada
@@ -23,10 +24,13 @@ Loja virtual de tênis esportivos de alta performance. Projeto front-end com HTM
 
 ```
 Elite-Step/
-├── index.html       → Home (catálogo, busca, filtros, banner)
-├── detalhes.html    → Página de detalhes do produto
-├── carrinho.html    → Carrinho e checkout
-├── favoritos.html   → Lista de favoritos
+├── index.html       → Home (vitrine, ofertas, sobre, feedbacks com avatares, contato, busca)
+├── detalhes.html / produto-detalhes.html → Produto (galeria, specs, variações, frete por CEP, relacionados)
+├── carrinho.html    → Carrinho (foto, qtd alterável, subtotal, Subtotal/Frete/Cupom/Total → checkout)
+├── checkout.html    → Checkout dedicado em 3 etapas
+├── login.html       → Entrada (login)
+├── cadastro.html    → Registro de novas contas (separado, exigido no PDF)
+├── favoritos.html   → Favoritos (mover p/ carrinho, remover, estoque)
 ├── faq.html         → Perguntas frequentes
 ├── rastreio.html    → Rastreamento de pedido
 ├── script.js        → Lógica, dados dos produtos e interações

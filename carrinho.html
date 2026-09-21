@@ -6,6 +6,8 @@
   <meta name="description" content="Revise e finalize seu pedido. Elite Step - Tenis esportivos de alta performance.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'><path fill='%23ff0040' d='M416 0C352.3 0 256 32 256 32l0 128c48 0 76 16 104 32s56 32 104 32c56.4 0 176-16 176-96S512 0 416 0zM128 96c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64zM288 512c96 0 224-48 224-128s-119.6-96-176-96c-48 0-76 16-104 32s-56 32-104 32l0 128s96.3 32 160 32zM0 416c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64z'/></svg>">
   <title>Carrinho - ELITE STEP</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
@@ -24,10 +26,13 @@
         <a href="index.html" class="nav-link">Produtos</a>
         <a href="favoritos.html" class="nav-link">Favoritos</a>
         <a href="carrinho.html" class="nav-link nav-active">Carrinho</a>
+        <a href="checkout.html" class="nav-link">Checkout</a>
+        <a href="login.html" class="nav-link" id="authLink">Entrar</a>
       </nav>
       <div class="header-actions">
         <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
         <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+        <a href="login.html" class="cart-btn" id="authBtn" aria-label="Conta"><i class="fa-solid fa-user"></i></a>
         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -66,7 +71,7 @@
             <input type="text" placeholder="Codigo de cupom" id="cupomInput">
             <button class="btn btn-secondary" id="cupomBtn">APLICAR</button>
           </div>
-          <button class="btn btn-primary btn-full" id="checkoutBtn">FINALIZAR COMPRA</button>
+          <a href="checkout.html" class="btn btn-primary btn-full" id="checkoutBtn" style="display:block;text-align:center">FINALIZAR COMPRA</a>
           <a href="index.html" class="continue-link">← CONTINUAR COMPRANDO</a>
         </div>
       </div>
@@ -257,8 +262,6 @@
         <div class="success-icon"><i class="fa-solid fa-check"></i></div>
         <h2 class="checkout-title success-title">PAGAMENTO REALIZADO!</h2>
         <p class="success-text">Seu pedido foi confirmado com sucesso. Obrigado por comprar na Elite Step!</p>
-        <p class="success-text" id="orderCodeDisplay" style="font-weight:700"></p>
-        <button class="btn btn-secondary btn-full" id="trackOrderBtn" style="margin-bottom:10px"><i class="fa-solid fa-box"></i> RASTREAR MEU PEDIDO</button>
         <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px"><i class="fa-brands fa-whatsapp"></i> ENVIAR PEDIDO VIA WHATSAPP</button>
         <button class="btn btn-primary btn-full" id="doneBtn">CONTINUAR COMPRANDO</button>
       </div>
@@ -371,12 +374,12 @@
       return total;
     }
 
-    document.getElementById("checkoutBtn").addEventListener("click", () => {
-      if (cart.length > 0) {
-        checkoutOverlay.classList.add("open");
-        document.body.style.overflow = "hidden";
-        showStep(1);
+    document.getElementById("checkoutBtn").addEventListener("click", (e) => {
+      if (cart.length === 0) {
+        e.preventDefault();
+        showToast("Seu carrinho esta vazio!");
       }
+      // Carrinho com itens navega para checkout.html (link dedicado)
     });
 
     document.getElementById("checkoutClose").addEventListener("click", closeCheckout);
@@ -543,26 +546,16 @@
 
     document.getElementById("finalizeBtn").addEventListener("click", () => {
       const total = getTotal();
-      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-      const frete = subtotal >= 299 ? 0 : 39.90;
-      const itemsSnapshot = cart.map((i) => ({ ...i }));
-
-      // Cria pedido real e persiste para o rastreio
-      const order = createOrder({ items: itemsSnapshot, subtotal, frete, total, payMethod, custData, cupomApplied });
-      const freteMsg = frete === 0 ? 'Gratis' : formatPrice(frete);
-      const resumo = itemsSnapshot.map((item) =>
+      const resumo = cart.map((item) =>
         `${item.name} (Tam ${item.size}) x ${item.qty} = ${formatPrice(item.price * item.qty)}`
       ).join('\n');
-      lastOrderSummary = `*PEDIDO ELITE STEP*\nCodigo: ${order.code}\n----------------------------\n${resumo}\n----------------------------\nFrete: ${freteMsg}\n${cupomApplied ? 'Cupom ELITE10 (-10%)\n' : ''}${payMethod === 'pix' ? 'Pix (-5%)\n' : ''}Total: ${formatPrice(total)}\n----------------------------\n*Entrega:*\n${custData.nome}\n${custData.rua}, ${custData.numero} - ${custData.bairro}\n${custData.cidade} - ${custData.uf}, CEP ${custData.cep}\n----------------------------\nRastreie em: rastreio.html?code=${order.code}\n*Obrigado pela compra!*`;
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const freteMsg = subtotal >= 299 ? 'Gratis' : 'R$ 39,90';
+      lastOrderSummary = `*PEDIDO ELITE STEP*\n----------------------------\n${resumo}\n----------------------------\nFrete: ${freteMsg}\n${cupomApplied ? 'Cupom ELITE10 (-10%)\n' : ''}${payMethod === 'pix' ? 'Pix (-5%)\n' : ''}Total: ${formatPrice(total)}\n----------------------------\n*Entrega:*\n${custData.nome}\n${custData.rua}, ${custData.numero} - ${custData.bairro}\n${custData.cidade} - ${custData.uf}, CEP ${custData.cep}\n----------------------------\n*Obrigado pela compra!*`;
 
       document.querySelectorAll(".checkout-step").forEach(s => s.style.display = "none");
       document.getElementById("stepSuccess").style.display = "block";
       document.querySelectorAll(".step-indicator").forEach(i => i.classList.add("active"));
-      document.getElementById("orderCodeDisplay").innerHTML =
-        `Codigo do pedido: <strong>${order.code}</strong><br><small>Guarde esse codigo para rastrear a entrega.</small>`;
-      document.getElementById("trackOrderBtn").onclick = () => {
-        window.location.href = `rastreio.html?code=${encodeURIComponent(order.code)}`;
-      };
       checkoutModal.scrollTop = 0;
       cart = [];
       cupomApplied = false;

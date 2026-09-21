@@ -6,6 +6,8 @@
   <meta name="description" content="Rastreie seu pedido Elite Step informando o codigo de rastreio.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'><path fill='%23ff0040' d='M416 0C352.3 0 256 32 256 32l0 128c48 0 76 16 104 32s56 32 104 32c56.4 0 176-16 176-96S512 0 416 0zM128 96c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64zM288 512c96 0 224-48 224-128s-119.6-96-176-96c-48 0-76 16-104 32s-56 32-104 32l0 128s96.3 32 160 32zM0 416c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64z'/></svg>">
   <title>Rastrear Pedido - ELITE STEP</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
@@ -50,10 +52,6 @@
       <div class="tracking-result" id="trackResult" style="display:none">
         <!-- Preenchido via JS -->
       </div>
-
-      <div class="tracking-result" id="ordersList" style="margin-top:20px">
-        <!-- Meus pedidos neste navegador -->
-      </div>
     </div>
   </section>
 
@@ -95,11 +93,14 @@
     const trackInput = document.getElementById("trackCode");
     const trackBtn = document.getElementById("trackBtn");
     const trackResult = document.getElementById("trackResult");
-    const ordersList = document.getElementById("ordersList");
 
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    }
+    const statuses = [
+      { label: "Pedido confirmado", done: true },
+      { label: "Pagamento aprovado", done: true },
+      { label: "Em transito", done: true },
+      { label: "Saiu para entrega", done: false },
+      { label: "Entregue", done: false }
+    ];
 
     function trackOrder() {
       const code = trackInput.value.trim();
@@ -107,56 +108,21 @@
         showToast("Digite um codigo de pedido!");
         return;
       }
-      const order = getOrderByCode(code);
       trackResult.style.display = "block";
-      if (!order) {
-        trackResult.innerHTML = `
-          <h3>Codigo: <span>${escapeHtml(code)}</span></h3>
-          <p class="track-note">Pedido nao encontrado neste navegador. Confira o codigo no formato <strong>ES-2026-XXXX</strong> ou finalize uma compra no carrinho para gerar um pedido real.</p>
-        `;
-        return;
-      }
-      const timeline = getOrderTimeline(order);
-      const date = new Date(order.createdAt).toLocaleString('pt-BR');
-      const items = order.items.map((i) => `${escapeHtml(i.name)} (Tam ${escapeHtml(i.size)}) x ${i.qty}`).join('<br>');
       trackResult.innerHTML = `
-        <h3>Codigo: <span>${escapeHtml(order.code)}</span></h3>
-        <p class="track-note">Feito em ${date} &bull; ${order.items.reduce((s, i) => s + i.qty, 0)} itens &bull; Total ${formatPrice(order.total)}</p>
+        <h3>Codigo: <span>${code}</span></h3>
         <div class="track-status-list">
-          ${timeline.map((s) => `
+          ${statuses.map((s, i) => `
             <div class="track-status ${s.done ? 'done' : 'pending'}">
               <span class="track-status-dot">${s.done ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-circle"></i>'}</span>
               <div>
                 <strong>${s.label}</strong>
-                <small>${s.done ? 'Concluido' : 'Aguardando'}</small>
+                <small>${s.done ? 'Concluido' : 'Aguardando'}${i === 2 ? ' - previsao: 3 dias uteis' : ''}</small>
               </div>
             </div>
           `).join('')}
         </div>
-        <p class="track-note"><strong>Itens:</strong><br>${items}</p>
-        <p class="track-note">Entrega para ${escapeHtml(order.customer.nome)} - ${escapeHtml(order.customer.cidade)}/${escapeHtml(order.customer.uf)}.</p>
-      `;
-    }
-
-    function renderOrdersList() {
-      const orders = loadOrders();
-      if (!orders.length) {
-        ordersList.innerHTML = `<p class="track-note">Nenhum pedido feito neste navegador ainda. Finalize uma compra para ver aqui.</p>`;
-        return;
-      }
-      ordersList.innerHTML = `
-        <h3>MEUS PEDIDOS NESTE NAVEGADOR (${orders.length})</h3>
-        <div class="track-status-list">
-          ${orders.map((o) => `
-            <div class="track-status done" style="cursor:pointer" onclick="document.getElementById('trackCode').value='${o.code}';document.getElementById('trackBtn').click();window.scrollTo({top:0,behavior:'smooth'})">
-              <span class="track-status-dot"><i class="fa-solid fa-box"></i></span>
-              <div>
-                <strong>${escapeHtml(o.code)}</strong>
-                <small>${new Date(o.createdAt).toLocaleString('pt-BR')} - ${formatPrice(o.total)} - clique para rastrear</small>
-              </div>
-            </div>
-          `).join('')}
-        </div>
+        <p class="track-note">Em caso de duvidas, entre em contato pelo nosso FAQ ou fale conosco.</p>
       `;
     }
 
@@ -164,12 +130,6 @@
     trackInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") trackOrder();
     });
-
-    // Suporte a rastreio.html?code=ES-2026-XXXX vindo do checkout
-    const urlCode = new URLSearchParams(window.location.search).get("code");
-    if (urlCode) trackInput.value = urlCode;
-    renderOrdersList();
-    if (urlCode) trackOrder();
   </script>
 </body>
 </html>

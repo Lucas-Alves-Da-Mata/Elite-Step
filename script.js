@@ -810,52 +810,6 @@ function formatPrice(val) {
   return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
-// ===== ORDERS (checkout -> rastreio) =====
-function loadOrders() {
-  try { return JSON.parse(localStorage.getItem("eliteOrders")) || []; } catch { return []; }
-}
-function saveOrders(orders) {
-  localStorage.setItem("eliteOrders", JSON.stringify(orders));
-}
-function generateOrderCode() {
-  const year = new Date().getFullYear();
-  const rand = Math.floor(1000 + Math.random() * 9000);
-  return `ES-${year}-${rand}`;
-}
-function createOrder({ items, subtotal, frete, total, payMethod, custData, cupomApplied }) {
-  const orders = loadOrders();
-  let code = generateOrderCode();
-  while (orders.some(o => o.code === code)) code = generateOrderCode();
-  const order = {
-    code,
-    createdAt: Date.now(),
-    items: items.map(i => ({ id: i.id, name: i.name, brand: i.brand, image: i.image, price: i.price, size: i.size, color: i.color, qty: i.qty })),
-    subtotal, frete, total, payMethod,
-    cupom: cupomApplied ? "ELITE10" : null,
-    customer: { ...custData }
-  };
-  orders.unshift(order);
-  saveOrders(orders);
-  return order;
-}
-function getOrderByCode(code) {
-  if (!code) return null;
-  const q = String(code).trim().toUpperCase();
-  return loadOrders().find(o => o.code.toUpperCase() === q) || null;
-}
-// Timeline evolui com o tempo real para o rastreio parecer vivo.
-// <1h: confirmado+pagamento | <24h: +em transito | <72h: +saiu p/ entrega | >=72h: entregue
-function getOrderTimeline(order) {
-  const elapsed = Date.now() - order.createdAt;
-  const h1 = 60 * 60 * 1000;
-  let level = 1;
-  if (elapsed >= 72 * h1) level = 4;
-  else if (elapsed >= 24 * h1) level = 3;
-  else if (elapsed >= 1 * h1) level = 2;
-  const labels = ["Pedido confirmado", "Pagamento aprovado", "Em transito", "Saiu para entrega", "Entregue"];
-  return labels.map((label, i) => ({ label, done: i <= level }));
-}
-
 // ===== DOM (guarded for use across pages) =====
 const productsGrid = document.getElementById("productsGrid");
 const cartBtn = document.getElementById("cartBtn");
@@ -1146,6 +1100,23 @@ if (searchInput) {
   });
 }
 
+// Busca do header sincronizada com a busca do grid
+const headerSearch = document.getElementById("headerSearch");
+if (headerSearch) {
+  headerSearch.addEventListener("input", () => {
+    searchTerm = headerSearch.value.trim();
+    if (searchInput && searchInput.value !== headerSearch.value) searchInput.value = headerSearch.value;
+    const target = document.getElementById("produtos");
+    renderProducts(currentCategory);
+  });
+  headerSearch.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const target = document.getElementById("produtos");
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
+
 if (brandSelect) {
   brandSelect.addEventListener("change", () => {
     brandFilter = brandSelect.value;
@@ -1392,3 +1363,33 @@ document.querySelectorAll(".sobre-card, .banner, .contact-form").forEach(el => {
   el.style.transition = "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
   observer.observe(el);
 });
+
+// ===== AUTH UI (login/cadastro) =====
+function getSession() {
+  try { return JSON.parse(localStorage.getItem("eliteSession") || "null"); } catch { return null; }
+}
+function updateAuthUI() {
+  const sess = getSession();
+  const link = document.getElementById("authLink");
+  if (link) link.textContent = sess ? (sess.name ? sess.name.split(" ")[0] : "Conta") : "Entrar";
+  const btn = document.getElementById("authBtn");
+  if (btn) {
+    btn.setAttribute("aria-label", sess ? "Minha conta" : "Entrar");
+    btn.innerHTML = sess ? '<i class="fa-solid fa-user-check"></i>' : '<i class="fa-solid fa-user"></i>';
+  }
+  // Injeta botão de conta no header de páginas antigas que não têm
+  if (!btn) {
+    const actions = document.querySelector(".header-actions");
+    const toggle = document.getElementById("themeToggle");
+    if (actions && toggle && !document.getElementById("authBtnInjected")) {
+      const a = document.createElement("a");
+      a.href = "login.html";
+      a.className = "cart-btn";
+      a.id = "authBtnInjected";
+      a.setAttribute("aria-label", sess ? "Minha conta" : "Entrar");
+      a.innerHTML = sess ? '<i class="fa-solid fa-user-check"></i>' : '<i class="fa-solid fa-user"></i>';
+      actions.insertBefore(a, toggle);
+    }
+  }
+}
+updateAuthUI();

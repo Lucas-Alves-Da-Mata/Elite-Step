@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Finalize seu pedido com segurança. Elite Step - Checkout.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'><path fill='%23ff0040' d='M416 0C352.3 0 256 32 256 32l0 128c48 0 76 16 104 32s56 32 104 32c56.4 0 176-16 176-96S512 0 416 0zM128 96c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64zM288 512c96 0 224-48 224-128s-119.6-96-176-96c-48 0-76 16-104 32s-56 32-104 32l0 128s96.3 32 160 32zM0 416c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64z'/></svg>">
+  <title>Checkout - ELITE STEP</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Produtos</a>
+        <a href="favoritos.html" class="nav-link">Favoritos</a>
+        <a href="carrinho.html" class="nav-link">Carrinho</a>
+        <a href="checkout.html" class="nav-link nav-active">Checkout</a>
+        <a href="login.html" class="nav-link" id="authLink">Entrar</a>
+      </nav>
+      <div class="header-actions">
+        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+        <a href="login.html" class="cart-btn" id="authBtn" aria-label="Conta"><i class="fa-solid fa-user"></i></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="container">
+      <h1 class="page-title"><i class="fa-solid fa-lock fa-title-icon"></i> CHECKOUT</h1>
+      <p class="page-subtitle" id="checkoutSubtitle">Finalize seu pedido em 3 passos.</p>
+
+      <div class="checkout-steps">
+        <div class="step-indicator active" data-step="1"><span class="step-num"><i class="fa-solid fa-location-dot"></i></span><span class="step-label">1 · Endereço</span></div>
+        <div class="step-line"><span class="step-line-fill" id="lineFill1"></span></div>
+        <div class="step-indicator" data-step="2"><span class="step-num"><i class="fa-solid fa-credit-card"></i></span><span class="step-label">2 · Pagamento</span></div>
+        <div class="step-line"><span class="step-line-fill" id="lineFill2"></span></div>
+        <div class="step-indicator" data-step="3"><span class="step-num"><i class="fa-solid fa-circle-check"></i></span><span class="step-label">3 · Confirmar</span></div>
+      </div>
+
+      <div class="checkout-page-layout" id="checkoutLayout">
+        <div class="checkout-main">
+          <div class="checkout-step" id="step1">
+            <div class="checkout-step-head">
+              <span class="checkout-step-icon"><i class="fa-solid fa-location-dot"></i></span>
+              <div>
+                <h2 class="checkout-title">ENDERECO DE ENTREGA</h2>
+                <p class="checkout-step-desc">Onde você quer receber seu pedido? Entrega rápida e rastreada.</p>
+              </div>
+            </div>
+            <div id="loggedInfo" class="pay-method-info" style="display:none;margin-bottom:14px"></div>
+            <h3 class="field-group-title"><i class="fa-solid fa-user"></i> Dados pessoais</h3>
+            <div class="checkout-grid-2">
+              <div class="form-field"><label for="cNome">Nome completo *</label><input type="text" id="cNome" placeholder="Ex: Lucas Alves" autocomplete="name"></div>
+              <div class="form-field"><label for="cCpf">CPF *</label><input type="text" id="cCpf" placeholder="000.000.000-00" inputmode="numeric"></div>
+            </div>
+            <div class="checkout-grid-2">
+              <div class="form-field"><label for="cTel">WhatsApp *</label><input type="tel" id="cTel" placeholder="(11) 99999-9999" autocomplete="tel"></div>
+              <div class="form-field"><label for="cEmail">E-mail *</label><input type="email" id="cEmail" placeholder="voce@email.com" autocomplete="email"></div>
+            </div>
+            <h3 class="field-group-title"><i class="fa-solid fa-truck-fast"></i> Endereço</h3>
+            <div class="checkout-grid-2">
+              <div class="form-field"><label for="cCep">CEP *</label><input type="text" id="cCep" placeholder="00000-000" inputmode="numeric"></div>
+              <div class="form-field"><label for="cCidade">Cidade *</label><input type="text" id="cCidade" placeholder="São Paulo"></div>
+            </div>
+            <div class="checkout-grid-2">
+              <div class="form-field"><label for="cRua">Rua / Avenida *</label><input type="text" id="cRua" placeholder="Av. Paulista"></div>
+              <div class="form-field"><label for="cNumero">Número *</label><input type="text" id="cNumero" placeholder="1000"></div>
+            </div>
+            <div class="checkout-grid-2">
+              <div class="form-field"><label for="cBairro">Bairro *</label><input type="text" id="cBairro" placeholder="Bela Vista"></div>
+              <div class="form-field"><label for="cUf">UF *</label><input type="text" id="cUf" placeholder="SP" maxlength="2"></div>
+            </div>
+            <div class="form-field"><label for="cComplemento">Complemento</label><input type="text" id="cComplemento" placeholder="Apto, bloco (opcional)"></div>
+            <button class="btn btn-primary btn-full" id="goStep2">CONTINUAR PARA PAGAMENTO →</button>
+            <p class="secure-note"><i class="fa-solid fa-shield-halved"></i> Seus dados estão protegidos e nunca são compartilhados.</p>
+          </div>
+
+          <div class="checkout-step" id="step2" style="display:none">
+            <div class="checkout-step-head">
+              <span class="checkout-step-icon"><i class="fa-solid fa-credit-card"></i></span>
+              <div>
+                <h2 class="checkout-title">FORMA DE PAGAMENTO</h2>
+                <p class="checkout-step-desc">Escolha como pagar. Pix tem 5% OFF à vista.</p>
+              </div>
+            </div>
+            <label class="pay-option active" data-pay="card">
+              <input type="radio" name="pagamento" value="card" checked>
+              <span class="pay-icon"><i class="fa-solid fa-credit-card"></i></span>
+              <div class="pay-info"><strong>Cartão de Crédito <span class="pay-badge">até 12x</span></strong><small>Visa, Master, Elo e mais</small></div>
+              <span class="pay-check"><i class="fa-solid fa-check"></i></span>
+            </label>
+            <label class="pay-option pay-pix" data-pay="pix">
+              <input type="radio" name="pagamento" value="pix">
+              <span class="pay-icon"><i class="fa-solid fa-bolt"></i></span>
+              <div class="pay-info"><strong>Pix <span class="pay-badge pay-badge-green">-5% hoje</span></strong><small>Aprovação imediata</small></div>
+              <span class="pay-check"><i class="fa-solid fa-check"></i></span>
+            </label>
+            <label class="pay-option" data-pay="boleto">
+              <input type="radio" name="pagamento" value="boleto">
+              <span class="pay-icon"><i class="fa-solid fa-file-invoice"></i></span>
+              <div class="pay-info"><strong>Boleto Bancário</strong><small>Compensa em até 2 dias úteis</small></div>
+              <span class="pay-check"><i class="fa-solid fa-check"></i></span>
+            </label>
+            <div id="cardInfo" class="card-info">
+              <h3 class="card-info-title"><i class="fa-solid fa-lock"></i> DADOS DO CARTÃO</h3>
+              <div class="form-field"><label for="cardNum">Número do cartão *</label><input type="text" id="cardNum" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric"></div>
+              <div class="form-field"><label for="cardNome">Nome impresso *</label><input type="text" id="cardNome" placeholder="Como está no cartão"></div>
+              <div class="checkout-grid-3">
+                <div class="form-field"><label for="cardVal">Validade *</label><input type="text" id="cardVal" placeholder="MM/AA" maxlength="5"></div>
+                <div class="form-field"><label for="cardCvv">CVV *</label><input type="text" id="cardCvv" placeholder="123" maxlength="4" inputmode="numeric"></div>
+                <div class="form-field"><label for="cardParcelas">Parcelas</label>
+                  <select id="cardParcelas">
+                    <option value="1">1x sem juros</option>
+                    <option value="2">2x sem juros</option>
+                    <option value="3">3x sem juros</option>
+                    <option value="4">4x sem juros</option>
+                    <option value="6">6x sem juros</option>
+                    <option value="12">12x com juros</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="pixInfo" class="pay-method-info" style="display:none"><p><i class="fa-solid fa-bolt"></i> Um código Pix será gerado na confirmação com 5% de desconto.</p></div>
+            <div id="boletoInfo" class="pay-method-info" style="display:none"><p><i class="fa-solid fa-file-invoice"></i> Um boleto será gerado na confirmação.</p></div>
+            <div class="checkout-nav">
+              <button class="btn btn-secondary" id="backStep1">← VOLTAR</button>
+              <button class="btn btn-primary" id="goStep3">REVISAR PEDIDO</button>
+            </div>
+          </div>
+
+          <div class="checkout-step" id="step3" style="display:none">
+            <div class="checkout-step-head">
+              <span class="checkout-step-icon"><i class="fa-solid fa-circle-check"></i></span>
+              <div>
+                <h2 class="checkout-title">CONFIRME SEU PEDIDO</h2>
+                <p class="checkout-step-desc">Confira tudo antes de pagar. Você pode voltar e editar.</p>
+              </div>
+            </div>
+            <div class="confirm-card">
+              <div class="confirm-card-head"><span><i class="fa-solid fa-location-dot"></i> ENTREGA</span><button class="mini-edit" id="editAddress">Editar</button></div>
+              <div class="confirm-address" id="confirmAddress"></div>
+            </div>
+            <div class="confirm-card">
+              <div class="confirm-card-head"><span><i class="fa-solid fa-credit-card"></i> PAGAMENTO</span><button class="mini-edit" id="editPay">Editar</button></div>
+              <div class="confirm-pay" id="confirmPay"></div>
+            </div>
+            <div class="confirm-total"><span>Total a pagar</span><strong id="confirmTotal">R$ 0,00</strong></div>
+            <div class="checkout-nav">
+              <button class="btn btn-secondary" id="backStep2">← VOLTAR</button>
+              <button class="btn btn-primary" id="finalizeBtn"><i class="fa-solid fa-lock"></i> PAGAR AGORA</button>
+            </div>
+            <p class="secure-note"><i class="fa-solid fa-shield-halved"></i> Compra 100% segura · Troca fácil em 30 dias</p>
+          </div>
+
+          <div class="checkout-step" id="stepSuccess" style="display:none">
+            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+            <h2 class="checkout-title success-title">PEDIDO CONFIRMADO!</h2>
+            <p class="success-text">Obrigado por comprar na Elite Step. Compartilhe seu pedido:</p>
+            <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px"><i class="fa-brands fa-whatsapp"></i> ENVIAR VIA WHATSAPP</button>
+            <a href="index.html" class="btn btn-primary btn-full" style="display:block;text-align:center">CONTINUAR COMPRANDO</a>
+          </div>
+        </div>
+
+        <aside class="cart-summary" id="checkoutSummary">
+          <h3>RESUMO</h3>
+          <div id="checkoutItems" style="margin-bottom:14px"></div>
+          <div class="summary-row"><span>Subtotal</span><span id="summarySubtotal">R$ 0,00</span></div>
+          <div class="summary-row"><span>Frete</span><span id="summaryFrete">-</span></div>
+          <div class="summary-row"><span>Cupom</span><span id="summaryCupom">-</span></div>
+          <div class="summary-row summary-total"><span>TOTAL</span><span id="summaryTotal">R$ 0,00</span></div>
+          <div class="summary-cupom">
+            <input type="text" id="cupomInput" placeholder="Cupom (tente ELITE10)">
+            <button class="btn btn-secondary" id="cupomBtn">APLICAR</button>
+          </div>
+          <a href="carrinho.html" class="continue-link">← Voltar ao carrinho</a>
+        </aside>
+      </div>
+
+      <div class="empty-state" id="checkoutEmpty" style="display:none">
+        <span class="empty-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+        <h2>Seu carrinho esta vazio</h2>
+        <p>Adicione tenis antes de ir ao checkout.</p>
+        <a href="index.html" class="btn btn-primary">VER PRODUTOS</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    let payMethod = "card";
+    let custData = {};
+    let cupomApplied = false;
+    let lastOrderSummary = "";
+
+    function getSubtotal() { return cart.reduce((s, i) => s + i.price * i.qty, 0); }
+    function getFrete() { return getSubtotal() >= 299 ? 0 : 39.90; }
+    function getTotal() {
+      const sub = getSubtotal();
+      let t = sub + getFrete();
+      if (cupomApplied) t -= sub * 0.10;
+      if (payMethod === "pix") t -= sub * 0.05;
+      return t;
+    }
+
+    function showStep(n) {
+      document.querySelectorAll(".checkout-main .checkout-step").forEach(s => s.style.display = "none");
+      document.getElementById("step" + n).style.display = "block";
+      const num = n === "Success" ? 4 : Number(n);
+      document.querySelectorAll(".step-indicator").forEach((ind, i) => {
+        ind.classList.toggle("active", i === num - 1);
+        ind.classList.toggle("done", i < num - 1);
+      });
+      const f1 = document.getElementById("lineFill1");
+      const f2 = document.getElementById("lineFill2");
+      if (f1) f1.style.width = num >= 2 ? "100%" : "0%";
+      if (f2) f2.style.width = num >= 3 ? "100%" : "0%";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderSummary() {
+      if (!cart.length) {
+        document.getElementById("checkoutLayout").style.display = "none";
+        document.getElementById("checkoutEmpty").style.display = "block";
+        return;
+      }
+      document.getElementById("checkoutItems").innerHTML = cart.map(i =>
+        `<div class="summary-row"><span>${i.name} (Tam ${i.size}) x ${i.qty}</span><span>${formatPrice(i.price * i.qty)}</span></div>`
+      ).join("");
+      document.getElementById("summarySubtotal").textContent = formatPrice(getSubtotal());
+      document.getElementById("summaryFrete").textContent = getFrete() === 0 ? "Gratis" : formatPrice(getFrete());
+      document.getElementById("summaryCupom").textContent = cupomApplied ? "-" + formatPrice(getSubtotal() * 0.10) : "-";
+      document.getElementById("summaryTotal").textContent = formatPrice(getTotal());
+      document.getElementById("checkoutSubtitle").textContent = `${cart.reduce((s, i) => s + i.qty, 0)} itens no pedido.`;
+    }
+
+    // Prefill com usuário logado
+    (function prefill() {
+      try {
+        const sess = JSON.parse(localStorage.getItem("eliteSession") || "null");
+        if (sess) {
+          if (sess.name) document.getElementById("cNome").value = sess.name;
+          if (sess.email) document.getElementById("cEmail").value = sess.email;
+          const info = document.getElementById("loggedInfo");
+          info.style.display = "block";
+          info.innerHTML = `Logado como <strong>${sess.name || sess.email}</strong>. <a href="login.html" style="text-decoration:underline">Trocar conta</a>`;
+        }
+      } catch (e) {}
+    })();
+
+    document.getElementById("cupomBtn").addEventListener("click", () => {
+      const v = document.getElementById("cupomInput").value.trim().toUpperCase();
+      if (cupomApplied) return;
+      if (v === "ELITE10") { cupomApplied = true; renderSummary(); showToast("Cupom ELITE10 aplicado!"); }
+      else if (v) showToast("Cupom invalido!");
+    });
+
+    document.querySelectorAll(".pay-option").forEach(opt => {
+      opt.addEventListener("click", () => {
+        document.querySelectorAll(".pay-option").forEach(o => o.classList.remove("active"));
+        opt.classList.add("active");
+        payMethod = opt.dataset.pay;
+        document.getElementById("cardInfo").style.display = payMethod === "card" ? "block" : "none";
+        document.getElementById("pixInfo").style.display = payMethod === "pix" ? "block" : "none";
+        document.getElementById("boletoInfo").style.display = payMethod === "boleto" ? "block" : "none";
+        renderSummary();
+      });
+    });
+
+    // Máscaras simples
+    document.getElementById("cardNum").addEventListener("input", function() {
+      const val = this.value.replace(/\D/g, "").slice(0, 16);
+      this.value = (val.match(/.{1,4}/g) || []).join(" ");
+    });
+    document.getElementById("cardVal").addEventListener("input", function() {
+      let v = this.value.replace(/\D/g, "").slice(0, 4);
+      if (v.length > 2) v = v.slice(0, 2) + "/" + v.slice(2);
+      this.value = v;
+    });
+    document.getElementById("cardCvv").addEventListener("input", function() { this.value = this.value.replace(/\D/g, "").slice(0, 4); });
+    document.getElementById("cCep").addEventListener("input", function() { this.value = this.value.replace(/\D/g, "").slice(0, 8); });
+    document.getElementById("cCpf").addEventListener("input", function() {
+      let v = this.value.replace(/\D/g, "").slice(0, 11);
+      if (v.length > 9) this.value = v.slice(0,3)+"."+v.slice(3,6)+"."+v.slice(6,9)+"-"+v.slice(9);
+      else if (v.length > 6) this.value = v.slice(0,3)+"."+v.slice(3,6)+"."+v.slice(6);
+      else if (v.length > 3) this.value = v.slice(0,3)+"."+v.slice(3);
+      else this.value = v;
+    });
+
+    function validarCPF(cpf) {
+      const s = cpf.replace(/\D/g, "");
+      if (s.length !== 11 || /^(\d)\1{10}$/.test(s)) return false;
+      return true;
+    }
+
+    document.getElementById("goStep2").addEventListener("click", () => {
+      const req = ["cNome","cCpf","cTel","cEmail","cCep","cCidade","cRua","cNumero","cBairro","cUf"];
+      for (const id of req) {
+        if (!document.getElementById(id).value.trim()) { showToast("Preencha todos os campos!"); document.getElementById(id).focus(); return; }
+      }
+      if (document.getElementById("cCep").value.replace(/\D/g,"").length !== 8) { showToast("CEP invalido!"); return; }
+      if (!validarCPF(document.getElementById("cCpf").value)) { showToast("CPF invalido!"); return; }
+      custData = Object.fromEntries(req.concat(["cComplemento"]).map(id => [id, document.getElementById(id).value.trim()]));
+      custData.nome = custData.cNome; custData.email = custData.cEmail;
+      showStep(2);
+    });
+    document.getElementById("backStep1").addEventListener("click", () => showStep(1));
+    document.getElementById("goStep3").addEventListener("click", () => {
+      if (payMethod === "card") {
+        if (document.getElementById("cardNum").value.replace(/\s/g,"").length < 16) { showToast("Cartao incompleto!"); return; }
+        if (!document.getElementById("cardNome").value.trim()) { showToast("Nome no cartao!"); return; }
+        if (document.getElementById("cardVal").value.length < 5) { showToast("Validade invalida!"); return; }
+        if (document.getElementById("cardCvv").value.length < 3) { showToast("CVV invalido!"); return; }
+      }
+      const total = getTotal();
+      document.getElementById("confirmTotal").textContent = formatPrice(total);
+      document.getElementById("confirmAddress").innerHTML = `<strong>ENTREGA</strong><p>${custData.cNome} - ${custData.cCpf}</p><p>${custData.cRua}, ${custData.cNumero} - ${custData.cBairro}, ${custData.cCidade}/${custData.cUf}</p><p>CEP ${custData.cCep}</p>`;
+      document.getElementById("confirmPay").innerHTML = payMethod === "card"
+        ? `<strong>PAGAMENTO</strong><p>Cartao **** ${document.getElementById("cardNum").value.slice(-4)} em ${document.getElementById("cardParcelas").value}x</p>`
+        : payMethod === "pix" ? `<strong>PAGAMENTO</strong><p>Pix com 5% OFF</p>` : `<strong>PAGAMENTO</strong><p>Boleto bancario</p>`;
+      showStep(3);
+    });
+    document.getElementById("backStep2").addEventListener("click", () => showStep(2));
+    const editA = document.getElementById("editAddress");
+    if (editA) editA.addEventListener("click", () => showStep(1));
+    const editP = document.getElementById("editPay");
+    if (editP) editP.addEventListener("click", () => showStep(2));
+
+    document.getElementById("finalizeBtn").addEventListener("click", () => {
+      const total = getTotal();
+      const resumo = cart.map(i => `${i.name} (Tam ${i.size}) x ${i.qty} = ${formatPrice(i.price * i.qty)}`).join("\n");
+      lastOrderSummary = `*PEDIDO ELITE STEP*\n${resumo}\nTotal: ${formatPrice(total)}\n${custData.cNome} - ${custData.cCidade}/${custData.cUf}`;
+      showStep("Success");
+      cart = []; saveCart(); updateCounts(); renderSummary();
+      document.getElementById("checkoutSummary").style.display = "none";
+    });
+    document.getElementById("shareWhatsBtn").addEventListener("click", () => {
+      if (lastOrderSummary) window.open("https://wa.me/?text=" + encodeURIComponent(lastOrderSummary), "_blank");
+    });
+
+    renderSummary();
+    showStep(1);
+  </script>
+</body>
+</html>
