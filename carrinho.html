@@ -257,6 +257,8 @@
         <div class="success-icon"><i class="fa-solid fa-check"></i></div>
         <h2 class="checkout-title success-title">PAGAMENTO REALIZADO!</h2>
         <p class="success-text">Seu pedido foi confirmado com sucesso. Obrigado por comprar na Elite Step!</p>
+        <p class="success-text" id="orderCodeDisplay" style="font-weight:700"></p>
+        <button class="btn btn-secondary btn-full" id="trackOrderBtn" style="margin-bottom:10px"><i class="fa-solid fa-box"></i> RASTREAR MEU PEDIDO</button>
         <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px"><i class="fa-brands fa-whatsapp"></i> ENVIAR PEDIDO VIA WHATSAPP</button>
         <button class="btn btn-primary btn-full" id="doneBtn">CONTINUAR COMPRANDO</button>
       </div>
@@ -541,16 +543,26 @@
 
     document.getElementById("finalizeBtn").addEventListener("click", () => {
       const total = getTotal();
-      const resumo = cart.map((item) =>
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const frete = subtotal >= 299 ? 0 : 39.90;
+      const itemsSnapshot = cart.map((i) => ({ ...i }));
+
+      // Cria pedido real e persiste para o rastreio
+      const order = createOrder({ items: itemsSnapshot, subtotal, frete, total, payMethod, custData, cupomApplied });
+      const freteMsg = frete === 0 ? 'Gratis' : formatPrice(frete);
+      const resumo = itemsSnapshot.map((item) =>
         `${item.name} (Tam ${item.size}) x ${item.qty} = ${formatPrice(item.price * item.qty)}`
       ).join('\n');
-      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-      const freteMsg = subtotal >= 299 ? 'Gratis' : 'R$ 39,90';
-      lastOrderSummary = `*PEDIDO ELITE STEP*\n----------------------------\n${resumo}\n----------------------------\nFrete: ${freteMsg}\n${cupomApplied ? 'Cupom ELITE10 (-10%)\n' : ''}${payMethod === 'pix' ? 'Pix (-5%)\n' : ''}Total: ${formatPrice(total)}\n----------------------------\n*Entrega:*\n${custData.nome}\n${custData.rua}, ${custData.numero} - ${custData.bairro}\n${custData.cidade} - ${custData.uf}, CEP ${custData.cep}\n----------------------------\n*Obrigado pela compra!*`;
+      lastOrderSummary = `*PEDIDO ELITE STEP*\nCodigo: ${order.code}\n----------------------------\n${resumo}\n----------------------------\nFrete: ${freteMsg}\n${cupomApplied ? 'Cupom ELITE10 (-10%)\n' : ''}${payMethod === 'pix' ? 'Pix (-5%)\n' : ''}Total: ${formatPrice(total)}\n----------------------------\n*Entrega:*\n${custData.nome}\n${custData.rua}, ${custData.numero} - ${custData.bairro}\n${custData.cidade} - ${custData.uf}, CEP ${custData.cep}\n----------------------------\nRastreie em: rastreio.html?code=${order.code}\n*Obrigado pela compra!*`;
 
       document.querySelectorAll(".checkout-step").forEach(s => s.style.display = "none");
       document.getElementById("stepSuccess").style.display = "block";
       document.querySelectorAll(".step-indicator").forEach(i => i.classList.add("active"));
+      document.getElementById("orderCodeDisplay").innerHTML =
+        `Codigo do pedido: <strong>${order.code}</strong><br><small>Guarde esse codigo para rastrear a entrega.</small>`;
+      document.getElementById("trackOrderBtn").onclick = () => {
+        window.location.href = `rastreio.html?code=${encodeURIComponent(order.code)}`;
+      };
       checkoutModal.scrollTop = 0;
       cart = [];
       cupomApplied = false;
