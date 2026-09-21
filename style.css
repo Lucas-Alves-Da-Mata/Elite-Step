@@ -130,10 +130,11 @@ body[data-theme="light"] .contato {
   background: #f0f0f2;
 }
 body[data-theme="light"] .footer {
-  background: #18181b;
+  background: #ffffff;
+  border-top-color: rgba(0,0,0,0.08);
 }
 body[data-theme="light"] .footer-bottom {
-  background: #0f0f10;
+  background: #f0f0f2;
 }
 body[data-theme="light"] .cat-card {
   background: #fff;
