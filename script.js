@@ -810,6 +810,52 @@ function formatPrice(val) {
   return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
+// ===== ORDERS (checkout -> rastreio) =====
+function loadOrders() {
+  try { return JSON.parse(localStorage.getItem("eliteOrders")) || []; } catch { return []; }
+}
+function saveOrders(orders) {
+  localStorage.setItem("eliteOrders", JSON.stringify(orders));
+}
+function generateOrderCode() {
+  const year = new Date().getFullYear();
+  const rand = Math.floor(1000 + Math.random() * 9000);
+  return `ES-${year}-${rand}`;
+}
+function createOrder({ items, subtotal, frete, total, payMethod, custData, cupomApplied }) {
+  const orders = loadOrders();
+  let code = generateOrderCode();
+  while (orders.some(o => o.code === code)) code = generateOrderCode();
+  const order = {
+    code,
+    createdAt: Date.now(),
+    items: items.map(i => ({ id: i.id, name: i.name, brand: i.brand, image: i.image, price: i.price, size: i.size, color: i.color, qty: i.qty })),
+    subtotal, frete, total, payMethod,
+    cupom: cupomApplied ? "ELITE10" : null,
+    customer: { ...custData }
+  };
+  orders.unshift(order);
+  saveOrders(orders);
+  return order;
+}
+function getOrderByCode(code) {
+  if (!code) return null;
+  const q = String(code).trim().toUpperCase();
+  return loadOrders().find(o => o.code.toUpperCase() === q) || null;
+}
+// Timeline evolui com o tempo real para o rastreio parecer vivo.
+// <1h: confirmado+pagamento | <24h: +em transito | <72h: +saiu p/ entrega | >=72h: entregue
+function getOrderTimeline(order) {
+  const elapsed = Date.now() - order.createdAt;
+  const h1 = 60 * 60 * 1000;
+  let level = 1;
+  if (elapsed >= 72 * h1) level = 4;
+  else if (elapsed >= 24 * h1) level = 3;
+  else if (elapsed >= 1 * h1) level = 2;
+  const labels = ["Pedido confirmado", "Pagamento aprovado", "Em transito", "Saiu para entrega", "Entregue"];
+  return labels.map((label, i) => ({ label, done: i <= level }));
+}
+
 // ===== DOM (guarded for use across pages) =====
 const productsGrid = document.getElementById("productsGrid");
 const cartBtn = document.getElementById("cartBtn");
@@ -1134,6 +1180,9 @@ function applyTheme(theme) {
     if (themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
   }
   localStorage.setItem("eliteTheme", theme);
+  // Limpa o background inline do scroll para o CSS do tema assumir
+  const header = document.querySelector(".header");
+  if (header) header.style.background = "";
 }
 (function initTheme() {
   const saved = localStorage.getItem("eliteTheme");
@@ -1194,14 +1243,16 @@ function showToast(msg) {
 let lastScroll = 0;
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".header");
+  if (!header) return;
   const scrollY = window.scrollY;
+  const isLight = document.body.getAttribute("data-theme") === "light";
 
   if (scrollY > 100) {
     header.style.padding = "10px 0";
-    header.style.background = "rgba(13, 13, 13, 0.95)";
+    header.style.background = isLight ? "rgba(244, 244, 245, 0.97)" : "rgba(13, 13, 13, 0.95)";
   } else {
     header.style.padding = "16px 0";
-    header.style.background = "rgba(13, 13, 13, 0.85)";
+    header.style.background = isLight ? "rgba(244, 244, 245, 0.92)" : "rgba(13, 13, 13, 0.85)";
   }
 
   lastScroll = scrollY;
