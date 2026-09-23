@@ -16,6 +16,12 @@
 <body>
 <script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
+  <!-- FAIXA PROMOCIONAL -->
+  <div class="promo-bar" id="promoBar">
+    <p class="promo-text" id="promoText">MEGA SALE: até 90% OFF em modelos selecionados</p>
+    <button class="promo-close" id="promoClose" aria-label="Fechar aviso">&times;</button>
+  </div>
+
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
@@ -41,7 +47,7 @@
   <!-- DETALHES -->
   <section class="detalhes-page">
     <div class="container">
-      <a href="index.html" class="back-btn">← VOLTAR</a>
+      <a href="carrinho.html" class="back-btn" id="backBtn">← VOLTAR</a>
       <div class="detalhes-grid" id="detalhesContent">
         <!-- Preenchido via JS -->
       </div>
@@ -58,6 +64,32 @@
 
   <script src="script.js"></script>
   <script>
+    // Voltar inteligente: usa ?from= (funciona mesmo abrindo via arquivo), senão a página anterior
+    (function () {
+      const backBtn = document.getElementById("backBtn");
+      const from = new URLSearchParams(window.location.search).get("from");
+      if (from === "carrinho") {
+        backBtn.setAttribute("href", "carrinho.html");
+        return;
+      }
+      if (from === "favoritos") {
+        backBtn.setAttribute("href", "favoritos.html");
+        return;
+      }
+      const ref = document.referrer || "";
+      if (ref.includes("carrinho.html")) {
+        backBtn.setAttribute("href", "carrinho.html");
+      } else if (ref && ref.includes(window.location.host)) {
+        backBtn.setAttribute("href", ref);
+        backBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.history.back();
+        });
+      } else {
+        backBtn.setAttribute("href", "index.html");
+      }
+    })();
+
     const params = new URLSearchParams(window.location.search);
     const productId = Number(params.get("id"));
 
@@ -108,10 +140,23 @@
           <p class="frete-result" id="freteResult"></p>
           <div class="detalhes-options">
             <div class="option-group">
-              <label>TAMANHO</label>
+              <label>TAMANHO <span class="size-hint">— escolha o tamanho certo pro seu pé</span></label>
               <div class="sizes" id="detSizes">${p.sizes.map(s =>
                 `<button class="size-btn" data-size="${s}">${s}</button>`
               ).join('')}</div>
+              <details class="size-guide">
+                <summary><i class="fa-solid fa-ruler"></i> Guia de tamanhos — meça seu pé</summary>
+                <table>
+                  <tr><th>BR</th><th>Pé (cm)</th><th>BR</th><th>Pé (cm)</th></tr>
+                  <tr><td>34</td><td>22,0</td><td>40</td><td>25,7</td></tr>
+                  <tr><td>35</td><td>22,7</td><td>41</td><td>26,4</td></tr>
+                  <tr><td>36</td><td>23,3</td><td>42</td><td>27,1</td></tr>
+                  <tr><td>37</td><td>24,0</td><td>43</td><td>27,8</td></tr>
+                  <tr><td>38</td><td>24,4</td><td>44</td><td>28,5</td></tr>
+                  <tr><td>39</td><td>25,0</td><td>45/46</td><td>29,2+</td></tr>
+                </table>
+                <p class="size-tip">Dica: meça o pé à noite, do calcanhar ao dedão, e se estiver entre dois tamanhos escolha o maior.</p>
+              </details>
             </div>
             <div class="option-group">
               <label>COR</label>
@@ -126,7 +171,7 @@
             <button class="btn btn-secondary btn-full share-btn" onclick="shareProduct('${p.name}', '${p.id}')"><i class="fa-solid fa-share-nodes"></i> COMPARTILHAR</button>
           </div>
           <div class="detalhes-features">
-            <div class="feature"><span><i class="fa-solid fa-truck"></i></span> Frete gratis acima de R$ 299</div>
+            <div class="feature"><span><i class="fa-solid fa-truck"></i></span> Frete gratis acima de R$ 1.299</div>
             <div class="feature"><span><i class="fa-solid fa-arrows-rotate"></i></span> Troca gratis em 30 dias</div>
             <div class="feature"><span><i class="fa-solid fa-shield-halved"></i></span> Garantia de 1 ano</div>
             <div class="feature"><span><i class="fa-solid fa-credit-card"></i></span> Parcelamento em ate 12x</div>
@@ -191,7 +236,7 @@
         const cep = document.getElementById("freteCep").value.replace(/\D/g, "");
         const res = document.getElementById("freteResult");
         if (cep.length !== 8) { showToast("Digite um CEP com 8 números!"); return; }
-        const valor = p.price >= 299 ? "GRÁTIS" : formatPrice(39.90);
+        const valor = p.price >= 1299 ? "GRÁTIS" : formatPrice(39.90);
         const prazo = 2 + (Number(cep.slice(-1)) % 5);
         res.innerHTML = `<i class="bi bi-truck"></i> Frete para ${cep}: <strong>${valor}</strong> · entrega em até ${prazo} dias úteis`;
       });

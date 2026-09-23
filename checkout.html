@@ -16,6 +16,12 @@
 <body>
 <script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
+  <!-- FAIXA PROMOCIONAL -->
+  <div class="promo-bar" id="promoBar">
+    <p class="promo-text" id="promoText">MEGA SALE: até 90% OFF em modelos selecionados</p>
+    <button class="promo-close" id="promoClose" aria-label="Fechar aviso">&times;</button>
+  </div>
+
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
@@ -31,7 +37,7 @@
       <div class="header-actions">
         <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
         <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
-        <a href="login.html" class="cart-btn" id="authBtn" aria-label="Conta"><i class="fa-solid fa-user"></i></a>
+        <a href="login.html" class="login-text-btn" id="authBtn">ENTRAR</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
@@ -207,7 +213,7 @@
     let lastOrderSummary = "";
 
     function getSubtotal() { return cart.reduce((s, i) => s + i.price * i.qty, 0); }
-    function getFrete() { return getSubtotal() >= 299 ? 0 : 39.90; }
+    function getFrete() { return getSubtotal() >= 1299 ? 0 : 39.90; }
     function getTotal() {
       const sub = getSubtotal();
       let t = sub + getFrete();

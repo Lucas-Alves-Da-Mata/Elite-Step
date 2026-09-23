@@ -16,6 +16,12 @@
 <body>
 <script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
+  <!-- FAIXA PROMOCIONAL -->
+  <div class="promo-bar" id="promoBar">
+    <p class="promo-text" id="promoText">MEGA SALE: até 90% OFF em modelos selecionados</p>
+    <button class="promo-close" id="promoClose" aria-label="Fechar aviso">&times;</button>
+  </div>
+
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
@@ -42,7 +48,7 @@
   <section class="page-section">
     <div class="container">
       <h1 class="page-title"><i class="fa-solid fa-box fa-title-icon"></i> RASTREAR PEDIDO</h1>
-      <p class="page-subtitle">Digite o codigo do seu pedido para acompanhar o status da entrega.</p>
+      <p class="page-subtitle">Página de demonstração: digite qualquer código (ex: ES-2026-1234) para ver um exemplo de acompanhamento.</p>
 
       <div class="tracking-box">
         <input type="text" id="trackCode" placeholder="Ex: ES-2026-1234" aria-label="Codigo do pedido">
@@ -81,6 +87,17 @@
         <a href="#">Twitter / X</a>
         <a href="#">TikTok</a>
         <a href="#">YouTube</a>
+      </div>
+      <div class="footer-links">
+        <h4>Pagamento</h4>
+        <p class="pay-flags">
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-amex" title="Amex"></i>
+          <i class="fa-brands fa-pix" title="Pix"></i>
+          <i class="fa-solid fa-barcode" title="Boleto"></i>
+        </p>
+        <small class="footer-secure">Compra 100% segura</small>
       </div>
     </div>
     <div class="footer-bottom">
@@ -122,7 +139,7 @@
             </div>
           `).join('')}
         </div>
-        <p class="track-note">Em caso de duvidas, entre em contato pelo nosso FAQ ou fale conosco.</p>
+        <p class="track-note">Demonstração com status simulado. Em caso de duvidas, entre em contato pelo nosso FAQ ou fale conosco.</p>
       `;
     }
 

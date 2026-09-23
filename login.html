@@ -21,19 +21,8 @@
       <a href="index.html" class="logo">
         <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
-      <nav class="nav" id="nav">
-        <a href="index.html" class="nav-link">Produtos</a>
-        <a href="favoritos.html" class="nav-link">Favoritos</a>
-        <a href="carrinho.html" class="nav-link">Carrinho</a>
-        <a href="checkout.html" class="nav-link">Checkout</a>
-        <a href="login.html" class="nav-link nav-active" id="authLink">Entrar</a>
-        <a href="cadastro.html" class="nav-link">Cadastrar</a>
-      </nav>
       <div class="header-actions">
-        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
-        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
@@ -41,14 +30,14 @@
   <section class="page-section">
     <div class="container auth-wrap">
       <h1 class="page-title"><i class="fa-solid fa-user fa-title-icon"></i> ENTRAR</h1>
-      <p class="page-subtitle">Acesse sua conta. Novo por aqui? <a href="cadastro.html" style="color:var(--primary)">Crie sua conta grátis</a>.</p>
+      <p class="page-subtitle">Acesse sua conta.</p>
 
       <div class="auth-card" id="authCard">
         <form id="loginForm" class="auth-form">
           <div class="form-field"><input type="email" id="loginEmail" placeholder="Seu e-mail" autocomplete="email" required></div>
           <div class="form-field"><input type="password" id="loginPass" placeholder="Sua senha" autocomplete="current-password" required></div>
           <button type="submit" class="btn btn-primary btn-full">ENTRAR</button>
-          <p class="auth-hint">Não tem conta? <a href="cadastro.html" style="text-decoration:underline">Cadastre-se</a>.</p>
+          <p class="auth-switch">Novo por aqui? <a href="cadastro.html">Crie sua conta grátis</a></p>
         </form>
       </div>
 
@@ -70,6 +59,14 @@
     function getUsers() {
       try { return JSON.parse(localStorage.getItem("eliteUsers")) || []; } catch { return []; }
     }
+    async function hashPass(p) {
+      try {
+        const data = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("elite-step::" + p));
+        return "sha256:" + [...new Uint8Array(data)].map(b => b.toString(16).padStart(2, "0")).join("");
+      } catch (e) {
+        return "b64:" + btoa(p);
+      }
+    }
     function setSession(s) {
       if (s) localStorage.setItem("eliteSession", JSON.stringify(s));
       else localStorage.removeItem("eliteSession");
@@ -89,12 +86,21 @@
       }
     }
 
-    loginForm.addEventListener("submit", (e) => {
+    loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const email = document.getElementById("loginEmail").value.trim().toLowerCase();
       const pass = document.getElementById("loginPass").value;
-      const user = getUsers().find(u => u.email === email);
-      if (!user || user.pass !== btoa(pass)) { showToast("E-mail ou senha inválidos!"); return; }
+      const users = getUsers();
+      const user = users.find(u => u.email === email);
+      if (!user) { showToast("E-mail ou senha inválidos!"); return; }
+      // Aceita contas novas (SHA-256) e migra contas demo antigas (btoa)
+      let ok = user.pass === await hashPass(pass);
+      if (!ok && user.pass === btoa(pass)) {
+        ok = true;
+        user.pass = await hashPass(pass);
+        localStorage.setItem("eliteUsers", JSON.stringify(users));
+      }
+      if (!ok) { showToast("E-mail ou senha inválidos!"); return; }
       setSession({ name: user.name, email: user.email });
       showToast("Bem-vindo de volta!");
     });

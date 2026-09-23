@@ -18,23 +18,15 @@
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo"><span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP</a>
-      <nav class="nav" id="nav">
-        <a href="index.html" class="nav-link">Produtos</a>
-        <a href="carrinho.html" class="nav-link">Carrinho</a>
-        <a href="login.html" class="nav-link">Entrar</a>
-        <a href="cadastro.html" class="nav-link nav-active">Cadastrar</a>
-      </nav>
       <div class="header-actions">
-        <a href="login.html" class="cart-btn" aria-label="Conta"><i class="fa-solid fa-user"></i></a>
         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
   <section class="page-section">
     <div class="container auth-wrap">
       <h1 class="page-title"><i class="bi bi-person-plus fa-title-icon"></i> CRIAR CONTA</h1>
-      <p class="page-subtitle">Cadastro grátis em 30 segundos. Já tem conta? <a href="login.html" style="color:var(--primary)">Entre aqui</a>.</p>
+      <p class="page-subtitle">Cadastro grátis em 30 segundos.</p>
       <div class="auth-card">
         <form id="signupForm" class="auth-form">
           <div class="form-field"><input type="text" id="suName" placeholder="Nome completo" autocomplete="name" required minlength="2"></div>
@@ -44,6 +36,7 @@
             <div class="col-6"><div class="form-field"><input type="password" id="suPass2" placeholder="Repetir senha" autocomplete="new-password" required></div></div>
           </div>
           <button type="submit" class="btn btn-primary btn-full">CRIAR CONTA GRÁTIS</button>
+          <p class="auth-switch">Já tem conta? <a href="login.html">Acesse sua conta aqui</a></p>
           <p class="auth-hint"><i class="bi bi-shield-lock"></i> Dados salvos localmente (demo front-end).</p>
         </form>
       </div>
@@ -52,7 +45,16 @@
   <script src="script.js"></script>
   <script>
     function getUsers() { try { return JSON.parse(localStorage.getItem("eliteUsers")) || []; } catch { return []; } }
-    document.getElementById("signupForm").addEventListener("submit", (e) => {
+    // Hash SHA-256 da senha (com fallback para navegadores sem WebCrypto)
+    async function hashPass(p) {
+      try {
+        const data = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("elite-step::" + p));
+        return "sha256:" + [...new Uint8Array(data)].map(b => b.toString(16).padStart(2, "0")).join("");
+      } catch (e) {
+        return "b64:" + btoa(p);
+      }
+    }
+    document.getElementById("signupForm").addEventListener("submit", async (e) => {
       e.preventDefault();
       const name = document.getElementById("suName").value.trim();
       const email = document.getElementById("suEmail").value.trim().toLowerCase();
@@ -64,7 +66,7 @@
       if (p1 !== p2) { showToast("Senhas não conferem!"); return; }
       const users = getUsers();
       if (users.some(u => u.email === email)) { showToast("E-mail já cadastrado! Faça login."); window.location.href = "login.html"; return; }
-      users.push({ name, email, pass: btoa(p1), createdAt: Date.now() });
+      users.push({ name, email, pass: await hashPass(p1), createdAt: Date.now() });
       localStorage.setItem("eliteUsers", JSON.stringify(users));
       localStorage.setItem("eliteSession", JSON.stringify({ name, email }));
       showToast("Conta criada! Bem-vindo!");

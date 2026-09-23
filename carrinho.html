@@ -16,23 +16,22 @@
 <body>
 <script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
+  <!-- FAIXA PROMOCIONAL -->
+  <div class="promo-bar" id="promoBar">
+    <p class="promo-text" id="promoText">MEGA SALE: até 90% OFF em modelos selecionados</p>
+    <button class="promo-close" id="promoClose" aria-label="Fechar aviso">&times;</button>
+  </div>
+
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
         <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
-      <nav class="nav" id="nav">
-        <a href="index.html" class="nav-link">Produtos</a>
-        <a href="favoritos.html" class="nav-link">Favoritos</a>
-        <a href="carrinho.html" class="nav-link nav-active">Carrinho</a>
-        <a href="checkout.html" class="nav-link">Checkout</a>
-        <a href="login.html" class="nav-link" id="authLink">Entrar</a>
-      </nav>
       <div class="header-actions">
         <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
         <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
-        <a href="login.html" class="cart-btn" id="authBtn" aria-label="Conta"><i class="fa-solid fa-user"></i></a>
+        <a href="login.html" class="login-text-btn" id="authBtn">ENTRAR</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -85,196 +84,10 @@
     </div>
   </section>
 
-  <!-- CHECKOUT MODAL -->
-  <div class="checkout-overlay" id="checkoutOverlay">
-    <div class="checkout-modal">
-      <button class="checkout-close" id="checkoutClose">&times;</button>
-
-      <div class="checkout-steps">
-        <div class="step-indicator active" data-step="1">
-          <span class="step-num">1</span>
-          <span class="step-label">Endereco</span>
-        </div>
-        <div class="step-line"></div>
-        <div class="step-indicator" data-step="2">
-          <span class="step-num">2</span>
-          <span class="step-label">Pagamento</span>
-        </div>
-        <div class="step-line"></div>
-        <div class="step-indicator" data-step="3">
-          <span class="step-num">3</span>
-          <span class="step-label">Confirmacao</span>
-        </div>
-      </div>
-
-      <!-- STEP 1: ENDERECO -->
-      <div class="checkout-step" id="step1">
-        <h2 class="checkout-title">INFORME SEU ENDERECO</h2>
-
-        <div class="checkout-grid-2">
-          <div class="form-field">
-            <input type="text" id="cNome" placeholder="Nome completo" required>
-          </div>
-          <div class="form-field">
-            <input type="text" id="cCpf" placeholder="CPF" required>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <input type="tel" id="cTel" placeholder="Telefone / WhatsApp" required>
-        </div>
-
-        <div class="form-field">
-          <input type="text" id="cEmail" placeholder="E-mail" required>
-        </div>
-
-        <div class="checkout-grid-2">
-          <div class="form-field">
-            <input type="text" id="cCep" placeholder="CEP" required>
-          </div>
-          <div class="form-field">
-            <input type="text" id="cCidade" placeholder="Cidade" required>
-          </div>
-        </div>
-
-        <div class="checkout-grid-2">
-          <div class="form-field">
-            <input type="text" id="cRua" placeholder="Rua / Av" required>
-          </div>
-          <div class="form-field">
-            <input type="text" id="cNumero" placeholder="Numero" required>
-          </div>
-        </div>
-
-        <div class="checkout-grid-2">
-          <div class="form-field">
-            <input type="text" id="cBairro" placeholder="Bairro" required>
-          </div>
-          <div class="form-field">
-            <input type="text" id="cUf" placeholder="UF" required>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <input type="text" id="cComplemento" placeholder="Complemento (opcional)">
-        </div>
-
-        <button class="btn btn-primary btn-full" id="goStep2">CONTINUAR →</button>
-      </div>
-
-      <!-- STEP 2: FORMA DE PAGAMENTO -->
-      <div class="checkout-step" id="step2" style="display:none">
-        <h2 class="checkout-title">FORMA DE PAGAMENTO</h2>
-
-        <label class="pay-option active" data-pay="card">
-          <input type="radio" name="pagamento" value="card" checked>
-          <span class="pay-icon"><i class="fa-solid fa-credit-card"></i></span>
-          <div class="pay-info">
-            <strong>Cartao de Credito</strong>
-            <small>Parcelamento em ate 12x</small>
-          </div>
-        </label>
-
-        <label class="pay-option" data-pay="pix">
-          <input type="radio" name="pagamento" value="pix">
-          <span class="pay-icon"><i class="fa-solid fa-bolt"></i></span>
-          <div class="pay-info">
-            <strong>Pix</strong>
-            <small>5% de desconto na vista</small>
-          </div>
-        </label>
-
-        <label class="pay-option" data-pay="boleto">
-          <input type="radio" name="pagamento" value="boleto">
-          <span class="pay-icon"><i class="fa-solid fa-file-invoice"></i></span>
-          <div class="pay-info">
-            <strong>Boleto Bancario</strong>
-            <small>Compensa em ate 2 dias uteis</small>
-          </div>
-        </label>
-
-        <!-- CARD INFO -->
-        <div id="cardInfo" class="card-info">
-          <h3 class="card-info-title">DADOS DO CARTAO</h3>
-          <div class="form-field">
-            <input type="text" id="cardNum" placeholder="Numero do cartao" maxlength="19" inputmode="numeric">
-          </div>
-          <div class="form-field">
-            <input type="text" id="cardNome" placeholder="Nome impresso no cartao">
-          </div>
-          <div class="checkout-grid-3">
-            <div class="form-field">
-              <input type="text" id="cardVal" placeholder="Validade (MM/AA)" maxlength="5">
-            </div>
-            <div class="form-field">
-              <input type="text" id="cardCvv" placeholder="CVV" maxlength="4" inputmode="numeric">
-            </div>
-            <div class="form-field">
-              <select id="cardParcelas">
-                <option value="1">1x sem juros</option>
-                <option value="2">2x sem juros</option>
-                <option value="3">3x sem juros</option>
-                <option value="4">4x sem juros</option>
-                <option value="6">6x sem juros</option>
-                <option value="12">12x com juros</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- PIX INFO -->
-        <div id="pixInfo" class="pay-method-info" style="display:none">
-          <p>Um codigo Pix sera gerado para pagamento na proxima etapa.</p>
-        </div>
-
-        <!-- BOLETO INFO -->
-        <div id="boletoInfo" class="pay-method-info" style="display:none">
-          <p>Um boleto bancario sera gerado para pagamento na proxima etapa.</p>
-        </div>
-
-        <div class="checkout-nav">
-          <button class="btn btn-secondary" id="backStep1">← VOLTAR</button>
-          <button class="btn btn-primary" id="goStep3">AVANCA</button>
-        </div>
-      </div>
-
-      <!-- STEP 3: CONFIRMACAO / PAGAMENTO -->
-      <div class="checkout-step" id="step3" style="display:none">
-        <h2 class="checkout-title">CONFIRME E PAGUE</h2>
-
-        <div class="confirm-address" id="confirmAddress"></div>
-
-        <div class="confirm-pay" id="confirmPay"></div>
-
-        <div class="confirm-total">
-          <span>Total a pagar</span>
-          <strong id="confirmTotal">R$ 0,00</strong>
-        </div>
-
-        <div class="checkout-nav">
-          <button class="btn btn-secondary" id="backStep2checkout">← VOLTAR</button>
-          <button class="btn btn-primary" id="finalizeBtn">CONFIRMAR PAGAMENTO</button>
-        </div>
-      </div>
-
-      <!-- SUCCESS -->
-      <div class="checkout-step" id="stepSuccess" style="display:none">
-        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-        <h2 class="checkout-title success-title">PAGAMENTO REALIZADO!</h2>
-        <p class="success-text">Seu pedido foi confirmado com sucesso. Obrigado por comprar na Elite Step!</p>
-        <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px"><i class="fa-brands fa-whatsapp"></i> ENVIAR PEDIDO VIA WHATSAPP</button>
-        <button class="btn btn-primary btn-full" id="doneBtn">CONTINUAR COMPRANDO</button>
-      </div>
-    </div>
-  </div>
-
   <script src="script.js"></script>
   <script>
     let payMethod = "card";
-    let custData = {};
-    let currentStep = 1;
     let cupomApplied = false;
-    let lastOrderSummary = "";
 
     function renderCartPage() {
       const items = cart;
@@ -296,13 +109,13 @@
 
       listEl.innerHTML = items.map((item, i) => `
         <div class="cart-page-item">
-          <a href="detalhes.html?id=${item.id}" class="cart-page-img">
+          <a href="detalhes.html?id=${item.id}&from=carrinho" class="cart-page-img">
             <img src="${item.image}" alt="${item.name}"
                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23111%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23ff0040%22 font-size=%2220%22>${item.brand.charAt(0)}</text></svg>'">
           </a>
           <div class="cart-page-info">
             <span class="cart-page-brand">${item.brand}</span>
-            <a href="detalhes.html?id=${item.id}" class="cart-page-name">${item.name}</a>
+            <a href="detalhes.html?id=${item.id}&from=carrinho" class="cart-page-name">${item.name}</a>
             <div class="cart-page-meta">
               <span>Tam: ${item.size}</span>
               <span class="cart-page-color-dot" style="background:${item.color}"></span>
@@ -340,7 +153,7 @@
 
     function updateSummary() {
       const subtotal = cart.reduce((s, item) => s + item.price * item.qty, 0);
-      const frete = subtotal >= 299 ? 0 : 39.90;
+      const frete = subtotal >= 1299 ? 0 : 39.90;
       const total = getTotal();
 
       document.getElementById("summarySubtotal").textContent = formatPrice(subtotal);
@@ -361,13 +174,10 @@
       }
     });
 
-    // ===== CHECKOUT =====
-    const checkoutOverlay = document.getElementById("checkoutOverlay");
-    const checkoutModal = checkoutOverlay.querySelector(".checkout-modal");
-
+    // ===== TOTAIS (o checkout dedicado vive em checkout.html) =====
     function getTotal() {
       const subtotal = cart.reduce((s, item) => s + item.price * item.qty, 0);
-      const frete = subtotal >= 299 ? 0 : 39.90;
+      const frete = subtotal >= 1299 ? 0 : 39.90;
       let total = subtotal + frete;
       if (cupomApplied) total -= subtotal * 0.10;
       if (payMethod === "pix") total -= subtotal * 0.05;
@@ -380,203 +190,6 @@
         showToast("Seu carrinho esta vazio!");
       }
       // Carrinho com itens navega para checkout.html (link dedicado)
-    });
-
-    document.getElementById("checkoutClose").addEventListener("click", closeCheckout);
-    checkoutOverlay.addEventListener("click", (e) => {
-      if (e.target === checkoutOverlay) closeCheckout();
-    });
-
-    function closeCheckout() {
-      checkoutOverlay.classList.remove("open");
-      document.body.style.overflow = "";
-    }
-
-    function showStep(step) {
-      currentStep = step;
-      document.querySelectorAll(".checkout-step").forEach(s => s.style.display = "none");
-      document.getElementById("step" + step).style.display = "block";
-      document.querySelectorAll(".step-indicator").forEach((ind, i) => {
-        ind.classList.toggle("active", i < step ? true : i === step - 1);
-      });
-      checkoutModal.scrollTop = 0;
-    }
-
-    // Formato do numero do cartao
-    document.getElementById("cardNum").addEventListener("input", function() {
-      let val = this.value.replace(/\D/g, "").slice(0, 16);
-      let parts = val.match(/.{1,4}/g) || [];
-      this.value = parts.join(" ");
-    });
-
-    document.getElementById("cardVal").addEventListener("input", function() {
-      let val = this.value.replace(/\D/g, "").slice(0, 4);
-      if (val.length > 2) val = val.slice(0, 2) + "/" + val.slice(2);
-      this.value = val;
-    });
-
-    document.getElementById("cardCvv").addEventListener("input", function() {
-      this.value = this.value.replace(/\D/g, "").slice(0, 4);
-    });
-
-    document.getElementById("cCep").addEventListener("input", function() {
-      this.value = this.value.replace(/\D/g, "").slice(0, 8);
-    });
-
-    document.getElementById("cCpf").addEventListener("input", function() {
-      let val = this.value.replace(/\D/g, "").slice(0, 11);
-      if (val.length <= 3) {
-        this.value = val;
-      } else if (val.length <= 6) {
-        this.value = val.slice(0, 3) + "." + val.slice(3);
-      } else if (val.length <= 9) {
-        this.value = val.slice(0, 3) + "." + val.slice(3, 6) + "." + val.slice(6);
-      } else {
-        this.value = val.slice(0, 3) + "." + val.slice(3, 6) + "." + val.slice(6, 9) + "-" + val.slice(9);
-      }
-    });
-
-    // Forma de pagamento
-    document.querySelectorAll(".pay-option").forEach(opt => {
-      opt.addEventListener("click", () => {
-        document.querySelectorAll(".pay-option").forEach(o => o.classList.remove("active"));
-        opt.classList.add("active");
-        payMethod = opt.dataset.pay;
-        document.getElementById("cardInfo").style.display = payMethod === "card" ? "block" : "none";
-        document.getElementById("pixInfo").style.display = payMethod === "pix" ? "block" : "none";
-        document.getElementById("boletoInfo").style.display = payMethod === "boleto" ? "block" : "none";
-        updateSummary();
-      });
-    });
-
-    // Step navigation
-    function validarCPF(cpf) {
-      const str = cpf.replace(/\D/g, "");
-      if (str.length !== 11 || /^(\d)\1{10}$/.test(str)) return false;
-      return true;
-    }
-
-    document.getElementById("goStep2").addEventListener("click", () => {
-      const required = ["cNome", "cCpf", "cTel", "cEmail", "cCep", "cCidade", "cRua", "cNumero", "cBairro", "cUf"];
-      for (const id of required) {
-        if (!document.getElementById(id).value.trim()) {
-          showToast("Preencha todos os campos do endereco!");
-          document.getElementById(id).focus();
-          return;
-        }
-      }
-      const cepVal = document.getElementById("cCep").value.replace(/\D/g, "");
-      if (cepVal.length !== 8) {
-        showToast("Preencha um CEP valido!");
-        document.getElementById("cCep").focus();
-        return;
-      }
-      const cpfVal = document.getElementById("cCpf").value.trim();
-      if (!validarCPF(cpfVal)) {
-        showToast("CPF invalido!");
-        document.getElementById("cCpf").focus();
-        return;
-      }
-      custData = {
-        nome: document.getElementById("cNome").value.trim(),
-        cpf: document.getElementById("cCpf").value.trim(),
-        tel: document.getElementById("cTel").value.trim(),
-        email: document.getElementById("cEmail").value.trim(),
-        cep: document.getElementById("cCep").value.trim(),
-        cidade: document.getElementById("cCidade").value.trim(),
-        rua: document.getElementById("cRua").value.trim(),
-        numero: document.getElementById("cNumero").value.trim(),
-        bairro: document.getElementById("cBairro").value.trim(),
-        uf: document.getElementById("cUf").value.trim(),
-        complemento: document.getElementById("cComplemento").value.trim()
-      };
-      showStep(2);
-    });
-
-    document.getElementById("backStep1").addEventListener("click", () => showStep(1));
-
-    document.getElementById("goStep3").addEventListener("click", () => {
-      if (payMethod === "card") {
-        const cardNum = document.getElementById("cardNum").value.replace(/\s/g, "");
-        if (cardNum.length < 16) { showToast("Numero do cartao incompleto!"); return; }
-        if (!document.getElementById("cardNome").value.trim()) { showToast("Informe o nome no cartao!"); return; }
-        const val = document.getElementById("cardVal").value;
-        if (val.length < 5) { showToast("Validade do cartao invalida!"); return; }
-        const cvv = document.getElementById("cardCvv").value;
-        if (cvv.length < 3) { showToast("CVV invalido!"); return; }
-      }
-      buildConfirm();
-      showStep(3);
-    });
-
-    document.getElementById("backStep2checkout").addEventListener("click", () => showStep(2));
-
-    function buildConfirm() {
-      const total = getTotal();
-      document.getElementById("confirmTotal").textContent = formatPrice(total);
-
-      document.getElementById("confirmAddress").innerHTML = `
-        <strong>ENDERECO DE ENTREGA</strong>
-        <p>${custData.nome} - ${custData.cpf}</p>
-        <p>${custData.rua}, ${custData.numero} - ${custData.bairro}, ${custData.cidade} - ${custData.uf}</p>
-        <p>CEP: ${custData.cep}</p>
-      `;
-
-      if (payMethod === "card") {
-        const parcelas = document.getElementById("cardParcelas").value;
-        const parcelaVal = Number(parcelas) > 0 ? formatPrice(total / Number(parcelas)) : formatPrice(total);
-        const num = document.getElementById("cardNum").value;
-        document.getElementById("confirmPay").innerHTML = `
-          <strong>FORMA DE PAGAMENTO</strong>
-          <p>Cartao de Credito **** ${num.slice(-4)}</p>
-          <p>${parcelas}x de ${parcelaVal} ${parcelas == 12 ? '(com juros)' : '(sem juros)'}</p>
-        `;
-      } else if (payMethod === "pix") {
-        document.getElementById("confirmPay").innerHTML = `
-          <strong>FORMA DE PAGAMENTO</strong>
-          <p>Pix (5% de desconto na vista)</p>
-        `;
-      } else {
-        document.getElementById("confirmPay").innerHTML = `
-          <strong>FORMA DE PAGAMENTO</strong>
-          <p>Boleto Bancario (compensa em ate 2 dias uteis)</p>
-        `;
-      }
-    }
-
-    document.getElementById("finalizeBtn").addEventListener("click", () => {
-      const total = getTotal();
-      const resumo = cart.map((item) =>
-        `${item.name} (Tam ${item.size}) x ${item.qty} = ${formatPrice(item.price * item.qty)}`
-      ).join('\n');
-      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-      const freteMsg = subtotal >= 299 ? 'Gratis' : 'R$ 39,90';
-      lastOrderSummary = `*PEDIDO ELITE STEP*\n----------------------------\n${resumo}\n----------------------------\nFrete: ${freteMsg}\n${cupomApplied ? 'Cupom ELITE10 (-10%)\n' : ''}${payMethod === 'pix' ? 'Pix (-5%)\n' : ''}Total: ${formatPrice(total)}\n----------------------------\n*Entrega:*\n${custData.nome}\n${custData.rua}, ${custData.numero} - ${custData.bairro}\n${custData.cidade} - ${custData.uf}, CEP ${custData.cep}\n----------------------------\n*Obrigado pela compra!*`;
-
-      document.querySelectorAll(".checkout-step").forEach(s => s.style.display = "none");
-      document.getElementById("stepSuccess").style.display = "block";
-      document.querySelectorAll(".step-indicator").forEach(i => i.classList.add("active"));
-      checkoutModal.scrollTop = 0;
-      cart = [];
-      cupomApplied = false;
-      document.getElementById("cupomInput").value = "";
-      saveCart();
-      renderCartPage();
-      updateCounts();
-      updateSummary();
-    });
-
-    function shareWhatsApp() {
-      if (!lastOrderSummary) return;
-      const msg = encodeURIComponent(lastOrderSummary);
-      window.open(`https://wa.me/?text=${msg}`, "_blank");
-    }
-
-    document.getElementById("shareWhatsBtn").addEventListener("click", shareWhatsApp);
-
-    document.getElementById("doneBtn").addEventListener("click", () => {
-      closeCheckout();
-      window.location.href = "index.html";
     });
 
     renderCartPage();

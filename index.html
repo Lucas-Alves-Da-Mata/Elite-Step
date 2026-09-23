@@ -60,6 +60,12 @@
 <body>
 <script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
+  <!-- FAIXA PROMOCIONAL -->
+  <div class="promo-bar" id="promoBar">
+    <p class="promo-text" id="promoText">MEGA SALE: até 90% OFF em modelos selecionados</p>
+    <button class="promo-close" id="promoClose" aria-label="Fechar aviso">&times;</button>
+  </div>
+
   <!-- PRELOADER -->
   <div class="preloader" id="preloader">
     <div class="preloader-claws"><i class="fa-solid fa-shoe-prints"></i></div>
@@ -81,10 +87,6 @@
         <a href="#servicos" class="nav-link">Serviços</a>
         <a href="#sobre" class="nav-link">Sobre</a>
         <a href="#contato" class="nav-link">Contato</a>
-        <a href="favoritos.html" class="nav-link">Favoritos</a>
-        <a href="carrinho.html" class="nav-link">Carrinho</a>
-        <a href="checkout.html" class="nav-link">Checkout</a>
-        <a href="login.html" class="nav-link" id="authLink">Entrar</a>
       </nav>
       <div class="header-actions">
         <div class="header-search">
@@ -99,7 +101,7 @@
           <i class="fa-solid fa-cart-shopping"></i>
           <span class="cart-count" id="cartCount">0</span>
         </a>
-        <a href="login.html" class="cart-btn" id="authBtn" aria-label="Conta"><i class="fa-solid fa-user"></i></a>
+        <a href="login.html" class="login-text-btn" id="authBtn">ENTRAR</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -126,7 +128,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num">32+</span>
+        <span class="stat-num">48+</span>
         <span class="stat-label">Modelos</span>
       </div>
       <div class="stat">
@@ -187,10 +189,10 @@
           </select>
           <select id="priceFilter" class="toolbar-select" aria-label="Filtrar por preco">
             <option value="todos">Todos os precos</option>
-            <option value="10k12k">R$ 10.000 - R$ 12.000</option>
-            <option value="12k15k">R$ 12.000 - R$ 15.000</option>
-            <option value="15k20k">R$ 15.000 - R$ 20.000</option>
-            <option value="acima20k">Acima de R$ 20.000</option>
+            <option value="ate1300">Até R$ 1.300</option>
+            <option value="1300_1700">R$ 1.300 - R$ 1.700</option>
+            <option value="1700_2100">R$ 1.700 - R$ 2.100</option>
+            <option value="acima2100">Acima de R$ 2.100</option>
           </select>
           <select id="sortSelect" class="toolbar-select" aria-label="Ordenar produtos">
             <option value="relevancia">Relevancia</option>
@@ -314,7 +316,7 @@
       <div class="footer-links">
         <h4>Navegacao</h4>
         <a href="#produtos">Produtos</a>
-        <a href="#colecoes">Colec</a>
+        <a href="#colecoes">Colecoes</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
       </div>
@@ -367,32 +369,6 @@
       <a href="carrinho.html" class="btn btn-primary btn-full" style="display:block;text-align:center">FINALIZAR COMPRA</a>
     </div>
   </aside>
-
-  <!-- MODAL PRODUTO -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="productModal">
-      <button class="modal-close" id="modalClose">&times;</button>
-      <div class="modal-body">
-        <div class="modal-image" id="modalImage"></div>
-        <div class="modal-info">
-          <span class="modal-cat" id="modalCat"></span>
-          <h2 id="modalName"></h2>
-          <div class="modal-rating" id="modalRating"></div>
-          <p class="modal-price" id="modalPrice"></p>
-          <p class="modal-desc" id="modalDesc"></p>
-          <div class="modal-sizes">
-            <p>Tamanho:</p>
-            <div class="sizes" id="modalSizes"></div>
-          </div>
-          <div class="modal-colors">
-            <p>Cores:</p>
-            <div class="colors" id="modalColors"></div>
-          </div>
-          <button class="btn btn-primary btn-full" id="modalAddBtn">ADICIONAR AO CARRINHO</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>

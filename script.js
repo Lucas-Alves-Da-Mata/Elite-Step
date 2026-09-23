@@ -5,8 +5,8 @@ const products = [
     name: "Nike Air Max 270",
     brand: "Nike",
     cat: "corrida",
-    price: 10999.90,
-    oldPrice: 12999.90,
+    price: 1099.99,
+    oldPrice: 1299.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ff3c00, #ff6b35)",
@@ -21,7 +21,7 @@ const products = [
     name: "Nike Dunk Low Retro",
     brand: "Nike",
     cat: "basquete",
-    price: 11999.90,
+    price: 1199.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&h=600&fit=crop&q=80",
@@ -37,8 +37,8 @@ const products = [
     name: "Adidas Ultraboost 22",
     brand: "Adidas",
     cat: "casual",
-    price: 10499.90,
-    oldPrice: 12499.90,
+    price: 1049.99,
+    oldPrice: 1249.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #2d2d2d, #4a4a4a)",
@@ -53,7 +53,7 @@ const products = [
     name: "Nike Pegasus 40",
     brand: "Nike",
     cat: "corrida",
-    price: 12999.90,
+    price: 1299.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
@@ -69,7 +69,7 @@ const products = [
     name: "Adidas Originals Forum",
     brand: "Adidas",
     cat: "lifestyle",
-    price: 11499.90,
+    price: 1149.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=600&h=600&fit=crop&q=80",
@@ -85,8 +85,8 @@ const products = [
     name: "Nike ZoomX Vaporfly",
     brand: "Nike",
     cat: "corrida",
-    price: 1000000000,
-    oldPrice: 1100000000,
+    price: 1899.90,
+    oldPrice: 2199.90,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ff0055, #ff3c00)",
@@ -101,7 +101,7 @@ const products = [
     name: "Air Jordan 1 Retro High",
     brand: "Jordan",
     cat: "basquete",
-    price: 18999.90,
+    price: 1899.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
@@ -117,8 +117,8 @@ const products = [
     name: "Adidas Stan Smith",
     brand: "Adidas",
     cat: "casual",
-    price: 10499.90,
-    oldPrice: 12999.90,
+    price: 1049.99,
+    oldPrice: 1299.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #6b7280, #9ca3af)",
@@ -133,7 +133,7 @@ const products = [
     name: "New Balance 550",
     brand: "New Balance",
     cat: "lifestyle",
-    price: 11999.90,
+    price: 1199.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
@@ -149,7 +149,7 @@ const products = [
     name: "Nike Trail Pegasus",
     brand: "Nike",
     cat: "corrida",
-    price: 14999.90,
+    price: 1499.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
@@ -165,8 +165,8 @@ const products = [
     name: "Adidas Yeezy 350 V2",
     brand: "Adidas",
     cat: "lifestyle",
-    price: 17999.90,
-    oldPrice: 19999.90,
+    price: 1799.99,
+    oldPrice: 1999.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #1e1e1e, #3a3a3a)",
@@ -181,7 +181,7 @@ const products = [
     name: "Puma RS-X Reinvention",
     brand: "Puma",
     cat: "casual",
-    price: 10499.90,
+    price: 1049.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=600&fit=crop&q=80",
@@ -197,8 +197,8 @@ const products = [
     name: "Converse Chuck Taylor",
     brand: "Converse",
     cat: "lifestyle",
-    price: 10999.90,
-    oldPrice: 12999.90,
+    price: 1099.99,
+    oldPrice: 1299.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #dc2626, #991b1b)",
@@ -213,7 +213,7 @@ const products = [
     name: "Vans Old Skool",
     brand: "Vans",
     cat: "lifestyle",
-    price: 10999.90,
+    price: 1099.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop&q=80",
@@ -229,7 +229,7 @@ const products = [
     name: "Under Armour HOVR",
     brand: "Under Armour",
     cat: "corrida",
-    price: 13499.90,
+    price: 1349.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop&q=80",
@@ -245,8 +245,8 @@ const products = [
     name: "Reebok Club C 85",
     brand: "Reebok",
     cat: "casual",
-    price: 10999.90,
-    oldPrice: 12499.90,
+    price: 1099.99,
+    oldPrice: 1249.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #059669, #047857)",
@@ -261,7 +261,7 @@ const products = [
     name: "Asics Gel-Kayano 30",
     brand: "Asics",
     cat: "corrida",
-    price: 14499.90,
+    price: 1449.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
@@ -277,7 +277,7 @@ const products = [
     name: "Nike Air Force 1 Low",
     brand: "Nike",
     cat: "casual",
-    price: 12499.90,
+    price: 1249.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&h=600&fit=crop&q=80",
@@ -293,7 +293,7 @@ const products = [
     name: "Adidas Superstar",
     brand: "Adidas",
     cat: "lifestyle",
-    price: 10499.90,
+    price: 1049.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
@@ -309,8 +309,8 @@ const products = [
     name: "Nike Blazer Mid 77",
     brand: "Nike",
     cat: "lifestyle",
-    price: 11499.90,
-    oldPrice: 13499.90,
+    price: 1149.99,
+    oldPrice: 1349.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #84cc16, #65a30d)",
@@ -325,7 +325,7 @@ const products = [
     name: "Puma Suede Classic",
     brand: "Puma",
     cat: "lifestyle",
-    price: 10499.90,
+    price: 1049.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&h=600&fit=crop&q=80",
@@ -341,7 +341,7 @@ const products = [
     name: "New Balance 990v6",
     brand: "New Balance",
     cat: "corrida",
-    price: 19999.90,
+    price: 1999.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
@@ -357,7 +357,7 @@ const products = [
     name: "Jordan 4 Retro",
     brand: "Jordan",
     cat: "basquete",
-    price: 24999.90,
+    price: 2499.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
@@ -373,8 +373,8 @@ const products = [
     name: "Adidas NMD R1",
     brand: "Adidas",
     cat: "corrida",
-    price: 12999.90,
-    oldPrice: 14999.90,
+    price: 1299.99,
+    oldPrice: 1499.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #ec4899, #be185d)",
@@ -389,7 +389,7 @@ const products = [
     name: "Converse Run Star",
     brand: "Converse",
     cat: "lifestyle",
-    price: 10999.90,
+    price: 1099.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&h=600&fit=crop&q=80",
@@ -405,7 +405,7 @@ const products = [
     name: "Under Armour Curry 11",
     brand: "Under Armour",
     cat: "basquete",
-    price: 16999.90,
+    price: 1699.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop&q=80",
@@ -421,7 +421,7 @@ const products = [
     name: "Asics Gel-1130",
     brand: "Asics",
     cat: "lifestyle",
-    price: 10999.90,
+    price: 1099.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
@@ -437,8 +437,8 @@ const products = [
     name: "Vans Sk8-Hi",
     brand: "Vans",
     cat: "lifestyle",
-    price: 10499.90,
-    oldPrice: 12499.90,
+    price: 1049.99,
+    oldPrice: 1249.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #1e1e1e, #404040)",
@@ -453,7 +453,7 @@ const products = [
     name: "Reebok Nano X3",
     brand: "Reebok",
     cat: "corrida",
-    price: 12499.90,
+    price: 1249.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop&q=80",
@@ -469,8 +469,8 @@ const products = [
     name: "Nike Metcon 9",
     brand: "Nike",
     cat: "corrida",
-    price: 13999.90,
-    oldPrice: 15999.90,
+    price: 1399.99,
+    oldPrice: 1599.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #0d9488, #0f766e)",
@@ -485,7 +485,7 @@ const products = [
     name: "Adidas Gazelle",
     brand: "Adidas",
     cat: "casual",
-    price: 10499.90,
+    price: 1049.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
@@ -501,7 +501,7 @@ const products = [
     name: "Air Jordan 11 Retro",
     brand: "Jordan",
     cat: "basquete",
-    price: 29999.90,
+    price: 2999.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
@@ -517,7 +517,7 @@ const products = [
     name: "New Balance 574",
     brand: "New Balance",
     cat: "lifestyle",
-    price: 11499.90,
+    price: 1149.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
@@ -533,7 +533,7 @@ const products = [
     name: "Asics Gel-Nimbus 25",
     brand: "Asics",
     cat: "corrida",
-    price: 13999.90,
+    price: 1399.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&h=600&fit=crop&q=80",
@@ -549,7 +549,7 @@ const products = [
     name: "Puma Speedcat",
     brand: "Puma",
     cat: "corrida",
-    price: 10499.90,
+    price: 1049.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=600&fit=crop&q=80",
@@ -565,8 +565,8 @@ const products = [
     name: "Fila Disruptor II",
     brand: "Fila",
     cat: "lifestyle",
-    price: 10999.90,
-    oldPrice: 12499.90,
+    price: 1099.99,
+    oldPrice: 1249.99,
     badge: "sale",
     image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600&h=600&fit=crop&q=80",
     bg: "linear-gradient(135deg, #f472b6, #db2777)",
@@ -581,7 +581,7 @@ const products = [
     name: "Hoka Clifton 9",
     brand: "Hoka",
     cat: "corrida",
-    price: 15499.90,
+    price: 1549.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
@@ -597,7 +597,7 @@ const products = [
     name: "Brooks Ghost 15",
     brand: "Brooks",
     cat: "corrida",
-    price: 14499.90,
+    price: 1449.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
@@ -613,7 +613,7 @@ const products = [
     name: "Salomon Speedcross 6",
     brand: "Salomon",
     cat: "corrida",
-    price: 16999.90,
+    price: 1699.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=600&fit=crop&q=80",
@@ -629,7 +629,7 @@ const products = [
     name: "On Cloud 5",
     brand: "On",
     cat: "corrida",
-    price: 15999.90,
+    price: 1599.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&h=600&fit=crop&q=80",
@@ -645,7 +645,7 @@ const products = [
     name: "Mizuno Wave Rider 26",
     brand: "Mizuno",
     cat: "corrida",
-    price: 13499.90,
+    price: 1349.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
@@ -661,7 +661,7 @@ const products = [
     name: "Saucony Ride 17",
     brand: "Saucony",
     cat: "corrida",
-    price: 12999.90,
+    price: 1299.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&h=600&fit=crop&q=80",
@@ -677,7 +677,7 @@ const products = [
     name: "Li-Ning Way Of Wade 10",
     brand: "Li-Ning",
     cat: "basquete",
-    price: 18999.90,
+    price: 1899.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&h=600&fit=crop&q=80",
@@ -693,7 +693,7 @@ const products = [
     name: "Adidas Samba OG",
     brand: "Adidas",
     cat: "casual",
-    price: 11999.90,
+    price: 1199.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&q=80",
@@ -709,7 +709,7 @@ const products = [
     name: "Vans Era 95",
     brand: "Vans",
     cat: "lifestyle",
-    price: 10499.90,
+    price: 1049.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&h=600&fit=crop&q=80",
@@ -725,7 +725,7 @@ const products = [
     name: "Jordan 1 Low",
     brand: "Jordan",
     cat: "basquete",
-    price: 13999.90,
+    price: 1399.99,
     oldPrice: null,
     badge: "new",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80",
@@ -741,7 +741,7 @@ const products = [
     name: "Nike Invincible Run 3",
     brand: "Nike",
     cat: "corrida",
-    price: 16499.90,
+    price: 1649.99,
     oldPrice: null,
     badge: "hot",
     image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=600&fit=crop&q=80",
@@ -757,7 +757,7 @@ const products = [
     name: "Converse One Star",
     brand: "Converse",
     cat: "lifestyle",
-    price: 10999.90,
+    price: 1099.99,
     oldPrice: null,
     badge: null,
     image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&h=600&fit=crop&q=80",
@@ -774,9 +774,6 @@ const products = [
 let cart = loadCart();
 let favorites = loadFavorites();
 let currentCategory = "todos";
-let selectedProduct = null;
-let selectedSize = null;
-let selectedColor = null;
 
 function loadCart() {
   try { return JSON.parse(localStorage.getItem("eliteCart")) || []; } catch { return []; }
@@ -820,8 +817,6 @@ const cartItems = document.getElementById("cartItems");
 const cartFooter = document.getElementById("cartFooter");
 const cartCount = document.getElementById("cartCount");
 const cartTotal = document.getElementById("cartTotal");
-const modalOverlay = document.getElementById("modalOverlay");
-const modalClose = document.getElementById("modalClose");
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 const contactForm = document.getElementById("contactForm");
@@ -850,10 +845,10 @@ function getFilteredProducts() {
 
   if (priceFilter !== "todos") {
     list = list.filter(p => {
-      if (priceFilter === "10k12k") return p.price >= 10000 && p.price < 12000;
-      if (priceFilter === "12k15k") return p.price >= 12000 && p.price < 15000;
-      if (priceFilter === "15k20k") return p.price >= 15000 && p.price <= 20000;
-      if (priceFilter === "acima20k") return p.price > 20000;
+      if (priceFilter === "ate1300") return p.price < 1300;
+      if (priceFilter === "1300_1700") return p.price >= 1300 && p.price < 1700;
+      if (priceFilter === "1700_2100") return p.price >= 1700 && p.price <= 2100;
+      if (priceFilter === "acima2100") return p.price > 2100;
       return true;
     });
   }
@@ -876,7 +871,7 @@ function renderProducts(category) {
 
   productsGrid.innerHTML = filtered.map((p, i) => `
     <div class="product-card" data-id="${p.id}" style="animation-delay: ${i * 0.08}s">
-      <button class="card-fav-btn ${favorites.includes(p.id) ? 'fav-active' : ''}" onclick="event.stopPropagation(); toggleFavorite(${p.id}); const b=this; b.classList.toggle('fav-active'); b.innerHTML = favorites.includes(${p.id}) ? '&nbsp;<i class=&quot;fa-solid fa-heart&quot;></i>&nbsp;' : '&nbsp;<i class=&quot;fa-regular fa-heart&quot;></i>&nbsp;';" aria-label="Favoritar">${favorites.includes(p.id) ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>'}</button>
+      <button class="card-fav-btn ${favorites.includes(p.id) ? 'fav-active' : ''}" data-fav-btn="${p.id}" aria-label="Favoritar">${favorites.includes(p.id) ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>'}</button>
       ${p.badge ? `<span class="product-badge badge-${p.badge}">${
         p.badge === "new" ? "Novo" : p.badge === "sale" ? `${Math.round((1 - p.price / p.oldPrice) * 100)}% OFF` : "Mais Vendido"
       }</span>` : ''}
@@ -909,11 +904,24 @@ function renderProducts(category) {
   `).join('');
 
   document.querySelectorAll(".product-card").forEach(card => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("[data-fav-btn]")) return;
       window.location.href = "detalhes.html?id=" + card.dataset.id;
     });
   });
 }
+
+// Coração dos cards (delegado: sem onclick inline, funciona nos dois temas)
+document.addEventListener("click", (e) => {
+  const favBtn = e.target.closest("[data-fav-btn]");
+  if (!favBtn) return;
+  e.stopPropagation();
+  const id = Number(favBtn.dataset.favBtn);
+  toggleFavorite(id);
+  const active = favorites.includes(id);
+  favBtn.classList.toggle("fav-active", active);
+  favBtn.innerHTML = active ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>';
+});
 
 function getStars(rating) {
   const full = Math.floor(rating);
@@ -923,76 +931,6 @@ function getStars(rating) {
   if (half) html += '<i class="fa-solid fa-star-half-stroke"></i>';
   for (let i = full + half; i < 5; i++) html += '<i class="fa-regular fa-star"></i>';
   return html;
-}
-
-// ===== MODAL =====
-function openModal(id) {
-  selectedProduct = products.find(p => p.id === id);
-  if (!selectedProduct) return;
-
-  selectedSize = null;
-  selectedColor = null;
-
-  document.getElementById("modalImage").innerHTML = `
-    <div style="background:${selectedProduct.bg};position:absolute;inset:0;opacity:0.4"></div>
-    <img src="${selectedProduct.image}" alt="${selectedProduct.name}"
-         style="position:relative;z-index:1;max-width:85%;max-height:85%;object-fit:contain;border-radius:12px;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.4))"
-         onerror="this.style.display='none'">
-  `;
-  document.getElementById("modalCat").textContent = selectedProduct.brand + " | " + selectedProduct.cat;
-  document.getElementById("modalName").textContent = selectedProduct.name;
-  document.getElementById("modalRating").innerHTML = `<span class="stars">${getStars(selectedProduct.rating)}</span><span class="rating-count">(${selectedProduct.reviews} avaliacoes)</span>`;
-  document.getElementById("modalPrice").innerHTML = `${formatPrice(selectedProduct.price)}${selectedProduct.oldPrice ? ` <span class="product-old-price">${formatPrice(selectedProduct.oldPrice)}</span>` : ''}`;
-  document.getElementById("modalDesc").textContent = selectedProduct.desc;
-
-  document.getElementById("modalSizes").innerHTML = selectedProduct.sizes.map(s =>
-    `<button class="size-btn" data-size="${s}">${s}</button>`
-  ).join('');
-
-  document.getElementById("modalColors").innerHTML = selectedProduct.colors.map(c =>
-    `<button class="color-dot" data-color="${c}" style="background:${c}"></button>`
-  ).join('');
-
-  document.querySelectorAll(".size-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".size-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      selectedSize = Number(btn.dataset.size);
-    });
-  });
-
-  document.querySelectorAll(".color-dot").forEach(dot => {
-    dot.addEventListener("click", () => {
-      document.querySelectorAll(".color-dot").forEach(d => d.classList.remove("active"));
-      dot.classList.add("active");
-      selectedColor = dot.dataset.color;
-    });
-  });
-
-  modalOverlay.classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal() {
-  modalOverlay.classList.remove("open");
-  document.body.style.overflow = "";
-}
-
-if (modalClose) modalClose.addEventListener("click", closeModal);
-if (modalOverlay) modalOverlay.addEventListener("click", (e) => {
-  if (e.target === modalOverlay) closeModal();
-});
-
-const modalAddBtn = document.getElementById("modalAddBtn");
-if (modalAddBtn) {
-  modalAddBtn.addEventListener("click", () => {
-    if (!selectedSize) {
-      showToast("Selecione um tamanho!");
-      return;
-    }
-    addToCart(selectedProduct, selectedSize, selectedColor || selectedProduct.colors[0]);
-    closeModal();
-  });
 }
 
 // ===== CART =====
@@ -1185,7 +1123,13 @@ document.querySelectorAll(".nav-link").forEach(link => {
 if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    showToast("Mensagem enviada com sucesso!");
+    const fields = contactForm.querySelectorAll("input, textarea");
+    const nome = (fields[0] && fields[0].value.trim()) || "";
+    const email = (fields[1] && fields[1].value.trim()) || "";
+    const msg = (fields[2] && fields[2].value.trim()) || "";
+    const text = `*CONTATO ELITE STEP*\nNome: ${nome}\nE-mail: ${email}\nMensagem: ${msg}`;
+    showToast("Abrindo WhatsApp para enviar sua mensagem!");
+    window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
     contactForm.reset();
   });
 }
@@ -1232,7 +1176,6 @@ window.addEventListener("scroll", () => {
 // ===== KEYBOARD =====
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    closeModal();
     toggleCart(false);
   }
 });
@@ -1374,22 +1317,75 @@ function updateAuthUI() {
   if (link) link.textContent = sess ? (sess.name ? sess.name.split(" ")[0] : "Conta") : "Entrar";
   const btn = document.getElementById("authBtn");
   if (btn) {
-    btn.setAttribute("aria-label", sess ? "Minha conta" : "Entrar");
-    btn.innerHTML = sess ? '<i class="fa-solid fa-user-check"></i>' : '<i class="fa-solid fa-user"></i>';
+    if (btn.classList.contains("login-text-btn")) {
+      // Deslogado: texto ENTRAR | Logado: ícone de perfil
+      if (sess) {
+        btn.innerHTML = '<i class="fa-solid fa-user-check"></i>';
+        btn.setAttribute("aria-label", "Minha conta");
+      } else {
+        btn.textContent = "ENTRAR";
+        btn.setAttribute("aria-label", "Entrar");
+      }
+    } else {
+      btn.setAttribute("aria-label", sess ? "Minha conta" : "Entrar");
+      btn.innerHTML = sess ? '<i class="fa-solid fa-user-check"></i>' : '<i class="fa-solid fa-user"></i>';
+    }
   }
-  // Injeta botão de conta no header de páginas antigas que não têm
+  // Injeta botão ENTRAR (texto) no header de páginas antigas que não têm
+  // (nunca nas páginas de entrada/cadastro, que têm topo minimalista)
   if (!btn) {
+    const isAuthPage = document.getElementById("loginForm") || document.getElementById("signupForm");
     const actions = document.querySelector(".header-actions");
     const toggle = document.getElementById("themeToggle");
-    if (actions && toggle && !document.getElementById("authBtnInjected")) {
+    const label = sess ? (sess.name ? sess.name.split(" ")[0].toUpperCase() : "CONTA") : "ENTRAR";
+    const inj = document.getElementById("authBtnInjected");
+    if (inj) {
+      if (sess) {
+        inj.innerHTML = '<i class="fa-solid fa-user-check"></i>';
+        inj.setAttribute("aria-label", "Minha conta");
+      } else {
+        inj.textContent = label;
+        inj.setAttribute("aria-label", "Entrar");
+      }
+      return;
+    }
+    if (!isAuthPage && actions && toggle) {
       const a = document.createElement("a");
       a.href = "login.html";
-      a.className = "cart-btn";
+      a.className = "login-text-btn";
       a.id = "authBtnInjected";
-      a.setAttribute("aria-label", sess ? "Minha conta" : "Entrar");
-      a.innerHTML = sess ? '<i class="fa-solid fa-user-check"></i>' : '<i class="fa-solid fa-user"></i>';
+      if (sess) {
+        a.innerHTML = '<i class="fa-solid fa-user-check"></i>';
+        a.setAttribute("aria-label", "Minha conta");
+      } else {
+        a.textContent = label;
+        a.setAttribute("aria-label", "Entrar");
+      }
       actions.insertBefore(a, toggle);
     }
   }
 }
 updateAuthUI();
+
+// ===== PROMO BAR (faixa de desconto no topo) =====
+(function () {
+  const bar = document.getElementById("promoBar");
+  if (!bar) return;
+  // Faixa mora dentro do header, logo abaixo do menu
+  const header = document.querySelector(".header");
+  if (header) header.appendChild(bar);
+  const text = document.getElementById("promoText");
+  const close = document.getElementById("promoClose");
+  const msgs = [
+    "MEGA SALE: até 90% OFF em modelos selecionados",
+    "Cupom ELITE10: 10% OFF em todo o site",
+    "Frete grátis acima de R$ 1.299"
+  ];
+  // Letreiro contínuo da esquerda para a direita
+  if (text) text.textContent = msgs.join("   ✦   ");
+  if (close) {
+    close.addEventListener("click", () => {
+      document.body.classList.add("promo-closed");
+    });
+  }
+})();

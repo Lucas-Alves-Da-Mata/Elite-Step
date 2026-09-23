@@ -16,17 +16,18 @@
 <body>
 <script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
 
+  <!-- FAIXA PROMOCIONAL -->
+  <div class="promo-bar" id="promoBar">
+    <p class="promo-text" id="promoText">MEGA SALE: até 90% OFF em modelos selecionados</p>
+    <button class="promo-close" id="promoClose" aria-label="Fechar aviso">&times;</button>
+  </div>
+
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
         <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
       </a>
-      <nav class="nav" id="nav">
-        <a href="index.html" class="nav-link">Produtos</a>
-        <a href="favoritos.html" class="nav-link nav-active">Favoritos</a>
-        <a href="carrinho.html" class="nav-link">Carrinho</a>
-      </nav>
       <div class="header-actions">
         <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
         <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
@@ -71,7 +72,7 @@
         subtitle.textContent = `${favProducts.length} ${favProducts.length === 1 ? 'tenis favoritado' : 'tenis favoritados'}.`;
 
         grid.innerHTML = favProducts.map((p, i) => `
-          <div class="product-card" onclick="window.location.href='detalhes.html?id=${p.id}'" style="animation-delay:${i * 0.08}s">
+          <div class="product-card" onclick="window.location.href='detalhes.html?id=${p.id}&from=favoritos'" style="animation-delay:${i * 0.08}s">
             <button class="fav-remove-btn" onclick="event.stopPropagation(); removeFav(${p.id})" aria-label="Remover favorito">✕</button>
             ${p.badge ? `<span class="product-badge badge-${p.badge}">${
               p.badge === "new" ? "NOVO" : p.badge === "sale" ? `${Math.round((1 - p.price / p.oldPrice) * 100)}% OFF` : "POPULAR"
@@ -98,8 +99,7 @@
                 <button class="product-add-btn" onclick="event.stopPropagation(); quickAdd(${p.id})" aria-label="Adicionar ao carrinho">+</button>
               </div>
               <div class="checkout-nav" style="margin-top:12px">
-                <button class="btn btn-secondary" style="flex:1;font-size:0.7rem;padding:10px" onclick="event.stopPropagation(); moveToCart(${p.id})"><i class="bi bi-cart-plus"></i> MOVER P/ CARRINHO</button>
-                <button class="btn btn-secondary" style="flex:1;font-size:0.7rem;padding:10px" onclick="event.stopPropagation(); removeFav(${p.id})">REMOVER</button>
+                <button class="btn btn-secondary btn-full" style="font-size:0.7rem;padding:10px" onclick="event.stopPropagation(); addFavToCart(${p.id})"><i class="bi bi-cart-plus"></i> ADICIONAR AO CARRINHO</button>
               </div>
             </div>
           </div>
@@ -115,13 +115,9 @@
       showToast("Removido dos favoritos!");
     }
 
-    function moveToCart(id) {
+    function addFavToCart(id) {
       quickAdd(id);
-      favorites = favorites.filter(f => f !== id);
-      saveFavorites();
-      renderFavorites();
-      updateCounts();
-      showToast("Movido para o carrinho!");
+      showToast("Adicionado ao carrinho!");
     }
 
     renderFavorites();
