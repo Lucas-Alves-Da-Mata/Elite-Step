@@ -12,7 +12,7 @@ const products = [
     bg: "linear-gradient(135deg, #ff3c00, #ff6b35)",
     rating: 4.9,
     reviews: 312,
-    desc: "O Nike Air Max 270 combina o maximo de amortecimento Air com um design moderno e estilo icone. Palmilha macia e cabedal em mesh respiravel.",
+    desc: "O Nike Air Max 270 combina o máximo de amortecimento Air com um design moderno e estilo ícone. Palmilha macia e cabedal em mesh respiravel.",
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ["#ff3c00", "#1a1a2e", "#ffffff"]
   },
@@ -28,7 +28,7 @@ const products = [
     bg: "linear-gradient(135deg, #1a1a2e, #16213e)",
     rating: 4.8,
     reviews: 187,
-    desc: "O Dunk Low traz o legado do basquete para as ruas. Design retro com acabamento premium em couro e solado duravel.",
+    desc: "O Dunk Low traz o legado do basquete para as ruas. Design retro com acabamento premium em couro e solado durável.",
     sizes: [40, 41, 42, 43, 44, 45],
     colors: ["#1a1a2e", "#ff3c00", "#ffcc00"]
   },
@@ -44,7 +44,7 @@ const products = [
     bg: "linear-gradient(135deg, #2d2d2d, #4a4a4a)",
     rating: 4.7,
     reviews: 524,
-    desc: "O Ultraboost entrega retorno de energia incomparavel com entressola Boost e cabedal Primeknit que se adapta ao pe. Conforto o dia todo.",
+    desc: "O Ultraboost entrega retorno de energia incomparável com entressola Boost e cabedal Primeknit que se adapta ao pé. Conforto o dia todo.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43],
     colors: ["#2d2d2d", "#f5f5dc", "#ff3c00"]
   },
@@ -60,7 +60,7 @@ const products = [
     bg: "linear-gradient(135deg, #00ff88, #00b4d8)",
     rating: 5.0,
     reviews: 98,
-    desc: "A 40a edicao do Pegasus traz amortecimento React X para retorno de energia otimizado. O tenis de corrida mais confiavel do mundo.",
+    desc: "A 40ª edição do Pegasus traz amortecimento React X para retorno de energia otimizado. O tênis de corrida mais confiável do mundo.",
     sizes: [39, 40, 41, 42, 43, 44],
     colors: ["#00ff88", "#00b4d8", "#1a1a2e"]
   },
@@ -92,7 +92,7 @@ const products = [
     bg: "linear-gradient(135deg, #ff0055, #ff3c00)",
     rating: 4.8,
     reviews: 421,
-    desc: "O tenis mais rapido do mundo. Placa de fibra de carbono e espuma ZoomX para quebrar recordes pessoais em maratona.",
+    desc: "O tênis mais rápido do mundo. Placa de fibra de carbono e espuma ZoomX para quebrar recordes pessoais em maratona.",
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ["#ff0055", "#1a1a2e", "#ffffff"]
   },
@@ -108,7 +108,7 @@ const products = [
     bg: "linear-gradient(135deg, #fbbf24, #f59e0b)",
     rating: 4.9,
     reviews: 143,
-    desc: "O icone absoluto do streetwear. O Air Jordan 1 High é o tenis que mudou o jogo para sempre. Design atemporal e colacidade extrema.",
+    desc: "O ícone absoluto do streetwear. O Air Jordan 1 High é o tênis que mudou o jogo para sempre. Design atemporal e colacidade extrema.",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     colors: ["#fbbf24", "#1a1a2e", "#ff3c00"]
   },
@@ -124,7 +124,7 @@ const products = [
     bg: "linear-gradient(135deg, #6b7280, #9ca3af)",
     rating: 4.5,
     reviews: 687,
-    desc: "OStan Smith é sinônimo de elegancia atemporal. Minimalismo perfeito com cabedal em couro branco e detalhes iconicos em verde.",
+    desc: "O Stan Smith é sinônimo de elegância atemporal. Minimalismo perfeito com cabedal em couro branco e detalhes icônicos em verde.",
     sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43],
     colors: ["#6b7280", "#1a1a2e", "#f5f5dc"]
   },
@@ -156,7 +156,7 @@ const products = [
     bg: "linear-gradient(135deg, #059669, #047857)",
     rating: 4.9,
     reviews: 76,
-    desc: "Para trilhas e terrenos acidentados. Solado com presas agressivas, impermeabilidade Gore-Tex e amortecimento para longas distancias.",
+    desc: "Para trilhas e terrenos acidentados. Solado com presas agressivas, impermeabilidade Gore-Tex e amortecimento para longas distâncias.",
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ["#059669", "#1a1a2e", "#fbbf24"]
   },
@@ -172,7 +172,7 @@ const products = [
     bg: "linear-gradient(135deg, #1e1e1e, #3a3a3a)",
     rating: 4.8,
     reviews: 334,
-    desc: "Design futurista de Kanye West. Entressola Boost macia como nuvem e cabedal Primeknit com painel lateral icone.",
+    desc: "Design futurista de Kanye West. Entressola Boost macia como nuvem e cabedal Primeknit com painel lateral ícone.",
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ["#1e1e1e", "#ffcc00", "#ff3c00"]
   },
@@ -204,7 +204,7 @@ const products = [
     bg: "linear-gradient(135deg, #dc2626, #991b1b)",
     rating: 4.7,
     reviews: 1243,
-    desc: "O classico absoluto. Canvas resistente, sola em borracha vulcanizada e aquele style que nunca sai de moda. Do palco ao campus.",
+    desc: "O clássico absoluto. Canvas resistente, sola em borracha vulcanizada e aquele style que nunca sai de moda. Do palco ao campus.",
     sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#dc2626", "#1a1a2e", "#ffffff"]
   },
@@ -220,7 +220,7 @@ const products = [
     bg: "linear-gradient(135deg, #1a1a1a, #333333)",
     rating: 4.6,
     reviews: 876,
-    desc: "O Old Skool é o primeiro modelo Vans com a faixa lateral iconica. Solado waffle e cabedal em lona reforcada para skateboard e life.",
+    desc: "O Old Skool é o primeiro modelo Vans com a faixa lateral icônica. Solado waffle e cabedal em lona reforçada para skateboard e life.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#1a1a1a", "#ffffff", "#1e40af"]
   },
@@ -252,7 +252,7 @@ const products = [
     bg: "linear-gradient(135deg, #059669, #047857)",
     rating: 4.4,
     reviews: 412,
-    desc: "Simplicidade e elegancia. Cabedal em couro branco macio, entressola de espuma e solado em borracha duravel. Conforto premium.",
+    desc: "Simplicidade e elegância. Cabedal em couro branco macio, entressola de espuma e solado em borracha durável. Conforto premium.",
     sizes: [37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#ffffff", "#1a1a2e", "#059669"]
   },
@@ -268,7 +268,7 @@ const products = [
     bg: "linear-gradient(135deg, #7c3aed, #6d28d9)",
     rating: 4.8,
     reviews: 321,
-    desc: "Estabilidade e amortecimento de elite. Tecnologia 4D GUIDANCE SYSTEM e GEL no pe e calcanhar. Para pronadores exigentes.",
+    desc: "Estabilidade e amortecimento de elite. Tecnologia 4D GUIDANCE SYSTEM e GEL no pé e calcanhar. Para pronadores exigentes.",
     sizes: [38, 39, 40, 41, 42, 43, 44, 45],
     colors: ["#7c3aed", "#1a1a2e", "#f97316"]
   },
@@ -300,7 +300,7 @@ const products = [
     bg: "linear-gradient(135deg, #fbbf24, #d97706)",
     rating: 4.6,
     reviews: 1567,
-    desc: "A biqueira de borracha icone que conquistou as quadras e as ruas. Couro premium com 3 listras e solado em plataforma.",
+    desc: "A biqueira de borracha ícone que conquistou as quadras e as ruas. Couro premium com 3 listras e solado em plataforma.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43],
     colors: ["#ffffff", "#1a1a2e", "#fbbf24"]
   },
@@ -332,7 +332,7 @@ const products = [
     bg: "linear-gradient(135deg, #0891b2, #0e7490)",
     rating: 4.5,
     reviews: 654,
-    desc: "O Suede é cultura em forma de tenis. Couro suede premium, faixa Formstrip lateral e solado em borracha. Da breakdance ao street.",
+    desc: "O Suede é cultura em forma de tênis. Couro suede premium, faixa Formstrip lateral e solado em borracha. Da breakdance ao street.",
     sizes: [37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#0891b2", "#1a1a2e", "#dc2626"]
   },
@@ -364,7 +364,7 @@ const products = [
     bg: "linear-gradient(135deg, #ea580c, #c2410c)",
     rating: 4.9,
     reviews: 256,
-    desc: "A silhueta que revolucionou o design de basquete. Asai unit com amortecimento Air visivel, aba de couro e asas laterais plasticas.",
+    desc: "A silhueta que revolucionou o design de basquete. Asai unit com amortecimento Air visível, aba de couro e asas laterais plásticas.",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     colors: ["#ea580c", "#1a1a2e", "#ffffff"]
   },
@@ -412,7 +412,7 @@ const products = [
     bg: "linear-gradient(135deg, #2563eb, #1d4ed8)",
     rating: 4.7,
     reviews: 134,
-    desc: "Assinatura de Stephen Curry. Flow com tracao total no choque, amortecimento UA e suporte lateral para movimentos explosivos.",
+    desc: "Assinatura de Stephen Curry. Flow com tração total no choque, amortecimento UA e suporte lateral para movimentos explosivos.",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     colors: ["#2563eb", "#fbbf24", "#1a1a2e"]
   },
@@ -428,7 +428,7 @@ const products = [
     bg: "linear-gradient(135deg, #a855f7, #7c3aed)",
     rating: 4.5,
     reviews: 267,
-    desc: "Y2K aesthetics com tecnologia GEL. Design retrô dos anos 2000 que voltou com tudo. Couro sintetico, mesh e amortecimento visivel.",
+    desc: "Y2K aesthetics com tecnologia GEL. Design retrô dos anos 2000 que voltou com tudo. Couro sintético, mesh e amortecimento visível.",
     sizes: [37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#d4d4d4", "#1a1a2e", "#a855f7"]
   },
@@ -444,7 +444,7 @@ const products = [
     bg: "linear-gradient(135deg, #1e1e1e, #404040)",
     rating: 4.6,
     reviews: 723,
-    desc: "O high-top que dominou o skate. Cano alto com protecao, solado waffle e sola de borracha vulcanizada. Cultura em forma de tenis.",
+    desc: "O high-top que dominou o skate. Cano alto com proteção, solado waffle e sola de borracha vulcanizada. Cultura em forma de tênis.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#1a1a1a", "#ffffff", "#dc2626"]
   },
@@ -460,7 +460,7 @@ const products = [
     bg: "linear-gradient(135deg, #f43f5e, #e11d48)",
     rating: 4.7,
     reviews: 189,
-    desc: "Feito para CrossFit e treino funcional. Entressola Flexweave, suporte lateral e traçao total. Performace que não para.",
+    desc: "Feito para CrossFit e treino funcional. Entressola Flexweave, suporte lateral e tração total. Performance que não para.",
     sizes: [38, 39, 40, 41, 42, 43, 44, 45],
     colors: ["#f43f5e", "#1a1a2e", "#ffffff"]
   },
@@ -508,7 +508,7 @@ const products = [
     bg: "linear-gradient(135deg, #1a1a2e, #0f172a)",
     rating: 5.0,
     reviews: 67,
-    desc: "O Jordan mais icone de todos. Patente shiny, entressola com Air e carbono. O tenis que MJ usou no filme Space Jam.",
+    desc: "O Jordan mais ícone de todos. Patente shiny, entressola com Air e carbono. O tênis que MJ usou no filme Space Jam.",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     colors: ["#1a1a2e", "#ffffff", "#dc2626"]
   },
@@ -524,7 +524,7 @@ const products = [
     bg: "linear-gradient(135deg, #9ca3af, #6b7280)",
     rating: 4.6,
     reviews: 512,
-    desc: "O clasico de todos os tempos da New Balance. Camurca premium, sola ENCAP e um design que envelhece bem em qualquer guarda-roupa.",
+    desc: "O clássico de todos os tempos da New Balance. Camurca premium, sola ENCAP e um design que envelhece bem em qualquer guarda-roupa.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#9ca3af", "#1a1a2e", "#ffffff"]
   },
@@ -556,7 +556,7 @@ const products = [
     bg: "linear-gradient(135deg, #6045e2, #3b82f6)",
     rating: 4.8,
     reviews: 228,
-    desc: "Heranca das pistas de automobilismo. Perfil baixo, cabedal leve e aquele visual fast que combina com velocidade.",
+    desc: "Herança das pistas de automobilismo. Perfil baixo, cabedal leve e aquele visual fast que combina com velocidade.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#6045e2", "#1a1a2e", "#fbbf24"]
   },
@@ -572,7 +572,7 @@ const products = [
     bg: "linear-gradient(135deg, #f472b6, #db2777)",
     rating: 4.5,
     reviews: 634,
-    desc: "O creepy que dominou os anos 90 e voltou. Sola volumosa, aspecto chunky e presenca que nao passa despercebida.",
+    desc: "O creepy que dominou os anos 90 e voltou. Sola volumosa, aspecto chunky e presença que não passa despercebida.",
     sizes: [35, 36, 37, 38, 39, 40, 41, 42],
     colors: ["#f472b6", "#1a1a2e", "#ffffff"]
   },
@@ -604,7 +604,7 @@ const products = [
     bg: "linear-gradient(135deg, #6366f1, #4f46e5)",
     rating: 4.7,
     reviews: 350,
-    desc: "Equilibrio perfeito entre conforto e desempenho. Amortecimento DNA LOFT v3 e transicao suave para o dia a dia.",
+    desc: "Equilíbrio perfeito entre conforto e desempenho. Amortecimento DNA LOFT v3 e transição suave para o dia a dia.",
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ["#6366f1", "#1a1a2e", "#f97316"]
   },
@@ -620,7 +620,7 @@ const products = [
     bg: "linear-gradient(135deg, #16a34a, #15803d)",
     rating: 4.8,
     reviews: 142,
-    desc: "Para trilhas extremas. Solado com presas agressivas de 5mm, Quicklace e membrana resistente a agua. Pura adrenalina.",
+    desc: "Para trilhas extremas. Solado com presas agressivas de 5mm, Quicklace e membrana resistente à água. Pura adrenalina.",
     sizes: [39, 40, 41, 42, 43, 44, 45],
     colors: ["#16a34a", "#1a1a2e", "#fbbf24"]
   },
@@ -636,7 +636,7 @@ const products = [
     bg: "linear-gradient(135deg, #38bdf8, #0284c7)",
     rating: 4.7,
     reviews: 415,
-    desc: "A sensacao suica. Amortecimento CloudTec com orifícios inovadores que absorvem impacto e devolvem energia a cada passo.",
+    desc: "A sensação suíça. Amortecimento CloudTec com orifícios inovadores que absorvem impacto e devolvem energia a cada passo.",
     sizes: [38, 39, 40, 41, 42, 43, 44, 45],
     colors: ["#38bdf8", "#1a1a2e", "#e2e8f0"]
   },
@@ -652,7 +652,7 @@ const products = [
     bg: "linear-gradient(135deg, #f59e0b, #b45309)",
     rating: 4.6,
     reviews: 301,
-    desc: "Tecnologia japonesa com placa Wave de estabilidade e espuma Enerzy. O Rider que nunca decepciona nas longas distancias.",
+    desc: "Tecnologia japonesa com placa Wave de estabilidade e espuma Enerzy. O Rider que nunca decepciona nas longas distâncias.",
     sizes: [38, 39, 40, 41, 42, 43, 44],
     colors: ["#f59e0b", "#1a1a2e", "#1e40af"]
   },
@@ -668,7 +668,7 @@ const products = [
     bg: "linear-gradient(135deg, #0ea5e9, #0369a1)",
     rating: 4.7,
     reviews: 267,
-    desc: "O coringa versatil da Saucony. Espuma PWRRUN + e cabedal em mesh engenierado para corridas, academia e o dia a dia.",
+    desc: "O coringa versátil da Saucony. Espuma PWRRUN + e cabedal em mesh engenierado para corridas, academia e o dia a dia.",
     sizes: [38, 39, 40, 41, 42, 43, 44, 45],
     colors: ["#0ea5e9", "#1a1a2e", "#f472b6"]
   },
@@ -684,7 +684,7 @@ const products = [
     bg: "linear-gradient(135deg, #dc2626, #7f1d1d)",
     rating: 4.9,
     reviews: 98,
-    desc: "A assinatura de Dwyane Wade. Amortecimento BOOM, cabedal em trama de carbono e tracao de elite para a quadra.",
+    desc: "A assinatura de Dwyane Wade. Amortecimento BOOM, cabedal em trama de carbono e tração de elite para a quadra.",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     colors: ["#dc2626", "#1a1a2e", "#fbbf24"]
   },
@@ -700,7 +700,7 @@ const products = [
     bg: "linear-gradient(135deg, #22c55e, #15803d)",
     rating: 4.8,
     reviews: 589,
-    desc: "De quadras de futebol ao streetwear. Cabedal em camurca, biqueira em suede e o soul da cultura que nunca envelhece.",
+    desc: "De quadras de futebol ao streetwear. Cabedal em camurça, biqueira em suede e o soul da cultura que nunca envelhece.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#22c55e", "#1a1a2e", "#ffffff"]
   },
@@ -716,7 +716,7 @@ const products = [
     bg: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
     rating: 4.4,
     reviews: 496,
-    desc: "O skate classico com cano baixo e almofada extra. Lona duravel, solado waffle e estilo que domina desde os anos 90.",
+    desc: "O skate clássico com cano baixo e almofada extra. Lona durável, solado waffle e estilo que domina desde os anos 90.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#3b82f6", "#1a1a2e", "#ffffff"]
   },
@@ -732,7 +732,7 @@ const products = [
     bg: "linear-gradient(135deg, #fbbf24, #d97706)",
     rating: 4.8,
     reviews: 334,
-    desc: "O icone em versao low. Mesma alma do Air Jordan 1, cabedal em couro premium e conforto para o dia inteiro nas ruas.",
+    desc: "O ícone em versao low. Mesma alma do Air Jordan 1, cabedal em couro premium e conforto para o dia inteiro nas ruas.",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     colors: ["#fbbf24", "#1a1a2e", "#ffffff"]
   },
@@ -748,7 +748,7 @@ const products = [
     bg: "linear-gradient(135deg, #f97316, #ea580c)",
     rating: 4.9,
     reviews: 177,
-    desc: "Retorno de energia brutal com ZoomX. Cabedal em Flyknit e amortecimento macio para corridas diarias de alto volume.",
+    desc: "Retorno de energia brutal com ZoomX. Cabedal em Flyknit e amortecimento macio para corridas diárias de alto volume.",
     sizes: [38, 39, 40, 41, 42, 43, 44, 45],
     colors: ["#f97316", "#1a1a2e", "#111827"]
   },
@@ -764,7 +764,7 @@ const products = [
     bg: "linear-gradient(135deg, #111827, #374151)",
     rating: 4.5,
     reviews: 288,
-    desc: "A estrela que virou lenda. Cabedal em camurca, logotipo em forma de estrela e o visual grunge que marcou o grunge.",
+    desc: "A estrela que virou lenda. Cabedal em camurça, logotipo em forma de estrela e o visual grunge que marcou o grunge.",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
     colors: ["#111827", "#1a1a2e", "#ef4444"]
   }
@@ -832,6 +832,10 @@ function getFilteredProducts() {
     ? products.slice()
     : products.filter(p => p.cat === currentCategory);
 
+  if (window.homeHighlightsOnly) {
+    list = list.filter(p => p.badge === "sale" || p.badge === "hot");
+  }
+
   if (searchTerm) {
     const q = searchTerm.toLowerCase();
     list = list.filter(p =>
@@ -855,17 +859,56 @@ function getFilteredProducts() {
 
   if (sortBy === "menorPreco") list.sort((a, b) => a.price - b.price);
   else if (sortBy === "maiorPreco") list.sort((a, b) => b.price - a.price);
-  else if (sortBy === "avaliacao") list.sort((a, b) => b.rating - a.rating);
+  else if (sortBy === "avaliação") list.sort((a, b) => b.rating - a.rating);
 
   return list;
 }
 
+function getHomeGridColumns() {
+  if (!productsGrid) return 4;
+  const cols = getComputedStyle(productsGrid).gridTemplateColumns;
+  const count = cols.split(" ").filter(s => s.trim() !== "" && s !== "none").length;
+  return count > 0 ? count : 4;
+}
+
+let currentPage = 1;
+
+function renderProductsPager(totalPages) {
+  const pager = document.getElementById("productsPager");
+  if (!pager) return;
+  if (totalPages <= 1) { pager.innerHTML = ""; return; }
+  let html = `<button class="pager-arrow" data-page="prev" aria-label="Página anterior" ${currentPage === 1 ? "disabled" : ""}><i class="fa-solid fa-arrow-left"></i></button>`;
+  html += `<span class="pager-info">Página ${currentPage} de ${totalPages}</span>`;
+  html += `<button class="pager-arrow" data-page="next" aria-label="Próxima página" ${currentPage === totalPages ? "disabled" : ""}><i class="fa-solid fa-arrow-right"></i></button>`;
+  pager.innerHTML = html;
+  pager.querySelectorAll(".pager-arrow").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (btn.dataset.page === "next" && currentPage < totalPages) currentPage++;
+      if (btn.dataset.page === "prev" && currentPage > 1) currentPage--;
+      renderProducts(currentCategory);
+      document.getElementById("produtos").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
 function renderProducts(category) {
   if (!productsGrid) return;
-  const filtered = getFilteredProducts();
+  let filtered = getFilteredProducts();
+
+  if (window.homeHighlightsOnly) {
+    filtered = filtered.slice(0, getHomeGridColumns() * 2);
+  }
+
+  if (window.productsPaginated) {
+    const pageSize = getHomeGridColumns() * 3;
+    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    if (currentPage > totalPages) currentPage = totalPages;
+    filtered = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    renderProductsPager(totalPages);
+  }
 
   if (filtered.length === 0) {
-    productsGrid.innerHTML = '<p class="no-results">Nenhum tenis encontrado com esses filtros.</p>';
+    productsGrid.innerHTML = '<p class="no-results">Nenhum tênis encontrado com esses filtros.</p>';
     return;
   }
 
@@ -966,7 +1009,7 @@ function updateCart() {
   if (!cartItems || !cartFooter) return;
 
   if (cart.length === 0) {
-    cartItems.innerHTML = '<p class="cart-empty">Seu carrinho esta vazio.</p>';
+    cartItems.innerHTML = '<p class="cart-empty">Seu carrinho está vazio.</p>';
     cartFooter.style.display = "none";
   } else {
     cartItems.innerHTML = cart.map((item, i) => `
@@ -1013,6 +1056,7 @@ document.querySelectorAll(".cat-card").forEach(card => {
     document.querySelectorAll(".cat-card").forEach(c => c.classList.remove("active"));
     card.classList.add("active");
     currentCategory = card.dataset.cat;
+    currentPage = 1;
     renderProducts(currentCategory);
   });
 });
@@ -1034,6 +1078,7 @@ function populateBrands() {
 if (searchInput) {
   searchInput.addEventListener("input", () => {
     searchTerm = searchInput.value.trim();
+    currentPage = 1;
     renderProducts(currentCategory);
   });
 }
@@ -1043,6 +1088,7 @@ const headerSearch = document.getElementById("headerSearch");
 if (headerSearch) {
   headerSearch.addEventListener("input", () => {
     searchTerm = headerSearch.value.trim();
+    currentPage = 1;
     if (searchInput && searchInput.value !== headerSearch.value) searchInput.value = headerSearch.value;
     const target = document.getElementById("produtos");
     renderProducts(currentCategory);
@@ -1058,6 +1104,7 @@ if (headerSearch) {
 if (brandSelect) {
   brandSelect.addEventListener("change", () => {
     brandFilter = brandSelect.value;
+    currentPage = 1;
     renderProducts(currentCategory);
   });
 }
@@ -1065,6 +1112,7 @@ if (brandSelect) {
 if (priceSelect) {
   priceSelect.addEventListener("change", () => {
     priceFilter = priceSelect.value;
+    currentPage = 1;
     renderProducts(currentCategory);
   });
 }
@@ -1072,11 +1120,20 @@ if (priceSelect) {
 if (sortSelect) {
   sortSelect.addEventListener("change", () => {
     sortBy = sortSelect.value;
+    currentPage = 1;
     renderProducts(currentCategory);
   });
 }
 
 populateBrands();
+
+// Recalcula a páginação (3 fileiras) ao redimensionar
+let resizeTimer;
+window.addEventListener("resize", () => {
+  if (!window.productsPaginated && !window.homeHighlightsOnly) return;
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => renderProducts(currentCategory), 150);
+});
 
 // ===== THEME TOGGLE =====
 const themeToggle = document.getElementById("themeToggle");

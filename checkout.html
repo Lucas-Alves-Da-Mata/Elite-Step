@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -63,7 +63,7 @@
             <div class="checkout-step-head">
               <span class="checkout-step-icon"><i class="fa-solid fa-location-dot"></i></span>
               <div>
-                <h2 class="checkout-title">ENDERECO DE ENTREGA</h2>
+                <h2 class="checkout-title">ENDEREÃ‡O DE ENTREGA</h2>
                 <p class="checkout-step-desc">Onde você quer receber seu pedido? Entrega rápida e rastreada.</p>
               </div>
             </div>
@@ -75,7 +75,7 @@
             </div>
             <div class="checkout-grid-2">
               <div class="form-field"><label for="cTel">WhatsApp *</label><input type="tel" id="cTel" placeholder="(11) 99999-9999" autocomplete="tel"></div>
-              <div class="form-field"><label for="cEmail">E-mail *</label><input type="email" id="cEmail" placeholder="voce@email.com" autocomplete="email"></div>
+              <div class="form-field"><label for="cEmail">E-mail *</label><input type="email" id="cEmail" placeholder="vocÃª@email.com" autocomplete="email"></div>
             </div>
             <h3 class="field-group-title"><i class="fa-solid fa-truck-fast"></i> Endereço</h3>
             <div class="checkout-grid-2">
@@ -198,8 +198,8 @@
 
       <div class="empty-state" id="checkoutEmpty" style="display:none">
         <span class="empty-icon"><i class="fa-solid fa-cart-shopping"></i></span>
-        <h2>Seu carrinho esta vazio</h2>
-        <p>Adicione tenis antes de ir ao checkout.</p>
+        <h2>Seu carrinho está vazio</h2>
+        <p>Adicione tênis antes de ir ao checkout.</p>
         <a href="index.html" class="btn btn-primary">VER PRODUTOS</a>
       </div>
     </div>
@@ -247,7 +247,7 @@
         `<div class="summary-row"><span>${i.name} (Tam ${i.size}) x ${i.qty}</span><span>${formatPrice(i.price * i.qty)}</span></div>`
       ).join("");
       document.getElementById("summarySubtotal").textContent = formatPrice(getSubtotal());
-      document.getElementById("summaryFrete").textContent = getFrete() === 0 ? "Gratis" : formatPrice(getFrete());
+      document.getElementById("summaryFrete").textContent = getFrete() === 0 ? "Grátis" : formatPrice(getFrete());
       document.getElementById("summaryCupom").textContent = cupomApplied ? "-" + formatPrice(getSubtotal() * 0.10) : "-";
       document.getElementById("summaryTotal").textContent = formatPrice(getTotal());
       document.getElementById("checkoutSubtitle").textContent = `${cart.reduce((s, i) => s + i.qty, 0)} itens no pedido.`;
@@ -271,7 +271,7 @@
       const v = document.getElementById("cupomInput").value.trim().toUpperCase();
       if (cupomApplied) return;
       if (v === "ELITE10") { cupomApplied = true; renderSummary(); showToast("Cupom ELITE10 aplicado!"); }
-      else if (v) showToast("Cupom invalido!");
+      else if (v) showToast("Cupom inválido!");
     });
 
     document.querySelectorAll(".pay-option").forEach(opt => {
@@ -317,8 +317,8 @@
       for (const id of req) {
         if (!document.getElementById(id).value.trim()) { showToast("Preencha todos os campos!"); document.getElementById(id).focus(); return; }
       }
-      if (document.getElementById("cCep").value.replace(/\D/g,"").length !== 8) { showToast("CEP invalido!"); return; }
-      if (!validarCPF(document.getElementById("cCpf").value)) { showToast("CPF invalido!"); return; }
+      if (document.getElementById("cCep").value.replace(/\D/g,"").length !== 8) { showToast("CEP inválido!"); return; }
+      if (!validarCPF(document.getElementById("cCpf").value)) { showToast("CPF inválido!"); return; }
       custData = Object.fromEntries(req.concat(["cComplemento"]).map(id => [id, document.getElementById(id).value.trim()]));
       custData.nome = custData.cNome; custData.email = custData.cEmail;
       showStep(2);
@@ -326,17 +326,17 @@
     document.getElementById("backStep1").addEventListener("click", () => showStep(1));
     document.getElementById("goStep3").addEventListener("click", () => {
       if (payMethod === "card") {
-        if (document.getElementById("cardNum").value.replace(/\s/g,"").length < 16) { showToast("Cartao incompleto!"); return; }
-        if (!document.getElementById("cardNome").value.trim()) { showToast("Nome no cartao!"); return; }
+        if (document.getElementById("cardNum").value.replace(/\s/g,"").length < 16) { showToast("Cartão incompleto!"); return; }
+        if (!document.getElementById("cardNome").value.trim()) { showToast("Nome no cartão!"); return; }
         if (document.getElementById("cardVal").value.length < 5) { showToast("Validade invalida!"); return; }
-        if (document.getElementById("cardCvv").value.length < 3) { showToast("CVV invalido!"); return; }
+        if (document.getElementById("cardCvv").value.length < 3) { showToast("CVV inválido!"); return; }
       }
       const total = getTotal();
       document.getElementById("confirmTotal").textContent = formatPrice(total);
       document.getElementById("confirmAddress").innerHTML = `<strong>ENTREGA</strong><p>${custData.cNome} - ${custData.cCpf}</p><p>${custData.cRua}, ${custData.cNumero} - ${custData.cBairro}, ${custData.cCidade}/${custData.cUf}</p><p>CEP ${custData.cCep}</p>`;
       document.getElementById("confirmPay").innerHTML = payMethod === "card"
-        ? `<strong>PAGAMENTO</strong><p>Cartao **** ${document.getElementById("cardNum").value.slice(-4)} em ${document.getElementById("cardParcelas").value}x</p>`
-        : payMethod === "pix" ? `<strong>PAGAMENTO</strong><p>Pix com 5% OFF</p>` : `<strong>PAGAMENTO</strong><p>Boleto bancario</p>`;
+        ? `<strong>PAGAMENTO</strong><p>Cartão **** ${document.getElementById("cardNum").value.slice(-4)} em ${document.getElementById("cardParcelas").value}x</p>`
+        : payMethod === "pix" ? `<strong>PAGAMENTO</strong><p>Pix com 5% OFF</p>` : `<strong>PAGAMENTO</strong><p>Boleto bancário</p>`;
       showStep(3);
     });
     document.getElementById("backStep2").addEventListener("click", () => showStep(2));
