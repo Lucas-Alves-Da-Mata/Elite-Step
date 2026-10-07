@@ -1424,6 +1424,57 @@ function updateAuthUI() {
 }
 updateAuthUI();
 
+// ===== PORTÃO DE AUTENTICAÇÃO (exigir login para finalizar a compra) =====
+function showAuthGate() {
+  let gate = document.getElementById("authGate");
+  if (!gate) {
+    gate = document.createElement("div");
+    gate.id = "authGate";
+    gate.className = "auth-gate";
+    gate.setAttribute("role", "dialog");
+    gate.setAttribute("aria-modal", "true");
+    gate.setAttribute("aria-labelledby", "authGateTitle");
+    gate.innerHTML = [
+      '<div class="auth-gate-backdrop" data-auth-close></div>',
+      '<div class="auth-gate-card">',
+      '<button type="button" class="auth-gate-close" data-auth-close aria-label="Fechar">&times;</button>',
+      '<span class="auth-gate-icon"><i class="fa-solid fa-lock"></i></span>',
+      '<h2 id="authGateTitle">Faça seu login ou cadastro</h2>',
+      '<p class="auth-gate-text">Você precisa estar logado para finalizar a compra. É rápido e gratuito!</p>',
+      '<div class="auth-gate-actions">',
+      '<a href="login.html" class="btn btn-primary btn-full">FAZER LOGIN</a>',
+      '<a href="cadastro.html" class="btn btn-secondary btn-full">CRIAR CADASTRO</a>',
+      '</div>',
+      '<button type="button" class="auth-gate-later" data-auth-close>Continuar comprando</button>',
+      '</div>'
+    ].join("");
+    document.body.appendChild(gate);
+    gate.addEventListener("click", (e) => {
+      if (e.target.closest("[data-auth-close]")) hideAuthGate();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") hideAuthGate();
+    });
+  }
+  // força reflow para a animação de entrada funcionar de forma confiável
+  void gate.offsetWidth;
+  gate.classList.add("open");
+  document.body.style.overflow = "hidden";
+  return gate;
+}
+function hideAuthGate() {
+  const gate = document.getElementById("authGate");
+  if (!gate) return;
+  gate.classList.remove("open");
+  document.body.style.overflow = "";
+}
+// Retorna true se logado; caso contrário, abre o portão de login e retorna false
+function requireLogin() {
+  if (getSession()) return true;
+  showAuthGate();
+  return false;
+}
+
 // ===== PROMO BAR (faixa de desconto no topo) =====
 (function () {
   const bar = document.getElementById("promoBar");

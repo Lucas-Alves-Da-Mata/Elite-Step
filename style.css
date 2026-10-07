@@ -2062,6 +2062,100 @@ body.promo-closed .promo-bar { display: none; }
   transform: rotate(90deg) scale(1.2);
 }
 
+/* ===== PORTÃO DE AUTENTICAÇÃO (finalizar compra exige login) ===== */
+.auth-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.auth-gate.open { opacity: 1; visibility: visible; }
+.auth-gate-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+}
+.auth-gate-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 0, 64, 0.25);
+  border-radius: 16px;
+  padding: 36px 30px 24px;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(255, 0, 64, 0.35);
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.25s;
+}
+.auth-gate.open .auth-gate-card { transform: none; }
+.auth-gate-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.auth-gate-close:hover { color: var(--primary); }
+.auth-gate-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 0, 64, 0.12);
+  border: 1px solid rgba(255, 0, 64, 0.4);
+  color: var(--primary);
+  font-size: 1.5rem;
+  box-shadow: 0 0 22px rgba(255, 0, 64, 0.4);
+}
+.auth-gate-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 16px 0 8px;
+}
+.auth-gate-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+.auth-gate-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+.auth-gate-later {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  margin-top: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.auth-gate-later:hover { color: var(--primary); }
+
+body[data-theme="light"] .auth-gate-backdrop { background: rgba(15, 15, 15, 0.45); }
+body[data-theme="light"] .auth-gate-card { background: #ffffff; }
+
 .modal-body {
   display: grid;
   grid-template-columns: 1fr 1fr;

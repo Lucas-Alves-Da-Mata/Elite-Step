@@ -207,6 +207,9 @@
 
   <script src="script.js"></script>
   <script>
+    // Exige login: sem sessão, volta ao carrinho com o portão de autenticação aberto
+    if (!getSession()) window.location.replace("carrinho.html?auth=1");
+
     let payMethod = "card";
     let custData = {};
     let cupomApplied = false;

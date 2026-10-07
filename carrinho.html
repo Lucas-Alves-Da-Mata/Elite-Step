@@ -188,9 +188,19 @@
       if (cart.length === 0) {
         e.preventDefault();
         showToast("Seu carrinho está vazio!");
+        return;
       }
-      // Carrinho com itens navega para checkout.html (link dedicado)
+      // Só avança para o checkout se o usuário estiver logado;
+      // caso contrário, mostra o portão de login/cadastro na tela.
+      if (!requireLogin()) {
+        e.preventDefault();
+      }
     });
+
+    // Se veio do checkout sem sessão, abre o portão de login direto
+    if (new URLSearchParams(window.location.search).get("auth") === "1") {
+      showAuthGate();
+    }
 
     renderCartPage();
   </script>
