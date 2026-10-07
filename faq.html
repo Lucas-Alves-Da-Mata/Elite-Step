@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Perguntas frequentes sobre compras, trocas, frete e pagamento na Elite Step.">
+  <meta name="description" content="Perguntas frequentes sobre compras, pagamento, frete, trocas, tamanhos e suporte na Elite Step.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'><path fill='%23ff0040' d='M416 0C352.3 0 256 32 256 32l0 128c48 0 76 16 104 32s56 32 104 32c56.4 0 176-16 176-96S512 0 416 0zM128 96c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64zM288 512c96 0 224-48 224-128s-119.6-96-176-96c-48 0-76 16-104 32s-56 32-104 32l0 128s96.3 32 160 32zM0 416c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64z'/></svg>">
   <title>FAQ - ELITE STEP</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,47 +44,168 @@
     </div>
   </header>
 
-  <!-- FAQ -->
-  <section class="page-section">
-    <div class="container">
-      <h1 class="page-title"><i class="fa-solid fa-circle-question fa-title-icon"></i> PERGUNTAS FREQUENTES</h1>
-      <p class="page-subtitle">Tudo o que você precisa saber sobre suas compras na Elite Step.</p>
+  <!-- FAQ PERSONALIZADO -->
+  <section class="faq-page">
 
-      <div class="faq-list">
-        <details class="faq-item" id="frete">
-          <summary><i class="fa-solid fa-truck"></i> Como funciona o frete?</summary>
-          <p>O frete e <strong>grátis para compras acima de R$ 1.299</strong>. Para valores menores, o custo e de R$ 39,90. O prazo de entrega varia de 3 a 10 dias úteis, dependendo da regiao.</p>
-        </details>
+    <!-- HERO -->
+    <div class="faq-hero">
+      <div class="container faq-hero-inner">
+        <span class="faq-hero-tag"><i class="fa-solid fa-circle-question"></i> Central de ajuda</span>
+        <h1 class="faq-hero-title">Perguntas<br><span>Frequentes</span></h1>
+        <p class="faq-hero-sub">Tudo o que você precisa saber antes de comprar. Busque sua dúvida, navegue por categoria ou abra uma pergunta.</p>
+        <div class="faq-search">
+          <i class="fa-solid fa-magnifying-glass faq-search-icon"></i>
+          <input type="text" id="faqSearchInput" placeholder="Pesquisar: frete, troca, pagamento, tamanho..." autocomplete="off" aria-label="Pesquisar nas perguntas frequentes">
+          <button class="faq-search-clear" id="faqSearchClear" aria-label="Limpar pesquisa" hidden>&times;</button>
+        </div>
+      </div>
+    </div>
 
-        <details class="faq-item" id="trocas">
-          <summary><i class="fa-solid fa-arrows-rotate"></i> Posso trocar ou devolver um produto?</summary>
-          <p>Sim! Você tem <strong>30 dias</strong> após o recebimento para solicitar troca ou devolução. O produto deve estar sem uso, com etiqueta e na embalagem original.</p>
-        </details>
+    <!-- NAVEGAÇÃO POR CATEGORIA -->
+    <nav class="faq-catnav" id="faqCatnav" aria-label="Categorias do FAQ">
+      <div class="container faq-catnav-inner">
+        <a href="#cat-pedidos" class="faq-chip"><i class="fa-solid fa-cart-shopping"></i> Pedidos</a>
+        <a href="#cat-frete" class="faq-chip"><i class="fa-solid fa-truck-fast"></i> Frete</a>
+        <a href="#cat-trocas" class="faq-chip"><i class="fa-solid fa-arrows-rotate"></i> Trocas</a>
+        <a href="#cat-produtos" class="faq-chip"><i class="fa-solid fa-shoe-prints"></i> Produtos</a>
+        <a href="#cat-conta" class="faq-chip"><i class="fa-solid fa-headset"></i> Suporte</a>
+      </div>
+    </nav>
+
+    <!-- PERGUNTAS -->
+    <div class="container faq-wrap">
+      <div class="faq-list" id="faqList">
+
+        <!-- PEDIDOS E PAGAMENTO -->
+        <h2 class="faq-cat" id="cat-pedidos"><span class="faq-cat-icon"><i class="fa-solid fa-cart-shopping"></i></span> Pedidos e Pagamento <span class="faq-cat-count">5</span></h2>
 
         <details class="faq-item">
           <summary><i class="fa-solid fa-credit-card"></i> Quais formas de pagamento são aceitas?</summary>
-          <p>Aceitamos <strong>cartão de crédito</strong> (em até 12x), <strong>Pix</strong> com 5% de desconto à vista e <strong>boleto bancário</strong> (compensação em até 2 dias úteis).</p>
+          <p>Aceitamos <strong>cartão de crédito</strong> em até 12x, <strong>Pix</strong> com 5% de desconto à vista e <strong>boleto bancário</strong> (compensação em até 2 dias úteis). Ao finalizar a compra, você escolhe a opção que preferir.</p>
         </details>
 
         <details class="faq-item">
-          <summary><i class="fa-solid fa-gift"></i> Tenho algum desconto com cupom?</summary>
-          <p>Sim! Use o cupom <strong>ELITE10</strong> no carrinho para ganhar <strong>10% de desconto</strong> na sua compra.</p>
+          <summary><i class="fa-solid fa-ticket"></i> Como funciona o cupom de desconto?</summary>
+          <p>Basta usar o cupom <strong>ELITE10</strong> no carrinho para ganhar <strong>10% de desconto</strong> no valor total do pedido. O cupom pode ser combinado com o desconto do Pix no checkout.</p>
         </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-calendar-check"></i> Posso parcelar minha compra?</summary>
+          <p>Sim! No cartão de crédito você parcela em até <strong>12x sem juros</strong>. O valor mínimo de cada parcela é de R$ 80,00. Pagamentos no Pix e boleto são sempre à vista.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-bolt"></i> Quando o pedido pago no Pix é confirmado?</summary>
+          <p>O Pix tem confirmação <strong>imediata</strong>, geralmente em segundos. Assim que o pagamento é aprovado, seu pedido já entra na fila de separação no mesmo dia útil.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-file-invoice"></i> Vocês emitem nota fiscal?</summary>
+          <p>Sim. Todos os pedidos saem com <strong>Nota Fiscal Eletrônica (NF-e)</strong>, enviada por e-mail logo após a confirmação do pagamento. Você também encontra o arquivo no resumo do pedido.</p>
+        </details>
+
+        <!-- FRETE E ENTREGA -->
+        <h2 class="faq-cat" id="cat-frete"><span class="faq-cat-icon"><i class="fa-solid fa-truck-fast"></i></span> Frete e Entrega <span class="faq-cat-count">4</span></h2>
+
+        <details class="faq-item" id="frete">
+          <summary><i class="fa-solid fa-truck"></i> Como funciona o frete?</summary>
+          <p>O frete é <strong>grátis para compras acima de R$ 1.299</strong>. Para valores menores, o custo é de R$ 39,90. O prazo de entrega varia de <strong>3 a 10 dias úteis</strong>, dependendo da região.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-clock"></i> Qual é o prazo de entrega?</summary>
+          <p>Nas capitais da região Sudeste a entrega leva de <strong>3 a 5 dias úteis</strong>. Nas demais regiões, o prazo é de até <strong>10 dias úteis</strong> — sempre contados a partir da confirmação do pagamento.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-map-location-dot"></i> Vocês entregam em todo o Brasil?</summary>
+          <p>Sim! Atendemos <strong>todo o território nacional</strong>, incluindo capitais e cidades do interior. No checkout você informa seu CEP e vê as opções e prazos de entrega disponíveis.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-magnifying-glass-location"></i> Como acompanho meu pedido?</summary>
+          <p>Na página <a href="rastreio.html">Rastrear Pedido</a> você pode consultar o andamento da entrega. Lá mostramos um exemplo real de acompanhamento, com status simulados de demonstração.</p>
+        </details>
+
+        <!-- TROCAS E DEVOLUÇÕES -->
+        <h2 class="faq-cat" id="cat-trocas"><span class="faq-cat-icon"><i class="fa-solid fa-arrows-rotate"></i></span> Trocas e Devoluções <span class="faq-cat-count">3</span></h2>
+
+        <details class="faq-item" id="trocas">
+          <summary><i class="fa-solid fa-arrows-rotate"></i> Posso trocar ou devolver um produto?</summary>
+          <p>Sim! Você tem <strong>30 dias</strong> após o recebimento para solicitar troca ou devolução. O produto deve estar sem uso, com etiqueta e na embalagem original. O reembolso é feito no mesmo método de pagamento em até 7 dias úteis.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-envelope-open-text"></i> Como solicito uma troca?</summary>
+          <p>Fale com a gente pelo formulário em <a href="index.html#contato">Fale Conosco</a> e informe o número do pedido e o motivo. Enviamos a <strong>etiqueta de devolução</strong> por e-mail — sem custo para você.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-ruler-horizontal"></i> Trocar por um número maior tem custo?</summary>
+          <p>A <strong>primeira troca é gratuita</strong>, mesmo quando o motivo é tamanho. Se houver diferença de preço, cobramos ou estornamos a diferença. Trocas adicionais têm custo de frete.</p>
+        </details>
+
+        <!-- PRODUTOS E TAMANHOS -->
+        <h2 class="faq-cat" id="cat-produtos"><span class="faq-cat-icon"><i class="fa-solid fa-shoe-prints"></i></span> Produtos e Tamanhos <span class="faq-cat-count">4</span></h2>
 
         <details class="faq-item">
           <summary><i class="fa-solid fa-shield-halved"></i> Os produtos possuem garantia?</summary>
-          <p>Todos os tênis possuem <strong>garantia de 1 ano</strong> contra defeitos de fabricação. A garantia cobre problemas de cabedal, solado e costura.</p>
+          <p>Todos os tênis possuem <strong>garantia de 1 ano</strong> contra defeitos de fabricação. A garantia cobre problemas de cabedal, solado e costura — e não cobre desgaste natural do uso.</p>
         </details>
 
         <details class="faq-item">
           <summary><i class="fa-solid fa-ruler"></i> Os tamanhos seguem a tabela padrão?</summary>
-          <p>Sim, seguimos a numeração padrão brasileira. Se tiver dúvida entre dois números, recomendamos escolher o maior para maior conforto.</p>
+          <p>Sim, seguimos a <strong>numeração padrão brasileira</strong>. Se você ficar em dúvida entre dois números, recomendamos escolher o maior para mais conforto. Também há um guia de medidas na página de cada produto.</p>
         </details>
 
         <details class="faq-item">
-          <summary><i class="fa-solid fa-circle-question"></i> Como acompanho meu pedido?</summary>
-          <p>Na página <a href="rastreio.html">Rastrear Pedido</a> você vê um exemplo de acompanhamento (demonstração com status simulado).</p>
+          <summary><i class="fa-solid fa-badge-check"></i> Os tênis são 100% originais?</summary>
+          <p>Com certeza! Todos os produtos são <strong>originais e lacrados</strong>, adquiridos diretamente das marcas ou de distribuidores oficiais. A Elite Step não comercializa réplicas.</p>
         </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-spray-can-sparkles"></i> Como cuidar dos meus tênis?</summary>
+          <p>Limpe com um <strong>pano úmido e sabão neutro</strong>, evite a máquina de lavar e deixe secar à sombra. Guarde em local arejado — assim o cabedal e o solado duram muito mais.</p>
+        </details>
+
+        <!-- CONTA E SUPORTE -->
+        <h2 class="faq-cat" id="cat-conta"><span class="faq-cat-icon"><i class="fa-solid fa-headset"></i></span> Conta e Suporte <span class="faq-cat-count">3</span></h2>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-headset"></i> Como falo com o suporte?</summary>
+          <p>Você pode usar o formulário em <a href="index.html#contato">Fale Conosco</a> ou nos procurar pelas redes sociais (Instagram, X e YouTube). Respondemos em até <strong>1 dia útil</strong>.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-user-plus"></i> Preciso criar uma conta para comprar?</summary>
+          <p>Não. Você pode finalizar a compra como visitante. Criar uma conta (na página de <a href="cadastro.html">Cadastro</a>) é opcional e serve para agilizar o checkout e salvar seus favoritos.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><i class="fa-solid fa-heart"></i> Onde vejo meus itens favoritos?</summary>
+          <p>Na página <a href="favoritos.html">Favoritos</a>, alcançada pelo ícone de coração no topo. Lá você pode adicionar ao carrinho ou comprar direto qualquer item salvo.</p>
+        </details>
+
+        <!-- SEM RESULTADOS -->
+        <div class="faq-no-results" id="faqNoResults" hidden>
+          <span class="faq-no-results-icon"><i class="fa-solid fa-magnifying-glass-minus"></i></span>
+          <h3>Nada encontrado</h3>
+          <p>Tente buscar por outra palavra, como <em>frete</em>, <em>troca</em> ou <em>pagamento</em>.</p>
+        </div>
+
+      </div>
+
+      <!-- CTA DE CONTATO -->
+      <div class="faq-contact" id="faqContact">
+        <span class="faq-contact-icon"><i class="fa-solid fa-headset"></i></span>
+        <div class="faq-contact-text">
+          <h3>Não achou sua resposta?</h3>
+          <p>Nosso time está pronto para ajudar. Fale com a gente ou acompanhe seu pedido.</p>
+        </div>
+        <div class="faq-contact-actions">
+          <a href="index.html#contato" class="btn btn-primary">FALE CONOSCO</a>
+          <a href="rastreio.html" class="btn btn-secondary">RASTREAR PEDIDO</a>
+        </div>
       </div>
     </div>
   </section>
@@ -133,6 +254,96 @@
     </div>
   </footer>
 
+  <!-- VOLTAR AO TOPO -->
+  <button class="faq-top" id="faqTop" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
   <script src="script.js"></script>
+  <script>
+    // ===== Interações do FAQ (busca ao vivo, chips, voltar ao topo) =====
+    (function () {
+      var input = document.getElementById('faqSearchInput');
+      var clearBtn = document.getElementById('faqSearchClear');
+      var items = Array.prototype.slice.call(document.querySelectorAll('.faq-list .faq-item'));
+      var cats = Array.prototype.slice.call(document.querySelectorAll('.faq-list .faq-cat'));
+      var noResults = document.getElementById('faqNoResults');
+      var chips = Array.prototype.slice.call(document.querySelectorAll('.faq-chip'));
+      var topBtn = document.getElementById('faqTop');
+      var searchTimer = null;
+
+      // Animação de entrada em cascata
+      items.forEach(function (item, i) {
+        item.style.animationDelay = (i * 0.04) + 's';
+      });
+
+      // ---- Busca ao vivo ----
+      function applyFilter() {
+        var q = input.value.trim().toLowerCase();
+        var visible = 0;
+
+        items.forEach(function (item) {
+          var text = (item.textContent || '').toLowerCase();
+          var match = q === '' || text.indexOf(q) !== -1;
+          item.classList.toggle('is-hidden', !match);
+          if (match) visible++;
+        });
+
+        // esconde categoria sem resultados visíveis
+        cats.forEach(function (cat) {
+          var nextItems = [];
+          var el = cat.nextElementSibling;
+          while (el && el.classList && el.classList.contains('faq-item')) {
+            nextItems.push(el);
+            el = el.nextElementSibling;
+          }
+          var hasVisible = nextItems.some(function (it) {
+            return !it.classList.contains('is-hidden');
+          });
+          cat.classList.toggle('is-hidden', !hasVisible);
+        });
+
+        noResults.hidden = visible !== 0;
+        clearBtn.hidden = q === '';
+      }
+
+      input.addEventListener('input', applyFilter);
+      clearBtn.addEventListener('click', function () {
+        input.value = '';
+        applyFilter();
+        input.focus();
+      });
+
+      // ---- Chips de categoria (destaque ao rolar) ----
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) { c.classList.remove('active'); });
+          chip.classList.add('active');
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.id;
+              chips.forEach(function (c) {
+                c.classList.toggle('active', c.getAttribute('href') === '#' + id);
+              });
+            }
+          });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        cats.forEach(function (cat) { observer.observe(cat); });
+      }
+
+      // ---- Voltar ao topo ----
+      topBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', function () {
+        topBtn.classList.toggle('is-visible', window.scrollY > 420);
+      }, { passive: true });
+
+      applyFilter();
+    })();
+  </script>
 </body>
 </html>
