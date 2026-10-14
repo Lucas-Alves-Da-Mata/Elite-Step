@@ -32,7 +32,6 @@
         <a href="favoritos.html" class="nav-link">Favoritos</a>
         <a href="carrinho.html" class="nav-link">Carrinho</a>
         <a href="checkout.html" class="nav-link nav-active">Checkout</a>
-        <a href="pedidos.html" class="nav-link">Pedidos</a>
         <a href="login.html" class="nav-link" id="authLink">Entrar</a>
       </nav>
       <div class="header-actions">
@@ -181,9 +180,7 @@
               <span class="success-order-label"><i class="fa-solid fa-receipt"></i> Número do pedido</span>
               <strong class="success-order-id" id="orderIdLabel">—</strong>
             </div>
-            <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px"><i class="fa-brands fa-whatsapp"></i> ENVIAR VIA WHATSAPP</button>
-            <a href="pedidos.html" class="btn btn-primary btn-full" style="display:block;text-align:center;margin-bottom:10px"><i class="fa-solid fa-box-open"></i> VER MEUS PEDIDOS</a>
-            <a href="index.html" class="btn btn-secondary btn-full" style="display:block;text-align:center">CONTINUAR COMPRANDO</a>
+            <a href="index.html" class="btn btn-primary btn-full" style="display:block;text-align:center">CONTINUAR COMPRANDO</a>
           </div>
         </div>
 
@@ -219,7 +216,7 @@
     let payMethod = "card";
     let custData = {};
     let cupomApplied = false;
-    let lastOrderSummary = "";
+
 
     function getSubtotal() { return cart.reduce((s, i) => s + i.price * i.qty, 0); }
     function getFrete() { return getSubtotal() >= 1299 ? 0 : 39.90; }
@@ -381,10 +378,6 @@
       orders.unshift(order);
       saveOrders(orders);
 
-      // Resumo para compartilhar no WhatsApp
-      const resumo = cart.map(i => `${i.name} (Tam ${i.size}) x ${i.qty} = ${formatPrice(i.price * i.qty)}`).join("\n");
-      lastOrderSummary = `*PEDIDO ELITE STEP*\nPedido: ${order.id}\n${resumo}\nTotal: ${formatPrice(total)}\n${custData.cNome} - ${custData.cCidade}/${custData.cUf}`;
-
       // Mostra a confirmação de compra concluída e limpa o carrinho
       document.getElementById("orderIdLabel").textContent = order.id;
       cart = [];
@@ -392,9 +385,6 @@
       updateCounts();
       document.getElementById("checkoutSummary").style.display = "none";
       showStep("Success");
-    });
-    document.getElementById("shareWhatsBtn").addEventListener("click", () => {
-      if (lastOrderSummary) window.open("https://wa.me/?text=" + encodeURIComponent(lastOrderSummary), "_blank");
     });
 
     renderSummary();

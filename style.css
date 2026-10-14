@@ -3431,6 +3431,12 @@ body[data-theme="light"] .confirm-card-head { background: rgba(255,0,64,0.06); c
 }
 .orders-hero-sep { width: 1px; align-self: stretch; background: var(--border); }
 .orders-hero .orders-hero-cta { margin-left: auto; }
+/* Centraliza o bloco de pedidos na página */
+.orders-hero,
+.orders-list {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .order-card {
   background: var(--bg-card);
