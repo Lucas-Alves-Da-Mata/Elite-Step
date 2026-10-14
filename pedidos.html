@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acompanhe seu histórico de compras na Elite Step. Veja seus pedidos, valores e status de entrega.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'><path fill='%23ff0040' d='M416 0C352.3 0 256 32 256 32l0 128c48 0 76 16 104 32s56 32 104 32c56.4 0 176-16 176-96S512 0 416 0zM128 96c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64zM288 512c96 0 224-48 224-128s-119.6-96-176-96c-48 0-76 16-104 32s-56 32-104 32l0 128s96.3 32 160 32zM0 416c0 35.3 28.7 64 64 64l32 0 0-128-32 0c-35.3 0-64 28.7-64 64z'/></svg>">
+  <title>Meus Pedidos - ELITE STEP</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<script>try{if(localStorage.getItem("eliteTheme")==="light"){document.body.setAttribute("data-theme","light")}}catch(e){}</script>
+
+  <!-- FAIXA PROMOCIONAL -->
+  <div class="promo-bar" id="promoBar">
+    <p class="promo-text" id="promoText">MEGA SALE: até 90% OFF em modelos selecionados</p>
+    <button class="promo-close" id="promoClose" aria-label="Fechar aviso">&times;</button>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Produtos</a>
+        <a href="favoritos.html" class="nav-link">Favoritos</a>
+        <a href="carrinho.html" class="nav-link">Carrinho</a>
+        <a href="pedidos.html" class="nav-link nav-active">Pedidos</a>
+        <a href="login.html" class="nav-link" id="authLink">Entrar</a>
+      </nav>
+      <div class="header-actions">
+        <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
+        <a href="carrinho.html" class="cart-btn" aria-label="Carrinho"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+        <a href="login.html" class="login-text-btn" id="authBtn">ENTRAR</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MEUS PEDIDOS -->
+  <section class="page-section">
+    <div class="container">
+      <h1 class="page-title"><i class="fa-solid fa-box-open fa-title-icon"></i> MEUS PEDIDOS</h1>
+      <p class="page-subtitle" id="ordersSubtitle">Acompanhe suas compras na Elite Step.</p>
+
+      <!-- Resumo (logado e com pedidos) -->
+      <div class="orders-hero" id="ordersHero" style="display:none"></div>
+
+      <!-- Lista de pedidos -->
+      <div class="orders-list" id="ordersList"></div>
+
+      <!-- Nenhum pedido -->
+      <div class="empty-state" id="ordersEmpty" style="display:none">
+        <span class="empty-icon"><i class="fa-solid fa-box-open"></i></span>
+        <h2>Nenhum pedido ainda</h2>
+        <p>Quando você finalizar uma compra, ela aparecerá aqui com todos os detalhes.</p>
+        <a href="index.html" class="btn btn-primary">VER PRODUTOS</a>
+      </div>
+
+      <!-- Precisa estar logado -->
+      <div class="orders-login" id="ordersLogin" style="display:none">
+        <span class="empty-icon"><i class="fa-solid fa-user-lock"></i></span>
+        <h2>Faça seu login</h2>
+        <p>Entre na sua conta ou crie um cadastro para visualizar seu histórico de pedidos.</p>
+        <div class="orders-login-actions">
+          <a href="login.html" class="btn btn-primary btn-full">FAZER LOGIN</a>
+          <a href="cadastro.html" class="btn btn-secondary btn-full">CRIAR CADASTRO</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-icon"><i class="fa-solid fa-shoe-prints"></i></span> ELITE STEP</span>
+        <p>Tênis esportivos de alta performance para predadores que dominam a pista. Sem piedade.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <a href="index.html#produtos">Produtos</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="pedidos.html">Meus Pedidos</a>
+      </div>
+      <div class="footer-links">
+        <h4>Suporte</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="faq.html#trocas">Trocas e Devoluções</a>
+        <a href="faq.html#frete">Frete</a>
+        <a href="rastreio.html">Rastrear Pedido</a>
+      </div>
+      <div class="footer-links">
+        <h4>Redes Sociais</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter / X</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+      <div class="footer-links">
+        <h4>Pagamento</h4>
+        <p class="pay-flags">
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-amex" title="Amex"></i>
+          <i class="fa-brands fa-pix" title="Pix"></i>
+          <i class="fa-solid fa-barcode" title="Boleto"></i>
+        </p>
+        <small class="footer-secure">Compra 100% segura</small>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Elite Step. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      function payLabel(p) {
+        return p === "pix" ? "Pix" : p === "boleto" ? "Boleto" : "Cartão de crédito";
+      }
+      function fmtDate(iso) {
+        const d = new Date(iso);
+        if (isNaN(d.getTime())) return "—";
+        return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" }) +
+          " às " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+      }
+
+      const subtitle = document.getElementById("ordersSubtitle");
+      const sess = getSession();
+
+      // Sem login: mostra o convite para entrar/cadastrar
+      if (!sess) {
+        document.getElementById("ordersLogin").style.display = "block";
+        subtitle.textContent = "Entre na sua conta para ver seu histórico de compras.";
+        return;
+      }
+
+      // Filtra os pedidos do usuário logado (por e-mail)
+      const orders = loadOrders().filter(o => {
+        if (!sess.email) return true;
+        return !o.customer || !o.customer.email || o.customer.email === sess.email;
+      });
+
+      // Logado, mas sem pedidos
+      if (!orders.length) {
+        document.getElementById("ordersEmpty").style.display = "block";
+        subtitle.textContent = "Você ainda não fez nenhum pedido.";
+        return;
+      }
+
+      // Resumo no topo
+      const totalGasto = orders.reduce((s, o) => s + (Number(o.total) || 0), 0);
+      const hero = document.getElementById("ordersHero");
+      hero.style.display = "flex";
+      hero.innerHTML =
+        '<div class="orders-hero-stat"><strong>' + orders.length + '</strong><span>' + (orders.length === 1 ? "Pedido" : "Pedidos") + '</span></div>' +
+        '<div class="orders-hero-sep"></div>' +
+        '<div class="orders-hero-stat"><strong>' + formatPrice(totalGasto) + '</strong><span>Total gasto</span></div>' +
+        '<a href="index.html" class="btn btn-primary orders-hero-cta">CONTINUAR COMPRANDO</a>';
+      subtitle.textContent = orders.length + (orders.length === 1
+        ? " pedido encontrado na sua conta."
+        : " pedidos encontrados na sua conta.");
+
+      // Cards de pedido
+      document.getElementById("ordersList").innerHTML = orders.map(o => {
+        const items = (o.items || []).map(it =>
+          '<div class="order-item">' +
+            '<img class="order-item-img" src="' + (it.image || "") + '" alt="' + (it.name || "Produto") + '" onerror="this.style.visibility=\'hidden\'">' +
+            '<div class="order-item-info">' +
+              '<strong>' + (it.name || "Produto") + '</strong>' +
+              '<small>Tam ' + (it.size || "-") + ' · Qtd ' + (it.qty || 1) + '</small>' +
+            '</div>' +
+            '<span class="order-item-price">' + formatPrice((Number(it.price) || 0) * (Number(it.qty) || 1)) + '</span>' +
+          '</div>'
+        ).join("");
+
+        const freteTxt = (Number(o.frete) || 0) === 0 ? "Frete grátis" : "Frete " + formatPrice(o.frete);
+
+        return '<article class="order-card">' +
+          '<div class="order-card-head">' +
+            '<div>' +
+              '<span class="order-id">Pedido ' + o.id + '</span>' +
+              '<span class="order-date">' + fmtDate(o.date) + ' · ' + payLabel(o.pay) + '</span>' +
+            '</div>' +
+            '<span class="order-status"><i class="fa-solid fa-truck-fast"></i> ' + (o.status || "Em processamento") + '</span>' +
+          '</div>' +
+          '<div class="order-items">' + items + '</div>' +
+          '<div class="order-card-foot">' +
+            '<span class="order-foot-total">' + freteTxt + '<strong>' + formatPrice(o.total) + '</strong></span>' +
+            '<div class="order-actions">' +
+              '<a href="rastreio.html?code=' + encodeURIComponent(o.id) + '" class="btn btn-secondary"><i class="fa-solid fa-magnifying-glass-location"></i> RASTREAR</a>' +
+            '</div>' +
+          '</div>' +
+        '</article>';
+      }).join("");
+    })();
+  </script>
+</body>
+</html>

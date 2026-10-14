@@ -787,6 +787,13 @@ function loadFavorites() {
 function saveFavorites() {
   localStorage.setItem("eliteFavs", JSON.stringify(favorites));
 }
+// ===== PEDIDOS (histórico de compras) =====
+function loadOrders() {
+  try { return JSON.parse(localStorage.getItem("eliteOrders")) || []; } catch { return []; }
+}
+function saveOrders(orders) {
+  localStorage.setItem("eliteOrders", JSON.stringify(orders));
+}
 function toggleFavorite(id) {
   const idx = favorites.indexOf(id);
   if (idx > -1) favorites.splice(idx, 1);
@@ -1404,9 +1411,7 @@ function updateAuthUI() {
         inj.textContent = label;
         inj.setAttribute("aria-label", "Entrar");
       }
-      return;
-    }
-    if (!isAuthPage && actions && toggle) {
+    } else if (!isAuthPage && actions && toggle) {
       const a = document.createElement("a");
       a.href = "login.html";
       a.className = "login-text-btn";
@@ -1421,7 +1426,98 @@ function updateAuthUI() {
       actions.insertBefore(a, toggle);
     }
   }
+  refreshAccountMenu();
 }
+
+// ===== MENU DA CONTA (dropdown do usuário logado) =====
+function ensureAccountMenu() {
+  let menu = document.getElementById("accountMenu");
+  if (menu) return menu;
+  menu = document.createElement("div");
+  menu.id = "accountMenu";
+  menu.className = "account-menu";
+  menu.setAttribute("role", "menu");
+  menu.innerHTML = [
+    '<div class="account-menu-head">',
+      '<span class="account-avatar">A</span>',
+      '<div class="account-menu-id">',
+        '<strong class="account-menu-name">Atleta</strong>',
+        '<small class="account-menu-email"></small>',
+      '</div>',
+    '</div>',
+    '<a href="perfil.html" class="account-menu-item" role="menuitem"><i class="fa-solid fa-user-pen"></i> Meu Perfil</a>',
+    '<a href="pedidos.html" class="account-menu-item" role="menuitem"><i class="fa-solid fa-box-open"></i> Meus Pedidos</a>',
+    '<button type="button" class="account-menu-item account-menu-logout" id="accountMenuLogout" role="menuitem"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>'
+  ].join("");
+  document.body.appendChild(menu);
+  menu.querySelector("#accountMenuLogout").addEventListener("click", () => {
+    localStorage.removeItem("eliteSession");
+    closeAccountMenu();
+    if (typeof showToast === "function") showToast("Você saiu da sua conta.");
+    window.setTimeout(() => { window.location.href = "index.html"; }, 500);
+  });
+  return menu;
+}
+function positionAccountMenu(menu, anchor) {
+  const r = anchor.getBoundingClientRect();
+  const mw = menu.offsetWidth || 260;
+  const max = window.innerWidth - 10 - mw;
+  let left = r.right - mw;
+  if (left < 10) left = 10;
+  if (left > max) left = max;
+  menu.style.top = (r.bottom + 10) + "px";
+  menu.style.left = left + "px";
+}
+function openAccountMenu(anchor) {
+  const menu = ensureAccountMenu();
+  const sess = getSession() || {};
+  const nome = sess.name || "Atleta";
+  menu.querySelector(".account-menu-name").textContent = nome;
+  menu.querySelector(".account-menu-email").textContent = sess.email || "";
+  menu.querySelector(".account-avatar").textContent = nome.trim().charAt(0).toUpperCase() || "A";
+  menu.classList.add("open");
+  positionAccountMenu(menu, anchor);
+  anchor.setAttribute("aria-expanded", "true");
+}
+function closeAccountMenu() {
+  const menu = document.getElementById("accountMenu");
+  if (menu) menu.classList.remove("open");
+  document.querySelectorAll("[data-account-trigger]").forEach((b) => b.setAttribute("aria-expanded", "false"));
+}
+function toggleAccountMenu(anchor) {
+  const menu = document.getElementById("accountMenu");
+  if (menu && menu.classList.contains("open")) closeAccountMenu();
+  else openAccountMenu(anchor);
+}
+function bindAccountTrigger(el) {
+  if (!el || el.dataset.accountTrigger === "1") return;
+  el.dataset.accountTrigger = "1";
+  el.setAttribute("aria-haspopup", "true");
+  el.setAttribute("aria-expanded", "false");
+  el.addEventListener("click", (e) => {
+    if (!getSession()) return; // deslogado: o link segue para login.html
+    e.preventDefault();
+    toggleAccountMenu(el);
+  });
+}
+function refreshAccountMenu() {
+  ["authBtn", "authBtnInjected", "authLink"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) bindAccountTrigger(el);
+  });
+  if (!getSession()) closeAccountMenu();
+}
+// Fecha o menu ao clicar fora, com Esc, ao rolar ou redimensionar
+document.addEventListener("click", (e) => {
+  const menu = document.getElementById("accountMenu");
+  if (!menu || !menu.classList.contains("open")) return;
+  if (menu.contains(e.target) || e.target.closest("[data-account-trigger]")) return;
+  closeAccountMenu();
+});
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAccountMenu(); });
+window.addEventListener("resize", closeAccountMenu);
+window.addEventListener("scroll", closeAccountMenu, { passive: true });
+
 updateAuthUI();
 
 // ===== PORTÃO DE AUTENTICAÇÃO (exigir login para finalizar a compra) =====

@@ -32,6 +32,7 @@
         <a href="index.html" class="nav-link">Produtos</a>
         <a href="favoritos.html" class="nav-link">Favoritos</a>
         <a href="carrinho.html" class="nav-link">Carrinho</a>
+        <a href="pedidos.html" class="nav-link">Pedidos</a>
       </nav>
       <div class="header-actions">
         <a href="favoritos.html" class="cart-btn" aria-label="Favoritos"><i class="fa-solid fa-heart"></i><span class="cart-count" id="favCount">0</span></a>
@@ -80,6 +81,7 @@
         <a href="faq.html#trocas">Trocas e Devoluções</a>
         <a href="faq.html#frete">Frete</a>
         <a href="rastreio.html">Rastrear Pedido</a>
+        <a href="pedidos.html">Meus Pedidos</a>
       </div>
       <div class="footer-links">
         <h4>Redes Sociais</h4>
@@ -147,6 +149,13 @@
     trackInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") trackOrder();
     });
+
+    // Se vier com ?code= (ex: vindo de "Meus Pedidos"), já preenche e rastreia
+    const codeParam = new URLSearchParams(window.location.search).get("code");
+    if (codeParam) {
+      trackInput.value = codeParam;
+      trackOrder();
+    }
   </script>
 </body>
 </html>

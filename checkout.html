@@ -32,6 +32,7 @@
         <a href="favoritos.html" class="nav-link">Favoritos</a>
         <a href="carrinho.html" class="nav-link">Carrinho</a>
         <a href="checkout.html" class="nav-link nav-active">Checkout</a>
+        <a href="pedidos.html" class="nav-link">Pedidos</a>
         <a href="login.html" class="nav-link" id="authLink">Entrar</a>
       </nav>
       <div class="header-actions">
@@ -174,10 +175,15 @@
 
           <div class="checkout-step" id="stepSuccess" style="display:none">
             <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-            <h2 class="checkout-title success-title">PEDIDO CONFIRMADO!</h2>
-            <p class="success-text">Obrigado por comprar na Elite Step. Compartilhe seu pedido:</p>
+            <h2 class="checkout-title success-title">COMPRA CONCLUÍDA COM SUCESSO!</h2>
+            <p class="success-text">Recebemos seu pagamento e seu pedido já está sendo preparado. A confirmação será enviada por e-mail. Guarde o número do pedido para acompanhar a entrega:</p>
+            <div class="success-order">
+              <span class="success-order-label"><i class="fa-solid fa-receipt"></i> Número do pedido</span>
+              <strong class="success-order-id" id="orderIdLabel">—</strong>
+            </div>
             <button class="btn btn-secondary btn-full" id="shareWhatsBtn" style="margin-bottom:10px"><i class="fa-brands fa-whatsapp"></i> ENVIAR VIA WHATSAPP</button>
-            <a href="index.html" class="btn btn-primary btn-full" style="display:block;text-align:center">CONTINUAR COMPRANDO</a>
+            <a href="pedidos.html" class="btn btn-primary btn-full" style="display:block;text-align:center;margin-bottom:10px"><i class="fa-solid fa-box-open"></i> VER MEUS PEDIDOS</a>
+            <a href="index.html" class="btn btn-secondary btn-full" style="display:block;text-align:center">CONTINUAR COMPRANDO</a>
           </div>
         </div>
 
@@ -228,6 +234,8 @@
     function showStep(n) {
       document.querySelectorAll(".checkout-main .checkout-step").forEach(s => s.style.display = "none");
       document.getElementById("step" + n).style.display = "block";
+      // Centraliza o card quando a compra é concluída
+      document.getElementById("checkoutLayout").classList.toggle("is-success", n === "Success");
       const num = n === "Success" ? 4 : Number(n);
       document.querySelectorAll(".step-indicator").forEach((ind, i) => {
         ind.classList.toggle("active", i === num - 1);
@@ -349,12 +357,41 @@
     if (editP) editP.addEventListener("click", () => showStep(2));
 
     document.getElementById("finalizeBtn").addEventListener("click", () => {
+      const subtotal = getSubtotal();
+      const frete = getFrete();
+      const cupom = cupomApplied ? subtotal * 0.10 : 0;
       const total = getTotal();
+      const sess = getSession() || {};
+
+      // Registra o pedido no histórico (localStorage)
+      const order = {
+        id: "ES-" + String(Date.now()).slice(-8),
+        date: new Date().toISOString(),
+        items: cart.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty, size: i.size, color: i.color, image: i.image })),
+        subtotal: subtotal,
+        frete: frete,
+        cupom: cupom,
+        total: total,
+        pay: payMethod,
+        customer: { name: custData.cNome || sess.name || "", email: custData.cEmail || sess.email || "" },
+        address: { rua: custData.cRua || "", numero: custData.cNumero || "", bairro: custData.cBairro || "", cidade: custData.cCidade || "", uf: custData.cUf || "", cep: custData.cCep || "" },
+        status: "Em processamento"
+      };
+      const orders = loadOrders();
+      orders.unshift(order);
+      saveOrders(orders);
+
+      // Resumo para compartilhar no WhatsApp
       const resumo = cart.map(i => `${i.name} (Tam ${i.size}) x ${i.qty} = ${formatPrice(i.price * i.qty)}`).join("\n");
-      lastOrderSummary = `*PEDIDO ELITE STEP*\n${resumo}\nTotal: ${formatPrice(total)}\n${custData.cNome} - ${custData.cCidade}/${custData.cUf}`;
-      showStep("Success");
-      cart = []; saveCart(); updateCounts(); renderSummary();
+      lastOrderSummary = `*PEDIDO ELITE STEP*\nPedido: ${order.id}\n${resumo}\nTotal: ${formatPrice(total)}\n${custData.cNome} - ${custData.cCidade}/${custData.cUf}`;
+
+      // Mostra a confirmação de compra concluída e limpa o carrinho
+      document.getElementById("orderIdLabel").textContent = order.id;
+      cart = [];
+      saveCart();
+      updateCounts();
       document.getElementById("checkoutSummary").style.display = "none";
+      showStep("Success");
     });
     document.getElementById("shareWhatsBtn").addEventListener("click", () => {
       if (lastOrderSummary) window.open("https://wa.me/?text=" + encodeURIComponent(lastOrderSummary), "_blank");
